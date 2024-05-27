@@ -1,0 +1,281 @@
+[gd_scene load_steps=14 format=3 uid="uid://bt80iv8mdf3lh"]
+
+[ext_resource type="Script" path="res://addons/stopwatch/Stopwatch.gd" id="1_810n4"]
+[ext_resource type="Script" path="res://menu/pause_menu.gd" id="1_edtn6"]
+[ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="2_6dxwr"]
+[ext_resource type="Texture2D" uid="uid://baxtleyfbwy23" path="res://assets/sprites/menu_pause.png" id="2_gxehf"]
+[ext_resource type="PackedScene" uid="uid://cr6nijnmmts52" path="res://menu/map.tscn" id="3_e554d"]
+[ext_resource type="Texture2D" uid="uid://dlwq3vsjxxyfa" path="res://assets/sprites/ui.png" id="3_m3pdm"]
+[ext_resource type="PackedScene" uid="uid://bfc6jx8rjqpqb" path="res://menu/pause_options.tscn" id="6_4t27i"]
+[ext_resource type="AudioStream" uid="uid://bvop7hybgyehl" path="res://assets/audio/pause_in.wav" id="8_nwixe"]
+[ext_resource type="AudioStream" uid="uid://ccymwbjjsrp1y" path="res://assets/audio/pause_out.wav" id="9_m0ok4"]
+
+[sub_resource type="Animation" id="Animation_tieca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PauseOn:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PauseOff:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_m2olf"]
+resource_name = "slide_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 800), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PauseOn:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gl0xb"]
+resource_name = "slide_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PauseOff:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78w4f"]
+_data = {
+"RESET": SubResource("Animation_tieca"),
+"slide_in": SubResource("Animation_m2olf"),
+"slide_out": SubResource("Animation_gl0xb")
+}
+
+[node name="PauseMenu" type="Control"]
+z_index = 200
+layout_mode = 3
+anchors_preset = 0
+offset_top = 800.0
+offset_right = 960.0
+offset_bottom = 1600.0
+script = ExtResource("1_edtn6")
+
+[node name="BackgroundImage" type="Sprite2D" parent="."]
+position = Vector2(480, 400)
+scale = Vector2(5, 5)
+texture = ExtResource("2_gxehf")
+metadata/_edit_lock_ = true
+
+[node name="Stopwatch" type="Node" parent="."]
+script = ExtResource("1_810n4")
+autostart = true
+
+[node name="PauseLabel" type="Label" parent="."]
+z_index = 20
+layout_mode = 0
+offset_left = 15.0
+offset_top = 40.0
+offset_right = 95.0
+offset_bottom = 56.0
+scale = Vector2(5, 5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_6dxwr")
+theme_override_font_sizes/font_size = 10
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="CherryLabel" type="Label" parent="."]
+z_index = 20
+layout_mode = 0
+offset_left = 215.0
+offset_top = 134.0
+offset_right = 230.0
+offset_bottom = 150.0
+scale = Vector2(5, 5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_6dxwr")
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="."]
+z_index = 20
+layout_mode = 0
+offset_left = 205.0
+offset_top = 214.0
+offset_right = 223.0
+offset_bottom = 230.0
+scale = Vector2(5, 5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_6dxwr")
+theme_override_font_sizes/font_size = 10
+text = "00:00"
+horizontal_alignment = 1
+
+[node name="ConfirmLabel" type="Label" parent="."]
+z_index = 20
+layout_mode = 0
+offset_left = 15.0
+offset_top = 380.0
+offset_right = 95.0
+offset_bottom = 396.0
+scale = Vector2(5, 5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_6dxwr")
+theme_override_font_sizes/font_size = 10
+text = "Quit Game?"
+horizontal_alignment = 1
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 800.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Cherry" type="Sprite2D" parent="."]
+position = Vector2(155, 170)
+scale = Vector2(5, 5)
+texture = ExtResource("3_m3pdm")
+hframes = 6
+
+[node name="Time" type="Sprite2D" parent="."]
+position = Vector2(155, 254)
+scale = Vector2(5, 5)
+texture = ExtResource("3_m3pdm")
+hframes = 6
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_78w4f")
+}
+
+[node name="Map" parent="." instance=ExtResource("3_e554d")]
+layout_mode = 1
+offset_left = 670.0
+offset_top = 400.0
+offset_right = -264.0
+offset_bottom = -363.0
+scale = Vector2(10, 10)
+
+[node name="PauseOptions" parent="." instance=ExtResource("6_4t27i")]
+layout_mode = 1
+offset_left = 75.0
+offset_top = 481.0
+offset_right = 75.0
+offset_bottom = 481.0
+scale = Vector2(5, 5)
+
+[node name="PauseOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nwixe")
+volume_db = -5.0
+pitch_scale = 0.9
+
+[node name="PauseOff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_m0ok4")
+volume_db = -5.0
+pitch_scale = 0.9
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

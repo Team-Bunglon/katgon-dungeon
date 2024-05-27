@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://krty8ka2tm0k"]
+
+[ext_resource type="Script" path="res://objects/pressure_hard.gd" id="1_gcj8e"]
+[ext_resource type="Texture2D" uid="uid://c2teijd4y72uv" path="res://assets/sprites/button_pressure_hard.png" id="2_e1enm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
+size = Vector2(16, 16)
+
+[node name="PressureHard" type="Area2D"]
+y_sort_enabled = true
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_gcj8e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_e1enm")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yvgp7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

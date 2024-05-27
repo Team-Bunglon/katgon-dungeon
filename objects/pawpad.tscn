@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://br07j38r86m86"]
+
+[ext_resource type="Script" path="res://objects/pawpad.gd" id="1_g3nr3"]
+[ext_resource type="Texture2D" uid="uid://d4nscpd3c2am4" path="res://assets/sprites/button_pawpad.png" id="2_t4grk"]
+[ext_resource type="AudioStream" uid="uid://errqo35uthjq" path="res://assets/audio/pawpad.wav" id="3_fuq1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
+size = Vector2(16, 16)
+
+[node name="Pawpad" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_g3nr3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t4grk")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yvgp7")
+
+[node name="PushSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fuq1k")
+volume_db = -5.0
+pitch_scale = 0.9

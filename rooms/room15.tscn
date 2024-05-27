@@ -1,0 +1,122 @@
+[gd_scene load_steps=14 format=3 uid="uid://b8psffjl4wiay"]
+
+[ext_resource type="Script" path="res://rooms/room15.gd" id="1_qgmkw"]
+[ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_3tb0l"]
+[ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="3_2neje"]
+[ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="4_6ydgi"]
+[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_fire.tscn" id="5_org5g"]
+[ext_resource type="PackedScene" uid="uid://br07j38r86m86" path="res://objects/pawpad.tscn" id="6_vb6mw"]
+[ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="7_7f1ky"]
+[ext_resource type="PackedScene" uid="uid://dnh8j7mw0tcny" path="res://objects/button.tscn" id="7_goexg"]
+[ext_resource type="PackedScene" uid="uid://bc41dh6rchx4h" path="res://objects/spike_flame.tscn" id="8_d2dl8"]
+[ext_resource type="PackedScene" uid="uid://bvx7aivjbpehq" path="res://objects/spike_frostfire.tscn" id="9_c4kda"]
+[ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="11_2m8w4"]
+[ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="12_clu31"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73j6q"]
+size = Vector2(960, 800)
+
+[node name="Room15" type="Node2D"]
+script = ExtResource("1_qgmkw")
+room_name = "Multi-Room Shenanigans"
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("2_3tb0l")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 1, 1, 196608, 2, 2, 196608, 2, 3, 196608, 1, 4, 131072, 0, 5, 262144, 2, 6, 262144, 2, 7, 0, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 65541, 0, 0, 65542, 65536, 0, 131077, 0, 1, 131078, 65536, 1, 196614, 196608, 2, 196613, 262144, 1, 196615, 196608, 4, 262149, 327680, 0, 327685, 196608, 2, 262150, 196608, 2, 327686, 196608, 2, 262151, 196608, 4, 262152, 196608, 2, 393221, 196608, 2, 393222, 196608, 2, 458758, 196608, 2, 458757, 196608, 2, 524293, 196608, 2, 524294, 196608, 2, 196616, 196608, 2, 393219, 458752, 2, 458756, 196608, 4, 131079, 196608, 4, 458759, 327680, 1, 458760, 65536, 1, 458755, 327680, 1, 393218, 196608, 2, 196610, 196608, 2, 65540, 131072, 1, 65543, 327680, 4, 131080, 196608, 2, 131074, 196608, 2, 262146, 196608, 2, 327682, 196608, 2, 262153, 196608, 2, 196617, 196608, 2, 131081, 196608, 2, 65544, 65536, 1, 458754, 196608, 2, 458753, 196608, 2, 458752, 0, 1, 393216, 0, 1, 327680, 0, 1, 262144, 0, 1, 196608, 0, 1, 131072, 0, 1, 65536, 0, 1, 65537, 196608, 2, 131073, 196608, 2, 196609, 196608, 2, 262145, 196608, 2, 327681, 196608, 2, 393217, 196608, 2, 524288, 0, 1, 589824, 0, 1, 589827, 196608, 0, 524291, 196608, 2, 524290, 196608, 2, 524289, 196608, 2, 65538, 196608, 2, 65545, 65536, 1, 65546, 65536, 1, 65547, 65536, 1, 131082, 196608, 2, 196618, 196608, 2, 327690, 196608, 2, 458762, 65536, 1, 524298, 196608, 2, 589834, 65536, 2, 589835, 65536, 2, 524299, 196608, 2, 458763, 65536, 1, 393227, 196608, 3, 327691, 196608, 2, 262155, 196608, 2, 196619, 196608, 2, 131083, 196608, 2, 589833, 65536, 2, 589832, 65536, 2, 524296, 196608, 2, 524297, 196608, 2, 458761, 65536, 1, 524295, 196608, 2, 589831, 65536, 2, 524292, 196608, 4, 589828, 327680, 3, 262154, 196608, 2, 327687, 196608, 4, 393223, 524288, 4, 393224, 196608, 3, 393225, 196608, 3, 327689, 196608, 2, 327688, 196608, 2, 393226, 196608, 3, 196611, 458752, 2, 196612, 0, 3, 131076, 131072, 1, 262148, 65536, 1, 327683, 196608, 2, 589825, 196608, 2, 589826, 196608, 2, 327684, 196608, 2, 393220, 589824, 3, 262147, 327680, 1, 65539, 327680, 1, 131075, 196608, 2, 589830, 196608, 0, 589829, 196608, 2)
+
+[node name="PathMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("3_2neje")
+format = 2
+layer_0/tile_data = PackedInt32Array(1, 2, 1, 65537, 2, 1, 131073, 2, 1, 196609, 2, 1, 262145, 2, 1, 327681, 2, 1, 393217, 2, 1, 458753, 2, 1, 524289, 2, 1, 589825, 2, 1, 2, 131074, 1, 65538, 131074, 1, 131074, 131074, 1, 196610, 131074, 1, 262146, 131074, 1, 327682, 131074, 1, 393218, 131074, 1, 458754, 131074, 1, 524290, 131074, 1, 589826, 131074, 1, 327685, 2, 0, 393221, 2, 1, 458757, 2, 1, 327686, 131074, 0, 393222, 131074, 1, 458758, 131074, 1, 524293, 851970, 1, 524294, 786434, 1, 524295, 196610, 0, 524296, 196610, 0, 524297, 196610, 0, 524298, 196610, 0, 524299, 196610, 0, 589829, 196610, 2)
+
+[node name="VoidMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("4_6ydgi")
+format = 2
+layer_0/tile_data = PackedInt32Array(131080, 327680, 0, 196616, 196608, 2, 262152, 851968, 0, 262154, 65536, 0, 262153, 65536, 0, 262155, 655360, 2, 196619, 0, 1, 131081, 196608, 0, 131082, 196608, 0, 131083, 720896, 0, 327690, 65536, 2, 327691, 65536, 2, 327688, 0, 2, 327689, 65536, 2)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(480, 400)
+shape = SubResource("RectangleShape2D_73j6q")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Interactibles" type="Node2D" parent="."]
+
+[node name="Pawpad#151" parent="Interactibles" instance=ExtResource("6_vb6mw")]
+position = Vector2(280, 200)
+scale = Vector2(5, 5)
+other_pawpad_name = Array[String](["Pawpad#152"])
+is_active = true
+target_name = Array[String](["Spike#151"])
+
+[node name="Pawpad#152" parent="Interactibles" instance=ExtResource("6_vb6mw")]
+position = Vector2(280, 680)
+scale = Vector2(5, 5)
+other_pawpad_name = Array[String](["Pawpad#151"])
+target_name = Array[String](["Spike#152"])
+
+[node name="Torch#153" parent="Interactibles" instance=ExtResource("5_org5g")]
+position = Vector2(760, 280)
+scale = Vector2(5, 5)
+target_name = Array[String](["Spike#153", "Spike#154"])
+
+[node name="Button#1010" parent="Interactibles" instance=ExtResource("7_goexg")]
+position = Vector2(520, 280)
+scale = Vector2(5, 5)
+target_name = Array[String](["Spike#162"])
+
+[node name="Spike#151" parent="Interactibles" instance=ExtResource("7_7f1ky")]
+position = Vector2(840, 280)
+scale = Vector2(5, 5)
+number_button = Array[int]([151])
+is_reverse = true
+
+[node name="Spike#152" parent="Interactibles" instance=ExtResource("7_7f1ky")]
+position = Vector2(840, 680)
+scale = Vector2(5, 5)
+number_button = Array[int]([152])
+
+[node name="Spike#153" parent="Interactibles" instance=ExtResource("7_7f1ky")]
+position = Vector2(440, 760)
+scale = Vector2(5, 5)
+number_button = Array[int]([153])
+
+[node name="Spike#154" parent="Interactibles" instance=ExtResource("7_7f1ky")]
+position = Vector2(360, 440)
+scale = Vector2(5, 5)
+number_button = Array[int]([153])
+is_reverse = true
+
+[node name="SpikeFlame#154" parent="Interactibles" instance=ExtResource("8_d2dl8")]
+position = Vector2(280, 440)
+scale = Vector2(5, 5)
+number_button = Array[int]([-1])
+
+[node name="SpikeFlame#155" parent="Interactibles" instance=ExtResource("8_d2dl8")]
+position = Vector2(440, 680)
+scale = Vector2(5, 5)
+number_button = Array[int]([-1])
+
+[node name="SpikeFrostire#155" parent="Interactibles" instance=ExtResource("9_c4kda")]
+position = Vector2(520, 360)
+scale = Vector2(5, 5)
+number_button = Array[int]([-1])
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2m8w4")
+volume_db = -5.0
+
+[node name="RetractSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_clu31")
+volume_db = -5.0
+
+[connection signal="state_changed" from="Interactibles/Spike#151" to="." method="_on_spike_151_state_changed"]
+[connection signal="state_changed" from="Interactibles/Spike#152" to="." method="_on_spike_152_state_changed"]
+[connection signal="state_changed" from="Interactibles/Spike#153" to="." method="_on_spike_153_state_changed"]

@@ -1,0 +1,221 @@
+[gd_scene load_steps=23 format=3 uid="uid://bvx7aivjbpehq"]
+
+[ext_resource type="Script" path="res://objects/spike_frostfire.gd" id="1_qr5fk"]
+[ext_resource type="Texture2D" uid="uid://bsbf4a5na4l2v" path="res://assets/sprites/spike_frostfire.png" id="2_qr0k6"]
+[ext_resource type="AudioStream" uid="uid://cpaljekg35nfp" path="res://assets/audio/fire_on.wav" id="3_0yie6"]
+[ext_resource type="AudioStream" uid="uid://doiw2drr8o2x1" path="res://assets/audio/fire_off.wav" id="4_7vptn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_8pyai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RaiseSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RetractSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_33jpe"]
+resource_name = "raised"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_qoii0"]
+resource_name = "raising"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("RaiseSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_868pr"]
+resource_name = "retracted"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_juhv6"]
+resource_name = "retracting"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("RetractSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_na76p"]
+_data = {
+"RESET": SubResource("Animation_8pyai"),
+"raised": SubResource("Animation_33jpe"),
+"raising": SubResource("Animation_qoii0"),
+"retracted": SubResource("Animation_868pr"),
+"retracting": SubResource("Animation_juhv6")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o167h"]
+animation = &"raised"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_08vuo"]
+animation = &"raising"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tj241"]
+animation = &"retracted"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vsvdj"]
+animation = &"retracting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l5bdr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3uobv"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c3d48"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sl4o3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1124q"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gmgev"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xs3c7"]
+states/End/position = Vector2(643, 100)
+states/Start/position = Vector2(388.775, 100)
+states/raised/node = SubResource("AnimationNodeAnimation_o167h")
+states/raised/position = Vector2(244.775, 100)
+states/raising/node = SubResource("AnimationNodeAnimation_08vuo")
+states/raising/position = Vector2(388.775, 9)
+states/retracted/node = SubResource("AnimationNodeAnimation_tj241")
+states/retracted/position = Vector2(539.775, 100)
+states/retracting/node = SubResource("AnimationNodeAnimation_vsvdj")
+states/retracting/position = Vector2(388.775, 202)
+transitions = ["Start", "retracted", SubResource("AnimationNodeStateMachineTransition_l5bdr"), "retracting", "retracted", SubResource("AnimationNodeStateMachineTransition_3uobv"), "retracted", "raising", SubResource("AnimationNodeStateMachineTransition_c3d48"), "Start", "raised", SubResource("AnimationNodeStateMachineTransition_sl4o3"), "raised", "retracting", SubResource("AnimationNodeStateMachineTransition_1124q"), "raising", "raised", SubResource("AnimationNodeStateMachineTransition_gmgev")]
+graph_offset = Vector2(-61.2176, 36.0697)
+
+[node name="SpikeFrostfire" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 78
+collision_mask = 78
+script = ExtResource("1_qr5fk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qr0k6")
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+shape = SubResource("RectangleShape2D_yvgp7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_na76p")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_na76p")
+}
+tree_root = SubResource("AnimationNodeStateMachine_xs3c7")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0yie6")
+volume_db = -5.0
+
+[node name="RetractSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7vptn")
+volume_db = -5.0

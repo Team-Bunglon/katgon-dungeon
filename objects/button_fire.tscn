@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://4ftym1c5le2g"]
+
+[ext_resource type="Script" path="res://objects/button_fire.gd" id="1_t3nsa"]
+[ext_resource type="Texture2D" uid="uid://bro0pjokb7aw0" path="res://assets/sprites/button_fire.png" id="2_g2h62"]
+[ext_resource type="AudioStream" uid="uid://dfrldffwgfwrh" path="res://assets/audio/button_fire.wav" id="3_tyv63"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_8pyai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_33jpe"]
+resource_name = "activate"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_selpg"]
+resource_name = "deactivate"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_na76p"]
+_data = {
+"RESET": SubResource("Animation_8pyai"),
+"activate": SubResource("Animation_33jpe"),
+"deactivate": SubResource("Animation_selpg")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3v4nk"]
+animation = &"activate"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r214l"]
+animation = &"deactivate"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yoy52"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q8syd"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xs3c7"]
+states/End/position = Vector2(605, 100)
+states/activate/node = SubResource("AnimationNodeAnimation_3v4nk")
+states/activate/position = Vector2(468.775, 100)
+states/deactivate/node = SubResource("AnimationNodeAnimation_r214l")
+states/deactivate/position = Vector2(330.775, 100)
+transitions = ["Start", "deactivate", SubResource("AnimationNodeStateMachineTransition_yoy52"), "deactivate", "activate", SubResource("AnimationNodeStateMachineTransition_q8syd")]
+graph_offset = Vector2(-36.2254, 0)
+
+[node name="Torch" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_t3nsa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_g2h62")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yvgp7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_na76p")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_na76p")
+}
+tree_root = SubResource("AnimationNodeStateMachine_xs3c7")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="ButtonOnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tyv63")
+pitch_scale = 0.9

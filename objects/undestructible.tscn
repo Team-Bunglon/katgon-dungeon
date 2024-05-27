@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdcwnmajksj10"]
+
+[ext_resource type="Texture2D" uid="uid://b114yyi0w2dwu" path="res://assets/sprites/undestructible.png" id="1_32gmm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
+size = Vector2(16, 16)
+
+[node name="Undestructible" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 7
+collision_mask = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_32gmm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yvgp7")

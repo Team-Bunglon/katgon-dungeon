@@ -1,0 +1,530 @@
+[gd_scene load_steps=50 format=3 uid="uid://creymgxgbcbws"]
+
+[ext_resource type="Script" path="res://objects/camera.gd" id="1_1bu86"]
+[ext_resource type="Script" path="res://rooms/main_dungeon.gd" id="1_vgy57"]
+[ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="2_i6cs1"]
+[ext_resource type="PackedScene" uid="uid://dt6pxj6iq5qm7" path="res://chars/player1.tscn" id="2_y4cgc"]
+[ext_resource type="PackedScene" uid="uid://dec8pn2jgalmf" path="res://chars/player2.tscn" id="3_jjk1g"]
+[ext_resource type="PackedScene" uid="uid://chho28kpgd2nj" path="res://menu/notification_ui.tscn" id="3_k8vlg"]
+[ext_resource type="PackedScene" uid="uid://phug2kug2by1" path="res://rooms/room1.tscn" id="4_6kxrr"]
+[ext_resource type="PackedScene" uid="uid://bay7g1pmxn6wl" path="res://menu/status_ui.tscn" id="4_hlawa"]
+[ext_resource type="PackedScene" uid="uid://cljros4xq40ad" path="res://rooms/room2.tscn" id="5_0p0mu"]
+[ext_resource type="PackedScene" uid="uid://dsggpua2rh65v" path="res://menu/split_ui.tscn" id="5_kpu8t"]
+[ext_resource type="Texture2D" uid="uid://cnadtxhnilikw" path="res://assets/sprites/ui_text.png" id="5_rsttg"]
+[ext_resource type="PackedScene" uid="uid://drsm55nn8asq5" path="res://rooms/room3.tscn" id="6_87i50"]
+[ext_resource type="Texture2D" uid="uid://bulwl6vly6e0" path="res://assets/sprites/transition.png" id="7_jf6ac"]
+[ext_resource type="PackedScene" uid="uid://bls2gejxomcr5" path="res://rooms/room4.tscn" id="7_waoig"]
+[ext_resource type="PackedScene" uid="uid://bt80iv8mdf3lh" path="res://menu/pause_menu.tscn" id="8_it58h"]
+[ext_resource type="PackedScene" uid="uid://b2og1xdu37t3t" path="res://rooms/room5.tscn" id="8_ldemo"]
+[ext_resource type="PackedScene" uid="uid://dtlwa3uhnhmlu" path="res://rooms/room27.tscn" id="10_urj7c"]
+[ext_resource type="PackedScene" uid="uid://jjtu62djvd5l" path="res://rooms/room28.tscn" id="11_ao1kn"]
+[ext_resource type="PackedScene" uid="uid://dg6gt2ihxhr8x" path="res://objects/dragon_fruit.tscn" id="11_wufi4"]
+[ext_resource type="PackedScene" uid="uid://d2wehg66gsll8" path="res://rooms/room6.tscn" id="13_uam18"]
+[ext_resource type="PackedScene" uid="uid://ca2kiihrfbk3f" path="res://rooms/room7.tscn" id="17_uaf8x"]
+[ext_resource type="PackedScene" uid="uid://dov2wj5m78hp3" path="res://rooms/room8.tscn" id="19_5t6uq"]
+[ext_resource type="PackedScene" uid="uid://004f0tlb40pe" path="res://rooms/room9.tscn" id="20_o1vdl"]
+[ext_resource type="PackedScene" uid="uid://bvhw3ccn3htiu" path="res://rooms/room10.tscn" id="21_sjdj7"]
+[ext_resource type="PackedScene" uid="uid://cpeyt60jgksjq" path="res://rooms/room11.tscn" id="23_e75gs"]
+[ext_resource type="PackedScene" uid="uid://rqukpw2atxt1" path="res://rooms/room12.tscn" id="24_vxfli"]
+[ext_resource type="PackedScene" uid="uid://c3chgr8480eqk" path="res://rooms/room13.tscn" id="25_3qx4d"]
+[ext_resource type="PackedScene" uid="uid://v2gxhtb7k2jo" path="res://rooms/room14.tscn" id="26_lgo7f"]
+[ext_resource type="PackedScene" uid="uid://b8psffjl4wiay" path="res://rooms/room15.tscn" id="27_k16se"]
+[ext_resource type="PackedScene" uid="uid://eru3wgjygemr" path="res://rooms/room16.tscn" id="28_44yqf"]
+[ext_resource type="PackedScene" uid="uid://cqe7xck526txi" path="res://rooms/room17.tscn" id="29_lhdh1"]
+[ext_resource type="PackedScene" uid="uid://dlax4aaksdgt3" path="res://rooms/room18.tscn" id="30_8fsym"]
+[ext_resource type="PackedScene" uid="uid://divcyhvxocjtq" path="res://rooms/room19.tscn" id="31_nh2ke"]
+[ext_resource type="PackedScene" uid="uid://c3u4fkcuerib5" path="res://rooms/room21.tscn" id="31_ym4l0"]
+[ext_resource type="PackedScene" uid="uid://dlgit7572n2ly" path="res://rooms/room22.tscn" id="32_44bab"]
+[ext_resource type="PackedScene" uid="uid://lrfmu5orlpi2" path="res://rooms/room20.tscn" id="32_dgcxb"]
+[ext_resource type="PackedScene" uid="uid://sd8tuydpkfb6" path="res://rooms/room25.tscn" id="32_e1m5m"]
+[ext_resource type="PackedScene" uid="uid://don0blc462b7l" path="res://rooms/room26.tscn" id="32_s84ei"]
+[ext_resource type="PackedScene" uid="uid://dnvotpq6cchi2" path="res://rooms/room23.tscn" id="33_w8e1v"]
+[ext_resource type="PackedScene" uid="uid://ckfby43sb0nlp" path="res://rooms/room24.tscn" id="34_0rccc"]
+
+[sub_resource type="Animation" id="Animation_o45oo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/TransitionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/TransitionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bsr5w"]
+resource_name = "slide_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/TransitionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 1280), Vector2(480, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/TransitionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_x38aq"]
+resource_name = "slide_in_quit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/TransitionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 1280), Vector2(480, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/TransitionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_htium"]
+resource_name = "slide_in_restart"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/TransitionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 1280), Vector2(480, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/TransitionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ik080"]
+resource_name = "slide_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/TransitionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 400), Vector2(480, -480)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/TransitionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_np8xi"]
+_data = {
+"RESET": SubResource("Animation_o45oo"),
+"slide_in": SubResource("Animation_bsr5w"),
+"slide_in_quit": SubResource("Animation_x38aq"),
+"slide_in_restart": SubResource("Animation_htium"),
+"slide_out": SubResource("Animation_ik080")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mj26e"]
+radius = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pcr6q"]
+radius = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2mir2"]
+radius = 0.0
+
+[node name="MainDungeon" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_vgy57")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Transition" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_np8xi")
+}
+
+[node name="TransitionSprite" type="Sprite2D" parent="CanvasLayer/Transition"]
+z_index = 300
+position = Vector2(480, 400)
+scale = Vector2(5, 5)
+texture = ExtResource("7_jf6ac")
+
+[node name="NotificationUI" parent="CanvasLayer" instance=ExtResource("3_k8vlg")]
+notification_text = {
+1: ["Kat's turn!", Color(1, 0.509804, 0, 1)],
+2: ["Gon's turn!", Color(0, 0.588235, 1, 1)],
+3: ["Cannot switch!", Color(1, 0, 0, 1)],
+4: ["Follow me!", Color(1, 1, 1, 1)],
+5: ["Stay there!", Color(1, 0, 0, 1)],
+6: ["Cannot split!", Color(1, 0, 0, 1)],
+7: ["Where's your partner?", Color(1, 0, 0, 1)]
+}
+metadata/_edit_use_anchors_ = true
+
+[node name="StatusUI" parent="CanvasLayer" instance=ExtResource("4_hlawa")]
+metadata/_edit_use_anchors_ = true
+
+[node name="SplitUI" parent="CanvasLayer" instance=ExtResource("5_kpu8t")]
+visible = false
+offset_left = 665.0
+offset_top = 10.0
+offset_right = -238.0
+offset_bottom = -753.0
+scale = Vector2(5, 5)
+
+[node name="ObtainUI" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 440.0
+offset_top = 40.0
+offset_right = 440.0
+offset_bottom = 40.0
+
+[node name="ObtainLabel" type="Label" parent="CanvasLayer/ObtainUI"]
+z_index = 1
+layout_mode = 2
+offset_left = -240.0
+offset_top = 47.0
+offset_right = -128.0
+offset_bottom = 63.0
+scale = Vector2(5, 5)
+theme_override_colors/font_color = Color(0.917647, 0.933333, 0.341176, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_i6cs1")
+theme_override_font_sizes/font_size = 10
+text = "Golden Cherry Obtained!"
+horizontal_alignment = 1
+
+[node name="BackgroundSprite" type="Sprite2D" parent="CanvasLayer/ObtainUI"]
+position = Vector2(40, 91)
+scale = Vector2(5, 5)
+texture = ExtResource("5_rsttg")
+
+[node name="HelpUI" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 440.0
+offset_top = 40.0
+offset_right = 440.0
+offset_bottom = 40.0
+
+[node name="HelpLabelTop" type="Label" parent="CanvasLayer/HelpUI"]
+z_index = 1
+layout_mode = 2
+offset_left = -230.0
+offset_top = 30.0
+offset_right = -122.0
+offset_bottom = 42.0
+scale = Vector2(5, 5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_i6cs1")
+theme_override_font_sizes/font_size = 10
+text = "Line Top"
+horizontal_alignment = 1
+
+[node name="HelpLabelBottom" type="Label" parent="CanvasLayer/HelpUI"]
+z_index = 1
+layout_mode = 2
+offset_left = -230.0
+offset_top = 77.0
+offset_right = -122.0
+offset_bottom = 92.0
+scale = Vector2(5, 5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_i6cs1")
+theme_override_font_sizes/font_size = 10
+text = "Line Bottom
+"
+horizontal_alignment = 1
+
+[node name="BackgroundSprite" type="Sprite2D" parent="CanvasLayer/HelpUI"]
+position = Vector2(40, 91)
+scale = Vector2(5, 5)
+texture = ExtResource("5_rsttg")
+metadata/_edit_lock_ = true
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_it58h")]
+metadata/_edit_lock_ = true
+
+[node name="RoomName" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RoomNameLabel" type="Label" parent="CanvasLayer/RoomName"]
+z_index = 20
+layout_mode = 0
+offset_top = 744.0
+offset_right = 960.0
+offset_bottom = 799.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_i6cs1")
+theme_override_font_sizes/font_size = 40
+text = "Katgon Dungeon"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/RoomName"]
+z_index = 19
+layout_mode = 0
+offset_top = 760.0
+offset_right = 960.0
+offset_bottom = 800.0
+color = Color(0.196078, 0.196078, 0.196078, 0.588235)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(480, 400)
+script = ExtResource("1_1bu86")
+metadata/_edit_lock_ = true
+
+[node name="Player1Marker" type="Marker2D" parent="."]
+position = Vector2(450, 369)
+metadata/_edit_lock_ = true
+
+[node name="Player2Marker" type="Marker2D" parent="."]
+position = Vector2(510, 369)
+metadata/_edit_lock_ = true
+
+[node name="Player1" parent="." instance=ExtResource("2_y4cgc")]
+z_index = 1
+position = Vector2(450, 369)
+scale = Vector2(5, 5)
+slide_on_ceiling = false
+
+[node name="RoomDetector1" type="Area2D" parent="Player1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/RoomDetector1"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_mj26e")
+metadata/_edit_lock_ = true
+
+[node name="RoomLogger1" type="Area2D" parent="Player1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/RoomLogger1"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_pcr6q")
+
+[node name="Player2" parent="." instance=ExtResource("3_jjk1g")]
+z_index = 1
+position = Vector2(510, 369)
+scale = Vector2(5, 5)
+up_direction = Vector2(0, 1)
+
+[node name="RoomDetector2" type="Area2D" parent="Player2"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/RoomDetector2"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_mj26e")
+
+[node name="RoomLogger2" type="Area2D" parent="Player2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/RoomLogger2"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_2mir2")
+
+[node name="DragonFruit" parent="." instance=ExtResource("11_wufi4")]
+position = Vector2(3360, -1241)
+scale = Vector2(5, 5)
+
+[node name="Room#1" parent="." instance=ExtResource("4_6kxrr")]
+z_index = -10
+position = Vector2(0, -1)
+metadata/_edit_lock_ = true
+
+[node name="Room#2" parent="." instance=ExtResource("5_0p0mu")]
+position = Vector2(0, 799)
+metadata/_edit_lock_ = true
+
+[node name="Room#3" parent="." instance=ExtResource("6_87i50")]
+position = Vector2(960, 799)
+metadata/_edit_lock_ = true
+
+[node name="Room#4" parent="." instance=ExtResource("7_waoig")]
+position = Vector2(0, 1599)
+metadata/_edit_lock_ = true
+
+[node name="Room#5" parent="." instance=ExtResource("8_ldemo")]
+position = Vector2(0, 2399)
+metadata/_edit_lock_ = true
+
+[node name="Room#6" parent="." instance=ExtResource("13_uam18")]
+position = Vector2(0, 3199)
+metadata/_edit_lock_ = true
+
+[node name="Room#7" parent="." instance=ExtResource("17_uaf8x")]
+position = Vector2(960, 3199)
+metadata/_edit_lock_ = true
+
+[node name="Room#8" parent="." instance=ExtResource("19_5t6uq")]
+position = Vector2(960, 2399)
+metadata/_edit_lock_ = true
+
+[node name="Room#9" parent="." instance=ExtResource("20_o1vdl")]
+position = Vector2(960, 1599)
+metadata/_edit_lock_ = true
+
+[node name="Room#10" parent="." instance=ExtResource("21_sjdj7")]
+position = Vector2(960, -1)
+metadata/_edit_lock_ = true
+
+[node name="Room#11" parent="." instance=ExtResource("23_e75gs")]
+position = Vector2(1920, 1599)
+metadata/_edit_lock_ = true
+
+[node name="Room#12" parent="." instance=ExtResource("24_vxfli")]
+position = Vector2(1920, 799)
+metadata/_edit_lock_ = true
+
+[node name="Room#13" parent="." instance=ExtResource("25_3qx4d")]
+position = Vector2(1920, -1)
+metadata/_edit_lock_ = true
+
+[node name="Room#14" parent="." instance=ExtResource("26_lgo7f")]
+position = Vector2(2880, -1)
+metadata/_edit_lock_ = true
+
+[node name="Room#15" parent="." instance=ExtResource("27_k16se")]
+position = Vector2(1920, 2399)
+metadata/_edit_lock_ = true
+
+[node name="Room#16" parent="." instance=ExtResource("28_44yqf")]
+position = Vector2(2880, 2399)
+metadata/_edit_lock_ = true
+
+[node name="Room#17" parent="." instance=ExtResource("29_lhdh1")]
+position = Vector2(1920, 3199)
+metadata/_edit_lock_ = true
+
+[node name="Room#18" parent="." instance=ExtResource("30_8fsym")]
+position = Vector2(2880, 3199)
+metadata/_edit_lock_ = true
+
+[node name="Room#19" parent="." instance=ExtResource("31_nh2ke")]
+position = Vector2(2880, 1599)
+metadata/_edit_lock_ = true
+
+[node name="Room#20" parent="." instance=ExtResource("32_dgcxb")]
+position = Vector2(2880, 799)
+metadata/_edit_lock_ = true
+
+[node name="Room#21" parent="." instance=ExtResource("31_ym4l0")]
+position = Vector2(2880, -801)
+metadata/_edit_lock_ = true
+
+[node name="Room#22" parent="." instance=ExtResource("32_44bab")]
+position = Vector2(1920, -801)
+metadata/_edit_lock_ = true
+
+[node name="Room#23" parent="." instance=ExtResource("33_w8e1v")]
+position = Vector2(960, -801)
+metadata/_edit_lock_ = true
+
+[node name="Room#24" parent="." instance=ExtResource("34_0rccc")]
+position = Vector2(960, -1601)
+metadata/_edit_lock_ = true
+
+[node name="Room#25" parent="." instance=ExtResource("32_e1m5m")]
+position = Vector2(1920, -1601)
+metadata/_edit_lock_ = true
+
+[node name="Room#26" parent="." instance=ExtResource("32_s84ei")]
+position = Vector2(2880, -1601)
+metadata/_edit_lock_ = true
+
+[node name="Room#27" parent="." instance=ExtResource("10_urj7c")]
+position = Vector2(0, -801)
+metadata/_edit_lock_ = true
+
+[node name="Room#28" parent="." instance=ExtResource("11_ao1kn")]
+position = Vector2(0, -1601)
+metadata/_edit_lock_ = true
+
+[connection signal="animation_finished" from="CanvasLayer/Transition" to="." method="_on_transition_animation_finished"]
+[connection signal="animation_finished" from="CanvasLayer/Transition" to="DragonFruit" method="_on_transition_animation_finished"]
+[connection signal="animation_started" from="CanvasLayer/Transition" to="." method="_on_transition_animation_started"]
+[connection signal="cannot_split" from="Player1" to="CanvasLayer/NotificationUI" method="_on_player_1_cannot_split"]
+[connection signal="follow_mode_changed" from="Player1" to="CanvasLayer/NotificationUI" method="_on_player_1_follow_mode_changed"]
+[connection signal="follow_mode_changed" from="Player1" to="CanvasLayer/StatusUI" method="_on_player_1_follow_mode_changed"]
+[connection signal="leader_cannot_changed" from="Player1" to="CanvasLayer/NotificationUI" method="_on_player_1_leader_cannot_changed"]
+[connection signal="leader_changed" from="Player1" to="CanvasLayer/NotificationUI" method="_on_player_1_leader_changed"]
+[connection signal="leader_changed" from="Player1" to="CanvasLayer/StatusUI" method="_on_player_1_leader_changed"]
+[connection signal="pause_signal" from="Player1" to="CanvasLayer/PauseMenu" method="_on_player_1_pause_signal"]
+[connection signal="split_changed" from="Player1" to="CanvasLayer/SplitUI" method="_on_player_1_split_changed"]
+[connection signal="area_entered" from="Player1/RoomDetector1" to="Camera2D" method="_on_room_detector_1_area_entered"]
+[connection signal="area_entered" from="Player1/RoomLogger1" to="." method="_on_room_logger_1_area_entered"]
+[connection signal="area_entered" from="Player2/RoomDetector2" to="Camera2D" method="_on_room_detector_2_area_entered"]
+[connection signal="area_entered" from="Player2/RoomLogger2" to="." method="_on_room_logger_2_area_entered"]
+[connection signal="on_collected" from="DragonFruit" to="CanvasLayer/NotificationUI" method="_on_dragon_fruit_on_collected"]

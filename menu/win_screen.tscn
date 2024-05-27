@@ -1,0 +1,356 @@
+[gd_scene load_steps=22 format=3 uid="uid://o75tvlllwmr7"]
+
+[ext_resource type="Script" path="res://menu/win_screen.gd" id="1_sk0o4"]
+[ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="1_ulgt1"]
+[ext_resource type="Texture2D" uid="uid://bulwl6vly6e0" path="res://assets/sprites/transition.png" id="2_a2d7h"]
+[ext_resource type="Texture2D" uid="uid://layq71hxys" path="res://assets/sprites/end_sprite.png" id="3_4sexp"]
+[ext_resource type="Texture2D" uid="uid://c308dt3k6nu7y" path="res://assets/sprites/menu_background.png" id="5_q2nkc"]
+[ext_resource type="Texture2D" uid="uid://bjq1lse5e3hlr" path="res://assets/sprites/menu_background_2.png" id="5_yoeyk"]
+[ext_resource type="AudioStream" uid="uid://p3peq4y7yfid" path="res://assets/audio/select.wav" id="7_cto82"]
+
+[sub_resource type="Animation" id="Animation_o45oo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/TransitionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/TransitionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SelectSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bsr5w"]
+resource_name = "slide_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/TransitionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 1280), Vector2(480, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/TransitionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SelectSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ik080"]
+resource_name = "slide_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/TransitionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 400), Vector2(480, -480)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/TransitionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_np8xi"]
+_data = {
+"RESET": SubResource("Animation_o45oo"),
+"slide_in": SubResource("Animation_bsr5w"),
+"slide_out": SubResource("Animation_ik080")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siu18"]
+atlas = ExtResource("3_4sexp")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oog8"]
+atlas = ExtResource("3_4sexp")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ir4c"]
+atlas = ExtResource("3_4sexp")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dh2py"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_siu18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oog8")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4ir4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oog8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_838cb"]
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/BackgroundSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(455, 505), Vector2(555, 405)]
+}
+
+[sub_resource type="Animation" id="Animation_gfj0y"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/BackgroundSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(455, 505), Vector2(655, 305)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mcwfp"]
+_data = {
+"RESET": SubResource("Animation_838cb"),
+"default": SubResource("Animation_gfj0y")
+}
+
+[sub_resource type="Animation" id="Animation_xps6r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Continue:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tue5g"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Continue:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bb6q"]
+_data = {
+"RESET": SubResource("Animation_xps6r"),
+"default": SubResource("Animation_tue5g")
+}
+
+[node name="WinScreen" type="Node2D"]
+script = ExtResource("1_sk0o4")
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_np8xi")
+}
+
+[node name="TransitionSprite" type="Sprite2D" parent="Transition"]
+z_index = 300
+position = Vector2(480, 400)
+scale = Vector2(5, 5)
+texture = ExtResource("2_a2d7h")
+
+[node name="EndSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(480, 230)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_dh2py")
+frame_progress = 0.768253
+
+[node name="Congratulation" type="Label" parent="."]
+offset_right = 960.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_ulgt1")
+theme_override_font_sizes/font_size = 80
+text = "CONGRATULATION!"
+horizontal_alignment = 1
+
+[node name="DragonFruit" type="Label" parent="."]
+offset_top = 354.0
+offset_right = 960.0
+offset_bottom = 474.0
+theme_override_fonts/font = ExtResource("1_ulgt1")
+theme_override_font_sizes/font_size = 40
+text = "You have collected the golden dragon fruit
+"
+horizontal_alignment = 1
+
+[node name="Cherry" type="Label" parent="."]
+offset_top = 399.0
+offset_right = 960.0
+offset_bottom = 519.0
+theme_override_fonts/font = ExtResource("1_ulgt1")
+theme_override_font_sizes/font_size = 40
+text = "As well as 0 out of 8 golden cherries."
+horizontal_alignment = 1
+
+[node name="PayTheBill" type="Label" parent="."]
+offset_top = 469.0
+offset_right = 960.0
+offset_bottom = 589.0
+theme_override_fonts/font = ExtResource("1_ulgt1")
+theme_override_font_sizes/font_size = 40
+text = "You can pay your living expenses for the next:"
+horizontal_alignment = 1
+
+[node name="SurviveTime" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 514.0
+offset_right = 965.0
+offset_bottom = 634.0
+theme_override_fonts/font = ExtResource("1_ulgt1")
+theme_override_font_sizes/font_size = 40
+text = "One Month"
+horizontal_alignment = 1
+
+[node name="PlayTime" type="Label" parent="."]
+offset_top = 592.0
+offset_right = 960.0
+offset_bottom = 712.0
+theme_override_fonts/font = ExtResource("1_ulgt1")
+theme_override_font_sizes/font_size = 40
+text = "Game Time: 00:00"
+horizontal_alignment = 1
+
+[node name="Continue" type="Label" parent="."]
+offset_top = 680.0
+offset_right = 960.0
+offset_bottom = 800.0
+theme_override_fonts/font = ExtResource("1_ulgt1")
+theme_override_font_sizes/font_size = 40
+text = "Press Z to continue..."
+horizontal_alignment = 1
+
+[node name="Background" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mcwfp")
+}
+
+[node name="BackgroundSprite" type="Sprite2D" parent="Background"]
+z_index = -10
+position = Vector2(455, 505)
+scale = Vector2(10, 10)
+texture = ExtResource("5_yoeyk")
+
+[node name="BackgroundOld" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mcwfp")
+}
+
+[node name="BackgroundSprite" type="Sprite2D" parent="BackgroundOld"]
+visible = false
+z_index = -10
+position = Vector2(480, 480)
+scale = Vector2(5, 5)
+texture = ExtResource("5_q2nkc")
+
+[node name="TextPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1bb6q")
+}
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cto82")
+volume_db = -5.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

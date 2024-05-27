@@ -1,0 +1,137 @@
+[gd_scene load_steps=14 format=3 uid="uid://c8reqbfdrj4vu"]
+
+[ext_resource type="Script" path="res://objects/cherry.gd" id="1_fbf88"]
+[ext_resource type="Texture2D" uid="uid://jhxp1s1m0gok" path="res://assets/sprites/cherry.png" id="1_v0kl7"]
+[ext_resource type="AudioStream" uid="uid://chc4dm1m53rem" path="res://assets/audio/cherry.wav" id="3_3f7yf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6pp7"]
+size = Vector2(14.0139, 20.9674)
+
+[sub_resource type="Animation" id="Animation_v3g3c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ObtainSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mlam4"]
+resource_name = "idle"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_7eomc"]
+resource_name = "obtain"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ObtainSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bwpqo"]
+_data = {
+"RESET": SubResource("Animation_v3g3c"),
+"idle": SubResource("Animation_mlam4"),
+"obtain": SubResource("Animation_7eomc")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7jv21"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fr63x"]
+animation = &"obtain"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k8am1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_etie6"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0t28w"]
+states/idle/node = SubResource("AnimationNodeAnimation_7jv21")
+states/idle/position = Vector2(297, 104)
+states/obtain/node = SubResource("AnimationNodeAnimation_fr63x")
+states/obtain/position = Vector2(404, 105)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_k8am1"), "idle", "obtain", SubResource("AnimationNodeStateMachineTransition_etie6")]
+
+[node name="Cherry" type="Area2D"]
+z_index = 20
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_fbf88")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v0kl7")
+hframes = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.006037, 0.483695)
+shape = SubResource("RectangleShape2D_r6pp7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bwpqo")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bwpqo")
+}
+tree_root = SubResource("AnimationNodeStateMachine_0t28w")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="ObtainSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3f7yf")
+volume_db = -5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

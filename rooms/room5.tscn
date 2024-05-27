@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2og1xdu37t3t"]
+
+[ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_7usyp"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_dgito"]
+[ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="2_5nsmg"]
+[ext_resource type="PackedScene" uid="uid://rm5850pxwruu" path="res://objects/help.tscn" id="3_glir7"]
+[ext_resource type="PackedScene" uid="uid://cfq44csco8u8u" path="res://objects/twig.tscn" id="3_w7spu"]
+[ext_resource type="PackedScene" uid="uid://dk6pyg2pn6ihp" path="res://objects/boulder.tscn" id="4_qqewg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7sqc"]
+size = Vector2(960, 800)
+
+[node name="Room5" type="Node2D"]
+script = ExtResource("1_dgito")
+room_name = "Let Me Handle It"
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("1_7usyp")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 262144, 2, 1, 262144, 2, 2, 0, 0, 3, 65536, 0, 4, 262144, 1, 5, 196608, 2, 6, 196608, 2, 7, 262144, 4, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 131072, 0, 65541, 196608, 2, 65542, 196608, 2, 131076, 196608, 2, 131077, 196608, 2, 131078, 196608, 2, 196614, 196608, 2, 196613, 196608, 2, 196612, 196608, 2, 262148, 196608, 2, 262149, 196608, 2, 262150, 196608, 2, 327686, 196608, 3, 262152, 196608, 2, 327688, 196608, 2, 393220, 65536, 1, 393221, 65536, 1, 393223, 327680, 0, 458758, 196608, 2, 458757, 196608, 2, 524293, 196608, 2, 589829, 196608, 3, 589830, 0, 4, 524294, 196608, 2, 196611, 196608, 2, 196616, 196608, 2, 393224, 196608, 2, 393219, 65536, 1, 458756, 196608, 2, 131079, 458752, 3, 458755, 196608, 2, 393218, 65536, 1, 393225, 196608, 2, 131075, 196608, 2, 65540, 327680, 0, 65543, 196608, 4, 131080, 196608, 2, 131074, 327680, 0, 327682, 196608, 3, 327689, 196608, 2, 262153, 196608, 2, 196617, 196608, 2, 131081, 196608, 2, 65544, 65536, 1, 65539, 65536, 1, 458754, 196608, 2, 458753, 196608, 2, 458752, 0, 1, 393216, 0, 1, 327680, 0, 0, 262144, 262144, 2, 196608, 262144, 2, 131072, 262144, 2, 65536, 262144, 2, 65537, 0, 0, 131073, 0, 1, 196609, 0, 1, 262145, 0, 1, 327681, 65536, 3, 393217, 65536, 1, 524288, 0, 1, 589824, 0, 1, 589825, 196608, 2, 589826, 196608, 2, 589827, 458752, 2, 524291, 196608, 2, 524290, 196608, 2, 524289, 196608, 2, 65538, 262144, 1, 65545, 65536, 1, 65546, 65536, 1, 65547, 131072, 1, 131082, 196608, 2, 196618, 196608, 2, 262154, 196608, 2, 327690, 196608, 2, 393226, 196608, 2, 458762, 196608, 2, 524299, 131072, 1, 458763, 131072, 1, 393227, 131072, 1, 327691, 131072, 1, 262155, 131072, 1, 196619, 131072, 1, 131083, 131072, 1, 589833, 65536, 2, 589832, 65536, 2, 524296, 196608, 2, 524295, 196608, 2, 589831, 65536, 2, 524292, 196608, 2, 589828, 196608, 3, 458761, 196608, 2, 196610, 196608, 2, 262146, 196608, 2, 262147, 196608, 2, 327683, 196608, 3, 327684, 196608, 3, 327685, 196608, 3, 393222, 65536, 1, 458759, 196608, 2, 458760, 196608, 2, 524297, 196608, 2, 524298, 196608, 2, 589834, 65536, 2, 589835, 131072, 2, 327687, 393216, 2, 196615, 327680, 2, 262151, 196608, 2, 65535, 262144, 2, 131071, 262144, 2, 196607, 262144, 2, 262143, 262144, 2, 327679, 262144, 2, 393215, 262144, 2, 458751, 262144, 2, 524287, 262144, 2, 589823, 262144, 2, 655359, 262144, 2)
+
+[node name="PathMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("2_5nsmg")
+format = 2
+layer_0/tile_data = PackedInt32Array(131081, 262146, 0, 327689, 65538, 1, 393225, 65538, 1, 458761, 65538, 1, 458760, 655362, 2, 458759, 65538, 0, 458758, 65538, 0, 458757, 65538, 0, 458756, 65538, 0, 458755, 65538, 0, 262149, 2, 2, 262150, 786434, 1, 262151, 196610, 0, 262152, 720898, 0, 458753, 2, 0, 524289, 2, 1, 589825, 2, 1, 524290, 524290, 0, 589826, 131074, 1, 458754, 65538, 0, 5, 2, 1, 65541, 2, 1, 131077, 2, 1, 196613, 2, 1, 6, 131074, 1, 65542, 131074, 1, 131078, 131074, 1, 196614, 131074, 1, 524298, 131074, 2, 262154, 131074, 0, 262153, 65538, 0, 327690, 131074, 1, 393226, 131074, 1, 458762, 131074, 1, 524291, 65538, 2, 524292, 65538, 2, 524293, 65538, 2, 524294, 65538, 2, 524295, 65538, 2, 524296, 65538, 2, 524297, 65538, 2, 327688, 2, 1, 393224, 2, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(480, 400)
+shape = SubResource("RectangleShape2D_a7sqc")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Interactibles" type="Node2D" parent="."]
+
+[node name="Help" parent="Interactibles" instance=ExtResource("3_glir7")]
+position = Vector2(280, 200)
+scale = Vector2(5, 5)
+help_text_top = "Press C to swap leader"
+help_text_bottom = "Gon can break bolders"
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Twig#1" parent="Obstacles" instance=ExtResource("3_w7spu")]
+position = Vector2(280, 360)
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Twig#2" parent="Obstacles" instance=ExtResource("3_w7spu")]
+position = Vector2(200, 280)
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Twig#3" parent="Obstacles" instance=ExtResource("3_w7spu")]
+position = Vector2(200, 360)
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Twig#4" parent="Obstacles" instance=ExtResource("3_w7spu")]
+position = Vector2(680, 200)
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Twig#5" parent="Obstacles" instance=ExtResource("3_w7spu")]
+position = Vector2(760, 200)
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Twig#6" parent="Obstacles" instance=ExtResource("3_w7spu")]
+position = Vector2(840, 200)
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Boulder#1" parent="Obstacles" instance=ExtResource("4_qqewg")]
+position = Vector2(600, 360)
+scale = Vector2(5, 5)
+
+[node name="Boulder#2" parent="Obstacles" instance=ExtResource("4_qqewg")]
+position = Vector2(760, 280)
+scale = Vector2(5, 5)
+
+[node name="Boulder#3" parent="Obstacles" instance=ExtResource("4_qqewg")]
+position = Vector2(120, 760)
+scale = Vector2(5, 5)
+
+[node name="Boulder#4" parent="Obstacles" instance=ExtResource("4_qqewg")]
+position = Vector2(200, 760)
+scale = Vector2(5, 5)
+
+[node name="Boulder#5" parent="Obstacles" instance=ExtResource("4_qqewg")]
+position = Vector2(120, 600)
+scale = Vector2(5, 5)
+
+[node name="Boulder#6" parent="Obstacles" instance=ExtResource("4_qqewg")]
+position = Vector2(480, 680)
+scale = Vector2(5, 5)
+
+[node name="Boulder#7" parent="Obstacles" instance=ExtResource("4_qqewg")]
+position = Vector2(760, 600)
+scale = Vector2(5, 5)

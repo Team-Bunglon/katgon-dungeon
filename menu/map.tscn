@@ -1,0 +1,152 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr6nijnmmts52"]
+
+[ext_resource type="Script" path="res://menu/map.gd" id="1_3yv6j"]
+[ext_resource type="Texture2D" uid="uid://bxm1koeovdpek" path="res://assets/sprites/map.png" id="1_6j82o"]
+[ext_resource type="Texture2D" uid="uid://c0qrbpy5k5w58" path="res://assets/sprites/map_cover.png" id="2_7hgat"]
+[ext_resource type="Texture2D" uid="uid://h03mg0bhbfuj" path="res://assets/sprites/map_marker.png" id="4_ahy75"]
+
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3yv6j")
+
+[node name="MapMain" type="Sprite2D" parent="."]
+texture = ExtResource("1_6j82o")
+
+[node name="MapCover#1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-18, -10)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#2" type="Sprite2D" parent="."]
+position = Vector2(-18, 0)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#3" type="Sprite2D" parent="."]
+position = Vector2(-6, 0)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#4" type="Sprite2D" parent="."]
+position = Vector2(-18, 10)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#5" type="Sprite2D" parent="."]
+position = Vector2(-18, 20)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#6" type="Sprite2D" parent="."]
+position = Vector2(-18, 30)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#7" type="Sprite2D" parent="."]
+position = Vector2(-6, 30)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#8" type="Sprite2D" parent="."]
+position = Vector2(-6, 20)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#9" type="Sprite2D" parent="."]
+position = Vector2(-6, 10)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#10" type="Sprite2D" parent="."]
+position = Vector2(-6, -10)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#11" type="Sprite2D" parent="."]
+position = Vector2(6, 10)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#12" type="Sprite2D" parent="."]
+position = Vector2(6, 0)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#13" type="Sprite2D" parent="."]
+position = Vector2(6, -10)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#14" type="Sprite2D" parent="."]
+position = Vector2(18, -10)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#15" type="Sprite2D" parent="."]
+position = Vector2(6, 20)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#16" type="Sprite2D" parent="."]
+position = Vector2(18, 20)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#17" type="Sprite2D" parent="."]
+position = Vector2(6, 30)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#18" type="Sprite2D" parent="."]
+position = Vector2(18, 30)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#19" type="Sprite2D" parent="."]
+position = Vector2(18, 10)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#20" type="Sprite2D" parent="."]
+position = Vector2(18, 0)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#21" type="Sprite2D" parent="."]
+position = Vector2(18, -20)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#22" type="Sprite2D" parent="."]
+position = Vector2(6, -20)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#23" type="Sprite2D" parent="."]
+position = Vector2(-6, -20)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#24" type="Sprite2D" parent="."]
+position = Vector2(-6, -30)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#25" type="Sprite2D" parent="."]
+position = Vector2(6, -30)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#26" type="Sprite2D" parent="."]
+position = Vector2(18, -30)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#27" type="Sprite2D" parent="."]
+position = Vector2(-18, -20)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#28" type="Sprite2D" parent="."]
+position = Vector2(-18, -30)
+texture = ExtResource("2_7hgat")
+
+[node name="MapCover#29" type="Sprite2D" parent="."]
+position = Vector2(46, -29)
+texture = ExtResource("2_7hgat")
+
+[node name="Player1Location" type="Sprite2D" parent="."]
+position = Vector2(-18, -10)
+texture = ExtResource("4_ahy75")
+hframes = 3
+
+[node name="Player2Location" type="Sprite2D" parent="."]
+position = Vector2(-18, -10)
+texture = ExtResource("4_ahy75")
+hframes = 3
+frame = 1
+
+[node name="Player12Location" type="Sprite2D" parent="."]
+position = Vector2(-18, -10)
+texture = ExtResource("4_ahy75")
+hframes = 3
+frame = 2

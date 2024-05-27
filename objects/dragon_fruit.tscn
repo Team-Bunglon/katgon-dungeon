@@ -1,0 +1,130 @@
+[gd_scene load_steps=15 format=3 uid="uid://dg6gt2ihxhr8x"]
+
+[ext_resource type="Script" path="res://objects/dragon_fruit.gd" id="1_a5pg5"]
+[ext_resource type="Texture2D" uid="uid://b3d8xmyc27wkc" path="res://assets/sprites/dragon_fruit.png" id="2_on5p5"]
+[ext_resource type="AudioStream" uid="uid://cj0mieoi7gbu4" path="res://assets/audio/win.wav" id="3_dbj8q"]
+
+[sub_resource type="Animation" id="Animation_v3g3c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mlam4"]
+resource_name = "idle"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_7eomc"]
+resource_name = "obtain"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bwpqo"]
+_data = {
+"RESET": SubResource("Animation_v3g3c"),
+"idle": SubResource("Animation_mlam4"),
+"obtain": SubResource("Animation_7eomc")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7jv21"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fr63x"]
+animation = &"obtain"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k8am1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_etie6"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0t28w"]
+states/idle/node = SubResource("AnimationNodeAnimation_7jv21")
+states/idle/position = Vector2(297, 104)
+states/obtain/node = SubResource("AnimationNodeAnimation_fr63x")
+states/obtain/position = Vector2(404, 105)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_k8am1"), "idle", "obtain", SubResource("AnimationNodeStateMachineTransition_etie6")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6pp7"]
+size = Vector2(20, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl5mu"]
+size = Vector2(192, 160)
+
+[node name="DragonFruit" type="Node2D"]
+z_index = 20
+script = ExtResource("1_a5pg5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_on5p5")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bwpqo")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bwpqo")
+}
+tree_root = SubResource("AnimationNodeStateMachine_0t28w")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="FruitArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitArea"]
+shape = SubResource("RectangleShape2D_r6pp7")
+
+[node name="PlayerArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_kl5mu")
+metadata/_edit_lock_ = true
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dbj8q")
+volume_db = -5.0
+pitch_scale = 0.9
+
+[connection signal="body_entered" from="FruitArea" to="." method="_on_fruit_area_body_entered"]
+[connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]
+[connection signal="body_exited" from="PlayerArea" to="." method="_on_player_area_body_exited"]

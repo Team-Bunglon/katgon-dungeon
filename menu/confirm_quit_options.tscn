@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://whvrnw3cix8t"]
+
+[ext_resource type="Script" path="res://menu/confirm_quit_options.gd" id="1_bfmce"]
+[ext_resource type="Script" path="res://menu/menu.gd" id="2_t1kvl"]
+[ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="3_ej2om"]
+[ext_resource type="Texture2D" uid="uid://dasdtv1tofufw" path="res://assets/sprites/ui_cursor.png" id="4_26qnl"]
+
+[node name="ConfirmQuitOptions" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bfmce")
+
+[node name="Menu" type="VBoxContainer" parent="." node_paths=PackedStringArray("pointer")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -3.0
+offset_right = 38.0
+offset_bottom = 25.0
+scale = Vector2(0.992402, 1)
+script = ExtResource("2_t1kvl")
+pointer = NodePath("../Cursor")
+
+[node name="No" type="Label" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ej2om")
+theme_override_font_sizes/font_size = 10
+text = "No
+"
+
+[node name="Yes" type="Label" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ej2om")
+theme_override_font_sizes/font_size = 10
+text = "Yes
+"
+
+[node name="Cursor" type="Sprite2D" parent="."]
+position = Vector2(6, 5)
+texture = ExtResource("4_26qnl")
+
+[connection signal="do_item" from="Menu" to="." method="_on_menu_do_item"]

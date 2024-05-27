@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://cljros4xq40ad"]
+
+[ext_resource type="Script" path="res://rooms/room2.gd" id="1_ed27s"]
+[ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_oe5b2"]
+[ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="2_q3p0o"]
+[ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="4_dt57a"]
+[ext_resource type="PackedScene" uid="uid://dnh8j7mw0tcny" path="res://objects/button.tscn" id="4_nctvm"]
+[ext_resource type="PackedScene" uid="uid://rm5850pxwruu" path="res://objects/help.tscn" id="5_rdd61"]
+[ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="7_3lh5i"]
+[ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="8_i31wd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7sqc"]
+size = Vector2(960, 800)
+
+[node name="Room2" type="Node2D"]
+script = ExtResource("1_ed27s")
+room_name = "The First Conundrum"
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("1_oe5b2")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 262144, 2, 1, 262144, 2, 2, 262144, 2, 3, 262144, 2, 4, 0, 1, 5, 196608, 2, 6, 196608, 2, 7, 131072, 1, 8, 262144, 2, 9, 262144, 2, 10, 262144, 2, 11, 262144, 2, 65541, 196608, 2, 65542, 196608, 2, 131076, 327680, 0, 131077, 196608, 2, 131078, 196608, 2, 196614, 196608, 2, 196613, 196608, 2, 196612, 196608, 2, 196615, 196608, 2, 262147, 196608, 2, 327683, 196608, 2, 327684, 196608, 2, 262148, 196608, 2, 262149, 196608, 2, 327685, 196608, 2, 262150, 196608, 2, 327686, 196608, 2, 262151, 196608, 2, 262152, 196608, 2, 327688, 196608, 2, 327687, 196608, 2, 393220, 196608, 2, 393221, 196608, 2, 393222, 196608, 2, 393223, 196608, 2, 458758, 196608, 2, 458757, 196608, 2, 524293, 196608, 2, 589829, 196608, 2, 589830, 196608, 2, 524294, 196608, 2, 196611, 196608, 2, 196616, 327680, 1, 393224, 196608, 2, 393219, 196608, 2, 458756, 196608, 2, 131079, 327680, 1, 458759, 196608, 2, 458760, 196608, 0, 458755, 196608, 2, 393218, 0, 1, 393225, 196608, 0, 196610, 0, 1, 131075, 65536, 1, 65540, 262144, 1, 65543, 196608, 1, 131080, 196608, 1, 131074, 0, 1, 262146, 0, 1, 327682, 0, 1, 327689, 196608, 2, 262153, 327680, 1, 196617, 196608, 1, 131081, 131072, 0, 65544, 131072, 0, 65539, 65536, 0, 458754, 0, 1, 458753, 262144, 2, 458752, 262144, 2, 393216, 262144, 2, 327680, 262144, 2, 262144, 262144, 2, 196608, 262144, 2, 131072, 262144, 2, 65536, 262144, 2, 65537, 262144, 2, 131073, 262144, 2, 196609, 262144, 2, 262145, 262144, 2, 327681, 262144, 2, 393217, 262144, 2, 524288, 262144, 2, 589824, 262144, 2, 589825, 262144, 2, 589826, 262144, 2, 589827, 262144, 2, 524291, 65536, 2, 524290, 0, 2, 524289, 262144, 2, 65538, 0, 0, 65545, 262144, 2, 65546, 262144, 2, 65547, 262144, 2, 131082, 262144, 2, 196618, 65536, 0, 262154, 65536, 1, 327690, 196608, 2, 393226, 65536, 2, 458762, 262144, 2, 524298, 262144, 2, 589834, 262144, 2, 589835, 262144, 2, 524299, 262144, 2, 458763, 262144, 2, 393227, 65536, 2, 327691, 196608, 2, 262155, 65536, 1, 196619, 65536, 0, 131083, 262144, 2, 589833, 262144, 2, 589832, 262144, 2, 524296, 131072, 2, 524297, 262144, 2, 458761, 131072, 2, 524295, 196608, 0, 589831, 131072, 1, 524292, 262144, 0, 589828, 0, 1, 65535, 262144, 2, 131071, 262144, 2, 196607, 262144, 2, 262143, 262144, 2, 327679, 262144, 2, 393215, 262144, 2, 458751, 262144, 2, 524287, 262144, 2, 589823, 262144, 2, 655359, 262144, 2)
+
+[node name="PathMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("2_q3p0o")
+format = 2
+layer_0/tile_data = PackedInt32Array(327690, 196610, 0, 327691, 196610, 0, 327684, 65538, 1, 262149, 65538, 1, 262148, 65538, 1, 262147, 2, 1, 393219, 2, 1, 393220, 65538, 1, 393221, 65538, 1, 327685, 65538, 1, 327683, 2, 1, 196611, 2, 0, 196613, 655362, 2, 458755, 2, 2, 458757, 655362, 0, 196612, 65538, 0, 458756, 65538, 2, 327689, 196610, 1, 5, 2, 1, 65541, 2, 1, 131077, 2, 1, 524293, 2, 1, 589829, 2, 1, 6, 131074, 1, 65542, 131074, 1, 131078, 131074, 1, 196614, 131074, 1, 262150, 131074, 1, 327686, 131074, 1, 393222, 131074, 1, 458758, 131074, 1, 524294, 131074, 1, 589830, 131074, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(480, 401)
+shape = SubResource("RectangleShape2D_a7sqc")
+debug_color = Color(0, 0.6, 0.701961, 0)
+metadata/_edit_lock_ = true
+
+[node name="Interactibles" type="Node2D" parent="."]
+
+[node name="Help" parent="Interactibles" instance=ExtResource("5_rdd61")]
+position = Vector2(600, 280)
+scale = Vector2(5, 5)
+help_text_top = "Press Z to hit"
+help_text_bottom = "the buttons"
+
+[node name="Button#21" parent="Interactibles" instance=ExtResource("4_nctvm")]
+position = Vector2(360, 522)
+scale = Vector2(5, 5)
+target_name = Array[String](["Spike#21", "Spike#22"])
+
+[node name="Button#22" parent="Interactibles" instance=ExtResource("4_nctvm")]
+position = Vector2(360, 360)
+scale = Vector2(5, 5)
+target_name = Array[String](["Spike#21", "Spike#22"])
+
+[node name="Spike#21" parent="Interactibles" instance=ExtResource("4_dt57a")]
+position = Vector2(440, 680)
+scale = Vector2(5, 5)
+number_button = Array[int]([21, 22])
+
+[node name="Spike#22" parent="Interactibles" instance=ExtResource("4_dt57a")]
+position = Vector2(520, 680)
+scale = Vector2(5, 5)
+number_button = Array[int]([21, 22])
+
+[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3lh5i")
+volume_db = -5.0
+
+[node name="RetractSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_i31wd")
+volume_db = -5.0
+
+[connection signal="state_changed" from="Interactibles/Spike#21" to="." method="_on_spike_21_state_changed"]

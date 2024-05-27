@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2wehg66gsll8"]
+
+[ext_resource type="Script" path="res://rooms/room6.gd" id="1_45srj"]
+[ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_ywe3a"]
+[ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="2_fo7q7"]
+[ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="4_m6nf1"]
+[ext_resource type="PackedScene" uid="uid://cfq44csco8u8u" path="res://objects/twig.tscn" id="4_vat28"]
+[ext_resource type="PackedScene" uid="uid://dnh8j7mw0tcny" path="res://objects/button.tscn" id="5_7at7g"]
+[ext_resource type="PackedScene" uid="uid://dk6pyg2pn6ihp" path="res://objects/boulder.tscn" id="5_dhg24"]
+[ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="6_q04kc"]
+[ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="9_ly1n6"]
+[ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="10_mwby8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7sqc"]
+size = Vector2(960, 800)
+
+[node name="Room6" type="Node2D"]
+script = ExtResource("1_45srj")
+room_name = "Three's a Crowd"
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("1_ywe3a")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 1, 1, 196608, 2, 2, 196608, 2, 3, 327680, 1, 5, 65536, 1, 6, 131072, 1, 8, 262144, 2, 9, 262144, 2, 10, 262144, 2, 11, 262144, 2, 65541, 196608, 2, 65542, 131072, 1, 131076, 196608, 2, 131077, 196608, 2, 131078, 131072, 1, 196614, 196608, 1, 196613, 196608, 2, 196612, 196608, 2, 262148, 196608, 2, 262149, 196608, 2, 262150, 327680, 1, 262152, 65536, 1, 393220, 196608, 2, 393221, 196608, 2, 393223, 196608, 3, 458757, 196608, 2, 524293, 196608, 2, 524294, 196608, 2, 196611, 327680, 0, 196616, 65536, 0, 393224, 196608, 3, 393219, 327680, 0, 458756, 196608, 2, 458755, 196608, 2, 393218, 65536, 1, 393225, 0, 3, 131075, 393216, 2, 131080, 262144, 2, 327682, 196608, 3, 327689, 131072, 1, 262153, 131072, 1, 196617, 131072, 0, 131081, 262144, 2, 65544, 262144, 2, 65539, 196608, 2, 458754, 196608, 2, 393216, 262144, 2, 327680, 262144, 2, 262144, 262144, 2, 196608, 262144, 2, 131072, 0, 2, 65536, 0, 1, 65537, 196608, 2, 131073, 65536, 4, 196609, 0, 1, 262145, 0, 1, 327681, 458752, 1, 393217, 0, 1, 524291, 196608, 2, 524290, 196608, 2, 65545, 262144, 2, 65546, 262144, 2, 65547, 262144, 2, 131082, 262144, 2, 196618, 262144, 2, 262154, 262144, 2, 327690, 262144, 2, 393226, 65536, 0, 524299, 196608, 2, 393227, 65536, 0, 327691, 262144, 2, 262155, 262144, 2, 196619, 262144, 2, 131083, 262144, 2, 524296, 196608, 2, 524295, 196608, 2, 524292, 196608, 2, 196610, 65536, 1, 327683, 393216, 2, 327684, 196608, 2, 327685, 196608, 2, 393222, 458752, 2, 524297, 196608, 2, 524298, 196608, 2, 262151, 65536, 1, 131079, 262144, 2, 65538, 196608, 2, 196615, 65536, 0, 131074, 196608, 3, 327686, 196608, 2, 327687, 196608, 2, 327688, 196608, 2, 262147, 196608, 2, 262146, 196608, 2, 458758, 327680, 1, 458759, 65536, 1, 458760, 65536, 1, 458761, 65536, 1, 458762, 65536, 1, 458763, 65536, 1, 65540, 196608, 2, 4, 65536, 1, 65543, 262144, 2, 7, 262144, 2, 65535, 262144, 2, 131071, 262144, 2, 196607, 262144, 2, 262143, 262144, 2, 327679, 262144, 2, 393215, 262144, 2, 458751, 262144, 2, 458753, 262144, 1, 458752, 65536, 0, 524287, 65536, 0, 589823, 65536, 1, 524288, 65536, 1, 524289, 327680, 0, 655359, 196608, 2, 589824, 196608, 2, 589825, 196608, 2, 589826, 196608, 2, 589827, 196608, 2, 589828, 196608, 2, 589829, 196608, 2, 589830, 196608, 2, 589831, 196608, 2, 589832, 196608, 2, 589833, 196608, 2, 589834, 196608, 2, 589835, 196608, 2, 655371, 196608, 2, 655370, 196608, 2, 655369, 196608, 2, 655368, 196608, 2, 655367, 196608, 2, 655366, 196608, 2, 655365, 196608, 2, 655364, 196608, 2, 655363, 196608, 2, 655362, 196608, 2, 655361, 196608, 2, 655360, 196608, 2, 720895, 196608, 2, 524286, 262144, 2, 589822, 262144, 2, 655358, 262144, 2, 720894, 262144, 2, 786430, 262144, 2, 786431, 262144, 2, 720896, 262144, 2, 720897, 262144, 2, 720898, 262144, 2, 720899, 262144, 2, 720900, 262144, 2, 720901, 262144, 2, 720902, 262144, 2, 720903, 262144, 2, 720904, 262144, 2, 720905, 262144, 2, 720906, 262144, 2, 720907, 262144, 2)
+
+[node name="PathMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("2_fo7q7")
+format = 2
+layer_0/tile_data = PackedInt32Array(131077, 131074, 1, 131076, 2, 1, 524292, 2, 2, 524293, 786434, 1, 458757, 131074, 1, 393221, 131074, 1, 327685, 131074, 1, 262149, 131074, 1, 196613, 131074, 1, 458756, 2, 1, 393220, 2, 1, 327684, 2, 1, 262148, 2, 1, 196612, 2, 1, 65540, 720898, 0, 65541, 131074, 0, 65537, 2, 2, 65538, 786434, 1, 65539, 196610, 0, 524294, 196610, 0, 524295, 196610, 0, 524296, 196610, 0, 524297, 196610, 0, 524298, 196610, 0, 524299, 196610, 0, 1, 2, 1, 2, 131074, 1)
+
+[node name="VoidMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("4_m6nf1")
+format = 2
+layer_0/tile_data = PackedInt32Array(589835, 65536, 0, 589834, 65536, 0, 589833, 65536, 0, 589832, 65536, 0, 589831, 65536, 0, 589830, 65536, 0, 589829, 65536, 0, 589828, 65536, 0, 589827, 65536, 0, 589826, 65536, 0, 589825, 65536, 0, 589824, 65536, 0, 655359, 65536, 0, 720895, 65536, 1, 655360, 65536, 1, 655361, 65536, 1, 655362, 65536, 1, 655363, 65536, 1, 655364, 65536, 1, 655365, 65536, 1, 655366, 65536, 1, 655367, 65536, 1, 655368, 65536, 1, 655369, 65536, 1, 655370, 65536, 1, 655371, 65536, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(480, 400)
+shape = SubResource("RectangleShape2D_a7sqc")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Interactibles" type="Node2D" parent="."]
+
+[node name="Button#61" parent="Interactibles" instance=ExtResource("5_7at7g")]
+position = Vector2(200, 680)
+scale = Vector2(5, 5)
+target_name = Array[String](["Spike#61"])
+
+[node name="Button#62" parent="Interactibles" instance=ExtResource("5_7at7g")]
+position = Vector2(200, 360)
+scale = Vector2(5, 5)
+target_name = Array[String](["Spike#61"])
+
+[node name="Button#63" parent="Interactibles" instance=ExtResource("5_7at7g")]
+position = Vector2(680, 440)
+scale = Vector2(5, 5)
+target_name = Array[String](["Spike#61"])
+
+[node name="Spike#61" parent="Interactibles" instance=ExtResource("6_q04kc")]
+position = Vector2(520, 680)
+scale = Vector2(5, 5)
+number_button = Array[int]([61, 62, 63])
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Twig#1" parent="Obstacles" instance=ExtResource("4_vat28")]
+position = Vector2(280, 360)
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Twig#2" parent="Obstacles" instance=ExtResource("4_vat28")]
+position = Vector2(280, 600)
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Twig#3" parent="Obstacles" instance=ExtResource("4_vat28")]
+position = Vector2(360, 680)
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Boulder#1" parent="Obstacles" instance=ExtResource("5_dhg24")]
+position = Vector2(530, 440)
+scale = Vector2(5, 5)
+
+[node name="Boulder#2" parent="Obstacles" instance=ExtResource("5_dhg24")]
+position = Vector2(200, 600)
+scale = Vector2(5, 5)
+
+[node name="Boulder#3" parent="Obstacles" instance=ExtResource("5_dhg24")]
+position = Vector2(280, 680)
+scale = Vector2(5, 5)
+
+[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ly1n6")
+volume_db = -5.0
+
+[node name="RetractSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_mwby8")
+volume_db = -5.0
+
+[connection signal="state_changed" from="Interactibles/Spike#61" to="." method="_on_spike_61_state_changed"]

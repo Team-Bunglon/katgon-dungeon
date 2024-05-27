@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnh8j7mw0tcny"]
+
+[ext_resource type="Script" path="res://objects/button.gd" id="1_jqnhw"]
+[ext_resource type="Texture2D" uid="uid://c44tye25lg6a7" path="res://assets/sprites/button_red.png" id="2_wwbec"]
+[ext_resource type="AudioStream" uid="uid://bhif4esmslnxb" path="res://assets/audio/button_on.wav" id="3_53ipt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
+size = Vector2(16, 16)
+
+[node name="Button" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_jqnhw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wwbec")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yvgp7")
+
+[node name="ButtonOnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_53ipt")
