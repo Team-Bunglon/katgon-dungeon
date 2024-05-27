@@ -216,15 +216,6 @@ scale = Vector2(5, 5)
 texture = ExtResource("7_jf6ac")
 
 [node name="NotificationUI" parent="CanvasLayer" instance=ExtResource("3_k8vlg")]
-notification_text = {
-1: ["Kat's turn!", Color(1, 0.509804, 0, 1)],
-2: ["Gon's turn!", Color(0, 0.588235, 1, 1)],
-3: ["Cannot switch!", Color(1, 0, 0, 1)],
-4: ["Follow me!", Color(1, 1, 1, 1)],
-5: ["Stay there!", Color(1, 0, 0, 1)],
-6: ["Cannot split!", Color(1, 0, 0, 1)],
-7: ["Where's your partner?", Color(1, 0, 0, 1)]
-}
 metadata/_edit_use_anchors_ = true
 
 [node name="StatusUI" parent="CanvasLayer" instance=ExtResource("4_hlawa")]

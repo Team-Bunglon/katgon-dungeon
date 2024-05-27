@@ -871,9 +871,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_blhrr")
-}
 tree_root = SubResource("AnimationNodeStateMachine_gpgm8")
 anim_player = NodePath("../AnimationPlayer")
 parameters/attack/blend_position = Vector2(0.994434, 0.0174602)
@@ -941,9 +938,6 @@ libraries = {
 }
 
 [node name="AnimationTreeSW" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_rojug")
-}
 tree_root = SubResource("AnimationNodeStateMachine_s2ef8")
 anim_player = NodePath("../AnimationPlayerSW")
 

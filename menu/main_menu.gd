@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$Version.text = $Version.text + ProjectSettings.get_setting("application/config/version")
 	MusicVar.menu_play()
 	$Background.play("default")
 	$Logo.play("default")

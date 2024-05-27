@@ -245,7 +245,7 @@ offset_right = 967.0
 offset_bottom = 796.0
 theme_override_fonts/font = ExtResource("4_g1hhb")
 theme_override_font_sizes/font_size = 40
-text = "v1.0.1.0"
+text = "v"
 vertical_alignment = 2
 
 [node name="SelectSound" type="AudioStreamPlayer" parent="."]

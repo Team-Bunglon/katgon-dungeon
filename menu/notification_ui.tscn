@@ -20,7 +20,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NotificationLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_qj2sj"]
@@ -33,10 +45,10 @@ tracks/0/path = NodePath("NotificationLabel:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 0.7),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -60,18 +72,7 @@ _data = {
 [node name="NotificationUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 script = ExtResource("1_yhnnf")
-notification_text = {
-1: ["Kat's turn!", Color(1, 0.509804, 0, 1)],
-2: ["Gon's turn!", Color(0, 0.588235, 1, 1)],
-3: ["Cannot Switch!", Color(1, 0, 0, 1)],
-4: ["Follow me!", Color(1, 1, 1, 1)],
-5: ["Stay there!", Color(1, 0, 0, 1)],
-6: ["Cannot Split!", Color(1, 0, 0, 1)],
-7: ["Where's your partner?", Color(1, 0, 0, 1)]
-}
 
 [node name="NotificationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -79,18 +80,18 @@ libraries = {
 }
 
 [node name="NotificationLabel" type="Label" parent="."]
-self_modulate = Color(1, 1, 1, 0)
+visible = false
 z_index = 20
-layout_mode = 0
 offset_left = -1.0
 offset_top = -20.0
-offset_right = 190.0
-offset_bottom = -7.0
-scale = Vector2(5, 5)
+offset_right = 960.0
+offset_bottom = 40.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_outline_size = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("1_0nu4q")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 50
 text = "Notification Text
 "
 horizontal_alignment = 2

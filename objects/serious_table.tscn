@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://ct308u7s7ao1g"]
+[gd_scene load_steps=17 format=3 uid="uid://ct308u7s7ao1g"]
 
 [ext_resource type="Script" path="res://objects/serious_table.gd" id="1_ewmvr"]
-[ext_resource type="Texture2D" uid="uid://dtg0vuwdq2rpg" path="res://assets/sprites/serious_table_anim.png" id="2_dqqjg"]
+[ext_resource type="Texture2D" uid="uid://vgud4eb8d4wb" path="res://assets/sprites/serious_table_new.png" id="2_c0sad"]
+[ext_resource type="AudioStream" uid="uid://1wxpu64w7jl4" path="res://assets/audio/secret.wav" id="3_hwhsf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
 size = Vector2(32, 19)
@@ -42,7 +43,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_qy4qn"]
 resource_name = "retracted"
-length = 1.4
+length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -51,10 +52,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.6, 0.8, 1, 1.6, 1.8, 2, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jsf84"]
@@ -82,7 +83,7 @@ animation = &"retracted"
 states/raised/node = SubResource("AnimationNodeAnimation_n0f2p")
 states/raised/position = Vector2(81, 196)
 states/retracted/node = SubResource("AnimationNodeAnimation_qlwyd")
-states/retracted/position = Vector2(304, 196)
+states/retracted/position = Vector2(303, 196)
 transitions = ["Start", "raised", SubResource("AnimationNodeStateMachineTransition_yetej"), "raised", "retracted", SubResource("AnimationNodeStateMachineTransition_s81jr"), "retracted", "raised", SubResource("AnimationNodeStateMachineTransition_up88x"), "Start", "retracted", SubResource("AnimationNodeStateMachineTransition_o0mq3")]
 graph_offset = Vector2(-256, 36)
 
@@ -92,8 +93,8 @@ collision_mask = 3
 script = ExtResource("1_ewmvr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dqqjg")
-hframes = 15
+texture = ExtResource("2_c0sad")
+hframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)
@@ -109,8 +110,10 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_jsf84")
-}
 tree_root = SubResource("AnimationNodeStateMachine_8hdx1")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="SecretSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hwhsf")
+volume_db = -15.0
+bus = &"Sound"

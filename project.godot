@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Katgon Dungeon"
-config/version="1.0.1.0"
+config/version="1.1.0-dev"
 run/main_scene="res://menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 run/max_fps=60
@@ -26,6 +26,7 @@ boot_splash/minimum_display_time=100
 PlayerVar="*res://chars/player_var.gd"
 RoomVar="*res://rooms/room_var.gd"
 MusicVar="*res://menu/music.tscn"
+Sound="*res://audio/sound.tscn"
 
 [display]
 

@@ -1,0 +1,193 @@
+[gd_scene load_steps=32 format=3 uid="uid://q0gp3rprivi0"]
+
+[ext_resource type="Script" path="res://audio/sound.gd" id="1_awf0l"]
+[ext_resource type="AudioStream" uid="uid://bmhcwrsj761sa" path="res://assets/audio/shockwave.wav" id="1_h30nq"]
+[ext_resource type="AudioStream" uid="uid://dlc7fadvp00a0" path="res://assets/audio/flameball.wav" id="2_6h8k1"]
+[ext_resource type="AudioStream" uid="uid://bhif4esmslnxb" path="res://assets/audio/button_on.wav" id="3_8bpsu"]
+[ext_resource type="AudioStream" uid="uid://bnnfqqbypoi6" path="res://assets/audio/button_off.wav" id="4_m5gw7"]
+[ext_resource type="AudioStream" uid="uid://dfrldffwgfwrh" path="res://assets/audio/button_fire.wav" id="5_u6s20"]
+[ext_resource type="AudioStream" uid="uid://b1lcot54l0qa7" path="res://assets/audio/twig.wav" id="6_ovwn0"]
+[ext_resource type="AudioStream" uid="uid://c8q02eu1ct4n6" path="res://assets/audio/boulder.wav" id="7_wgqif"]
+[ext_resource type="AudioStream" uid="uid://cl74ni574ysjw" path="res://assets/audio/flameball_hit.wav" id="8_klcw8"]
+[ext_resource type="AudioStream" uid="uid://cpaljekg35nfp" path="res://assets/audio/fire_on.wav" id="9_7meqy"]
+[ext_resource type="AudioStream" uid="uid://doiw2drr8o2x1" path="res://assets/audio/fire_off.wav" id="10_d0wa0"]
+[ext_resource type="AudioStream" uid="uid://1tnqiiqtgn73" path="res://assets/audio/help.wav" id="11_oshbx"]
+[ext_resource type="AudioStream" uid="uid://c0cddqnepjs8i" path="res://assets/audio/melee_kat.wav" id="12_oonws"]
+[ext_resource type="AudioStream" uid="uid://brs6utksigfue" path="res://assets/audio/melee_gon.wav" id="13_nfwon"]
+[ext_resource type="AudioStream" uid="uid://chc4dm1m53rem" path="res://assets/audio/cherry.wav" id="14_d2dag"]
+[ext_resource type="AudioStream" uid="uid://errqo35uthjq" path="res://assets/audio/pawpad.wav" id="15_1cqlj"]
+[ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="16_poim8"]
+[ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="17_fmxyl"]
+[ext_resource type="AudioStream" uid="uid://cj0mieoi7gbu4" path="res://assets/audio/win.wav" id="18_smrmb"]
+[ext_resource type="AudioStream" uid="uid://p3peq4y7yfid" path="res://assets/audio/select.wav" id="19_nor5v"]
+[ext_resource type="AudioStream" uid="uid://bfdr0hdrs2ytm" path="res://assets/audio/cancel.wav" id="20_gusix"]
+[ext_resource type="AudioStream" uid="uid://bw7ykehyj6nu5" path="res://assets/audio/play.wav" id="21_3a773"]
+[ext_resource type="AudioStream" uid="uid://dasov36rdmyw7" path="res://assets/audio/cannot_switch.wav" id="21_65sun"]
+[ext_resource type="AudioStream" uid="uid://bmqvc01a0t8kk" path="res://assets/audio/switch_to_kat.wav" id="22_6p1wn"]
+[ext_resource type="AudioStream" uid="uid://csc7gkl6q2m3y" path="res://assets/audio/quit.wav" id="22_mbduu"]
+[ext_resource type="AudioStream" uid="uid://cbk6k2robh7ry" path="res://assets/audio/switch_to_gon.wav" id="23_5cwdg"]
+[ext_resource type="AudioStream" uid="uid://bvop7hybgyehl" path="res://assets/audio/pause_in.wav" id="23_t377f"]
+[ext_resource type="AudioStream" uid="uid://deduq0c115wjo" path="res://assets/audio/stay_there.wav" id="24_4bri2"]
+[ext_resource type="AudioStream" uid="uid://ccymwbjjsrp1y" path="res://assets/audio/pause_out.wav" id="24_he0uf"]
+[ext_resource type="AudioStream" uid="uid://bfgocc33s3w1s" path="res://assets/audio/follow_me.wav" id="25_ultb6"]
+[ext_resource type="AudioStream" uid="uid://1wxpu64w7jl4" path="res://assets/audio/secret.wav" id="26_qwnbk"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_awf0l")
+
+[node name="AltKat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_h30nq")
+volume_db = -10.0
+pitch_scale = 0.9
+bus = &"Sound"
+
+[node name="AltGon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6h8k1")
+volume_db = -5.0
+pitch_scale = 0.95
+bus = &"Sound"
+
+[node name="ButtonOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8bpsu")
+volume_db = -2.0
+bus = &"Sound"
+
+[node name="ButtonOff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m5gw7")
+volume_db = -2.0
+bus = &"Sound"
+
+[node name="ButtonTorch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_u6s20")
+pitch_scale = 0.9
+bus = &"Sound"
+
+[node name="DestroyTwig" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ovwn0")
+volume_db = -8.0
+bus = &"Sound"
+
+[node name="DestroyBoulder" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wgqif")
+volume_db = -8.0
+bus = &"Sound"
+
+[node name="FlameballHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_klcw8")
+volume_db = -3.0
+pitch_scale = 0.8
+bus = &"Sound"
+
+[node name="FlameRaise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7meqy")
+volume_db = -5.0
+bus = &"Sound"
+
+[node name="FlameRetract" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_d0wa0")
+volume_db = -5.0
+bus = &"Sound"
+
+[node name="Help" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_oshbx")
+volume_db = -10.0
+bus = &"Sound"
+
+[node name="MeleeKat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_oonws")
+volume_db = -5.0
+pitch_scale = 0.75
+bus = &"Sound"
+
+[node name="MeleeGon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_nfwon")
+volume_db = -5.0
+pitch_scale = 0.9
+bus = &"Sound"
+
+[node name="Obtain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_d2dag")
+volume_db = -5.0
+bus = &"Sound"
+
+[node name="Pawpad" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_1cqlj")
+volume_db = -8.0
+pitch_scale = 0.9
+bus = &"Sound"
+
+[node name="Secret" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_qwnbk")
+volume_db = -15.0
+bus = &"Sound"
+
+[node name="SpikeRaise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_poim8")
+volume_db = -5.0
+bus = &"Sound"
+
+[node name="SpikeRetract" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_fmxyl")
+volume_db = -5.0
+bus = &"Sound"
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_smrmb")
+volume_db = -5.0
+pitch_scale = 0.9
+bus = &"Sound"
+
+[node name="NotifSwitchKat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_6p1wn")
+volume_db = -5.0
+pitch_scale = 1.1
+
+[node name="NotifSwitchGon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_5cwdg")
+volume_db = -5.0
+pitch_scale = 0.9
+
+[node name="NotifFollow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_ultb6")
+volume_db = -5.0
+
+[node name="NotifStay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_4bri2")
+volume_db = -5.0
+
+[node name="NotifFail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_65sun")
+volume_db = -5.0
+pitch_scale = 0.85
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_nor5v")
+volume_db = -5.0
+bus = &"Sound"
+
+[node name="MenuCancel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_gusix")
+volume_db = -5.0
+bus = &"Sound"
+
+[node name="MenuStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_3a773")
+volume_db = -12.0
+bus = &"Sound"
+
+[node name="MenuQuit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_mbduu")
+volume_db = -12.0
+bus = &"Sound"
+
+[node name="PauseOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_t377f")
+volume_db = -5.0
+pitch_scale = 0.9
+bus = &"Sound"
+
+[node name="PauseOff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_he0uf")
+volume_db = -5.0
+pitch_scale = 0.9
+bus = &"Sound"
