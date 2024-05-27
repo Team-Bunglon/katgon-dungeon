@@ -1,11 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://c06iuqvf852h1"]
+[gd_scene load_steps=24 format=3 uid="uid://c06iuqvf852h1"]
 
 [ext_resource type="Script" path="res://menu/main_menu.gd" id="1_8iuqm"]
 [ext_resource type="Texture2D" uid="uid://bur71rag8yd7h" path="res://assets/sprites/logo.png" id="1_ueh8b"]
 [ext_resource type="Texture2D" uid="uid://bulwl6vly6e0" path="res://assets/sprites/transition.png" id="2_c7dmo"]
 [ext_resource type="Texture2D" uid="uid://bjq1lse5e3hlr" path="res://assets/sprites/menu_background_2.png" id="3_gbfej"]
 [ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="4_g1hhb"]
+[ext_resource type="Texture2D" uid="uid://cjnllaewc2std" path="res://assets/misc/logo.png" id="4_r6nu7"]
 [ext_resource type="PackedScene" uid="uid://byjv4ks7goban" path="res://menu/main_menu_options.tscn" id="5_67ndb"]
+[ext_resource type="Texture2D" uid="uid://bdx506wlctukn" path="res://assets/misc/fasilkom.png" id="6_wu3jr"]
 
 [sub_resource type="Animation" id="Animation_fqi3v"]
 length = 0.001
@@ -54,6 +56,90 @@ tracks/1/path = NodePath("Transition/TransitionSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transition/Slide1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transition/Slide1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Transition/Slide2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Transition/Slide2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Transition/Slide3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Transition/Slide3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BG:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -144,12 +230,188 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_83x86"]
+resource_name = "slideshow1"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/Slide1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/Slide1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e6jux"]
+resource_name = "slideshow2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/Slide1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/Slide1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transition/Slide2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transition/Slide2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wksrq"]
+resource_name = "slideshow3"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/Slide2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/Slide2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transition/Slide3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transition/Slide3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aq2yk"]
+resource_name = "slideshow4"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/Slide3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/Slide3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BG:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_np8xi"]
 _data = {
 "RESET": SubResource("Animation_o45oo"),
 "slide_in": SubResource("Animation_bsr5w"),
 "slide_in_quit": SubResource("Animation_6klrt"),
-"slide_out": SubResource("Animation_ik080")
+"slide_out": SubResource("Animation_ik080"),
+"slideshow1": SubResource("Animation_83x86"),
+"slideshow2": SubResource("Animation_e6jux"),
+"slideshow3": SubResource("Animation_wksrq"),
+"slideshow4": SubResource("Animation_aq2yk")
 }
 
 [sub_resource type="Animation" id="Animation_838cb"]
@@ -220,6 +482,79 @@ position = Vector2(480, 400)
 scale = Vector2(5, 5)
 texture = ExtResource("2_c7dmo")
 
+[node name="Slide1" type="Control" parent="Transition"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+
+[node name="Logo1" type="Sprite2D" parent="Transition/Slide1"]
+z_index = 301
+texture_filter = 4
+position = Vector2(480, 320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_r6nu7")
+
+[node name="Name" type="Label" parent="Transition/Slide1"]
+z_index = 301
+offset_top = 458.0
+offset_right = 960.0
+offset_bottom = 578.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_g1hhb")
+theme_override_font_sizes/font_size = 100
+text = "Team Bunglon"
+horizontal_alignment = 1
+
+[node name="Slide2" type="Control" parent="Transition"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_right = 38.0
+offset_bottom = 40.0
+
+[node name="Logo2" type="Sprite2D" parent="Transition/Slide2"]
+z_index = 301
+texture_filter = 4
+position = Vector2(482, 416)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_wu3jr")
+
+[node name="Slide3" type="Control" parent="Transition"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_right = 38.0
+offset_bottom = 40.0
+
+[node name="Creator" type="Label" parent="Transition/Slide3"]
+z_index = 301
+offset_top = 115.0
+offset_right = 960.0
+offset_bottom = 673.0
+theme_override_fonts/font = ExtResource("4_g1hhb")
+theme_override_font_sizes/font_size = 40
+text = "All visual assets by Team Bunglon
+Stopwatch addon by Gustavo Lopes 
+Sound effects by Juhani Junkala
+\"No Destination\" and \"Hello, It's Me!\" by Pix"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BG" type="ColorRect" parent="."]
+z_index = 300
+offset_right = 960.0
+offset_bottom = 800.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
 [node name="Background" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_mcwfp")
@@ -230,8 +565,10 @@ z_index = -10
 position = Vector2(455, 505)
 scale = Vector2(10, 10)
 texture = ExtResource("3_gbfej")
+metadata/_edit_lock_ = true
 
 [node name="MainMenuOptions" parent="." instance=ExtResource("5_67ndb")]
+visible = false
 layout_mode = 1
 offset_left = 401.0
 offset_top = 496.0

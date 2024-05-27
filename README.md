@@ -1,3 +1,8 @@
+# DO NOT USE THIS BRANCH
+This branch is not meant for public and only be used for the purpose of exam. If you are 
+
+This branch will be deleted in few weeks after the final s
+
 # Katgon Dungeon
 Note: The browser version is the same as downloadable version. Choose any version as you like.
 
