@@ -1,17 +1,21 @@
-extends Node2D
+extends Control
 
 @export var cherry_text: String = "as well as {c} out of {c_all} golden cherries"
 @export var play_time_text: String = "Game time: {t}"
 @export var survive_time_text: Dictionary = {
 	0: "One month",
 	1: "One month and one week",
-	2: "One month and two weeks",
+	2: "One and a half months",
 	3: "One month and three weeks",
 	4: "Two months",
 	5: "Two months and one week",
-	6: "Two months and two weeks",
+	6: "Two and a half months",
 	7: "Two months and three weeks",
 	8: "Three months",
+	9: "Three months and one week",
+	10: "Three and a half months",
+	11: "Three months and three weeks",
+	12: "Four months",
 }
 @onready var can_select: bool = false
 
@@ -26,17 +30,18 @@ func _ready():
 	})
 	if PlayerVar.cherry < 0:
 		$SurviveTime.text = "You are in debt"
-	elif PlayerVar.cherry <= 8:
+	elif PlayerVar.cherry < len(survive_time_text):
 		$SurviveTime.text = survive_time_text[PlayerVar.cherry]
 	else:
-		$SurviveTime.text = "Three months at least"
+		$SurviveTime.text = "Four months at least"
 	$PlayTime.text = play_time_text.format({
 		"t": PlayerVar.final_time
 	})
 	$Transition.play("slide_out")
 
 func _input(event):
-	if event.is_action_pressed("action_main") and can_select:
+	if event.is_action_pressed("ui_accept") and can_select:
+		Sound.play("MenuSelect")
 		$Transition.play("slide_in")
 	
 func _on_transition_animation_finished(anim_name:StringName):

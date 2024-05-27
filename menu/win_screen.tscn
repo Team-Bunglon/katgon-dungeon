@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://o75tvlllwmr7"]
+[gd_scene load_steps=21 format=3 uid="uid://o75tvlllwmr7"]
 
 [ext_resource type="Script" path="res://menu/win_screen.gd" id="1_sk0o4"]
 [ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="1_ulgt1"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://layq71hxys" path="res://assets/sprites/end_sprite.png" id="3_4sexp"]
 [ext_resource type="Texture2D" uid="uid://c308dt3k6nu7y" path="res://assets/sprites/menu_background.png" id="5_q2nkc"]
 [ext_resource type="Texture2D" uid="uid://bjq1lse5e3hlr" path="res://assets/sprites/menu_background_2.png" id="5_yoeyk"]
-[ext_resource type="AudioStream" uid="uid://p3peq4y7yfid" path="res://assets/audio/select.wav" id="7_cto82"]
 
 [sub_resource type="Animation" id="Animation_o45oo"]
 length = 0.001
@@ -34,18 +33,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SelectSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_bsr5w"]
 resource_name = "slide_in"
@@ -69,18 +56,6 @@ tracks/1/path = NodePath("Transition/TransitionSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SelectSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -230,7 +205,9 @@ _data = {
 "default": SubResource("Animation_tue5g")
 }
 
-[node name="WinScreen" type="Node2D"]
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_sk0o4")
 
 [node name="Transition" type="AnimationPlayer" parent="."]
@@ -312,7 +289,7 @@ offset_right = 960.0
 offset_bottom = 800.0
 theme_override_fonts/font = ExtResource("1_ulgt1")
 theme_override_font_sizes/font_size = 40
-text = "Press Z to continue..."
+text = "Press [Z] to continue..."
 horizontal_alignment = 1
 
 [node name="Background" type="AnimationPlayer" parent="."]
@@ -342,10 +319,6 @@ texture = ExtResource("5_q2nkc")
 libraries = {
 "": SubResource("AnimationLibrary_1bb6q")
 }
-
-[node name="SelectSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_cto82")
-volume_db = -5.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
