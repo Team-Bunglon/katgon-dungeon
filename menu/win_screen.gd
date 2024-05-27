@@ -16,7 +16,7 @@ extends Node2D
 @onready var can_select: bool = false
 
 func _ready():
-	MusicVar.menu_play()
+	Music.play("Menu")
 	$Background.play("default")
 	$EndSprite.play("default")
 	$Continue.visible = false

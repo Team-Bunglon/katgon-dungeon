@@ -32,6 +32,13 @@ theme_override_font_sizes/font_size = 10
 text = "Start
 "
 
+[node name="Options" type="Label" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kqqnq")
+theme_override_font_sizes/font_size = 10
+text = "Options
+"
+
 [node name="Quit" type="Label" parent="Menu"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_kqqnq")

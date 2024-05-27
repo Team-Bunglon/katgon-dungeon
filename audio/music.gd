@@ -1,23 +1,16 @@
 extends Node
-class_name AudioVar
+class_name MusicVar
 
+# Codebase taken from Phantom Striker 
 @export var fade_duration: float = 2.0 ## The duration of which the music would cross fade
-@export var pause_duration: float = 1.0 ## The duration of which the music would fade pause
+@export var pause_duration: float = 0.5 ## The duration of which the music would fade pause
 
 # These two variables should be null on start
 @onready var music_node: AudioStreamPlayer
 @onready var music_prev: AudioStreamPlayer
 @onready var default_db: Dictionary = {}
 
-## Play a soundAudioVar effect. Do NOT play music using this, use music_play().
-func play(audio_name: String):
-	get_node(audio_name).playing = true
-
-func stop(audio_name: String):
-	get_node(audio_name).playing = false
-
-## Use this to play music as well as changing to other music.
-func music_play(music_name: String, is_fading = true):
+func play(music_name: String, is_fading = true):
 	var fade_out_tween := create_tween()
 	var fade_in_tween := create_tween()
 	fade_out_tween.finished.connect(_on_music_faded)
@@ -42,12 +35,12 @@ func music_play(music_name: String, is_fading = true):
 			fade_in_tween.tween_method(_change_music_node_volume, 0.0, 1.0, fade_duration)
 		else:
 			music_node.volume_db = default_db[music_node.name]
-			music_node.stream_paused = false
+			music_prev.volume_db = default_db[music_prev.name]
 			music_node.playing = true
 			music_prev.playing = false
 
 ## Pause the currently played music, use music_play().
-func music_pause(is_fading = true):
+func pause(is_fading = true):
 	if music_node == null:
 		return
 
@@ -60,7 +53,7 @@ func music_pause(is_fading = true):
 		music_node.stream_paused = true
 
 ## If you need to get the currently playing music for some reason, use this.
-func get_currently_playing_music():
+func get_current_music():
 	return music_node
 
 func _change_music_node_volume(value: float):
@@ -70,7 +63,7 @@ func _change_music_prev_volume(value: float):
 	music_prev.volume_db = linear_to_db(value) + default_db[music_prev.name]
 
 func _get_music(music_name: String) -> AudioStreamPlayer:
-	var new_music_node := get_node("Music/" + music_name)
+	var new_music_node := get_node(music_name)
 	if not default_db.has(music_name):
 		default_db[music_name] = new_music_node.volume_db
 	return new_music_node

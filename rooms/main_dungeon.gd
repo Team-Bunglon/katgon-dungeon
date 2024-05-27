@@ -3,7 +3,7 @@ extends Node2D
 func _ready():
 	PlayerVar.load_stuff()
 	RoomVar.load_stuff()
-	MusicVar.dungeon_play()
+	Music.play("Dungeon", false)
 	$CanvasLayer/Transition.play("slide_out")
 
 func _on_room_logger_1_area_entered(area:Area2D):
@@ -20,4 +20,4 @@ func _on_transition_animation_finished(anim_name):
 	if anim_name == "slide_in_restart":
 		get_tree().reload_current_scene()
 	elif anim_name == "slide_in_quit":
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://menu/main_menu.tscn")

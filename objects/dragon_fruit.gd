@@ -17,7 +17,7 @@ func you_win():
 	PlayerVar.get_final_time()
 	PlayerVar.game_run = false
 	PlayerVar.game_complete = true
-	MusicVar.dungeon_stop()
+	Music.stop()
 	var tween := create_tween()
 	tween.tween_property(self, "position", position + Vector2(0,-180), 1)
 	await get_tree().create_timer(2).timeout

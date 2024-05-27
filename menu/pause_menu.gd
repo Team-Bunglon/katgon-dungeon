@@ -9,16 +9,18 @@ func toggle_pause():
 		PlayerVar.is_pausing = true
 		if PlayerVar.is_paused: # Resuming
 			Engine.time_scale = 1
-			$PauseOptions.exit_focus()
+			$PauseMenuOptions.exit_focus()
+			Sound.play("PauseOff")
 			$AnimationPlayer.play("slide_out")
 		else: # Pausing
 			PlayerVar.is_paused = true
-			$PauseOptions.visible = true
-			$PauseOptions.get_focus()
+			$PauseMenuOptions.visible = true
+			$PauseMenuOptions.get_focus()
 			$CherryLabel.text = str(PlayerVar.cherry)
 			$TimeLabel.text = get_current_time()
 			$Map.generate_map()
 			hide_confirm()
+			Sound.play("PauseOn")
 			$AnimationPlayer.play("slide_in")
 
 func get_current_time():
@@ -39,7 +41,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "slide_in":
 		Engine.time_scale = 0
 	elif anim_name == "slide_out":
-		$PauseOptions.visible = false
+		$PauseMenuOptions.visible = false
 		PlayerVar.is_paused = false
 	PlayerVar.is_pausing = false
 

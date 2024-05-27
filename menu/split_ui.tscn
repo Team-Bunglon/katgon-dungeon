@@ -15,14 +15,19 @@ script = ExtResource("1_8jus4")
 
 [node name="SplitText" type="Label" parent="."]
 layout_mode = 0
-offset_top = -5.0
-offset_right = 58.0
-offset_bottom = 18.0
+offset_left = 668.0
+offset_top = -22.0
+offset_right = 958.0
+offset_bottom = 38.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 theme_override_fonts/font = ExtResource("1_nyn50")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 50
 text = "Split to who?"
 
 [node name="SplitUI" type="Sprite2D" parent="."]
-position = Vector2(28, 18)
+position = Vector2(808, 91)
+scale = Vector2(5, 5)
 texture = ExtResource("2_qi5kr")

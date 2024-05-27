@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1jx7d388dq40"]
 
-[ext_resource type="Script" path="res://menu/music.gd" id="1_2wwti"]
+[ext_resource type="Script" path="res://audio/music.gd" id="1_2wwti"]
 [ext_resource type="AudioStream" uid="uid://uwk3bun5pdlo" path="res://assets/audio/dungeon.mp3" id="2_o3kvd"]
 [ext_resource type="AudioStream" uid="uid://b0s23s43vts5g" path="res://assets/audio/menu.mp3" id="3_msqgt"]
 
-[node name="Music" type="Node2D"]
+[node name="Music" type="Node"]
 script = ExtResource("1_2wwti")
 
-[node name="DungeonMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_o3kvd")
-
-[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+[node name="Menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_msqgt")
+
+[node name="Dungeon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o3kvd")

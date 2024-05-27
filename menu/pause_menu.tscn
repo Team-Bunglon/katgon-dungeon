@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bt80iv8mdf3lh"]
+[gd_scene load_steps=12 format=3 uid="uid://bt80iv8mdf3lh"]
 
 [ext_resource type="Script" path="res://addons/stopwatch/Stopwatch.gd" id="1_810n4"]
 [ext_resource type="Script" path="res://menu/pause_menu.gd" id="1_edtn6"]
@@ -6,9 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://baxtleyfbwy23" path="res://assets/sprites/menu_pause.png" id="2_gxehf"]
 [ext_resource type="PackedScene" uid="uid://cr6nijnmmts52" path="res://menu/map.tscn" id="3_e554d"]
 [ext_resource type="Texture2D" uid="uid://dlwq3vsjxxyfa" path="res://assets/sprites/ui.png" id="3_m3pdm"]
-[ext_resource type="PackedScene" uid="uid://bfc6jx8rjqpqb" path="res://menu/pause_options.tscn" id="6_4t27i"]
-[ext_resource type="AudioStream" uid="uid://bvop7hybgyehl" path="res://assets/audio/pause_in.wav" id="8_nwixe"]
-[ext_resource type="AudioStream" uid="uid://ccymwbjjsrp1y" path="res://assets/audio/pause_out.wav" id="9_m0ok4"]
+[ext_resource type="PackedScene" uid="uid://bfc6jx8rjqpqb" path="res://menu/pause_menu_options.tscn" id="7_4c65s"]
 
 [sub_resource type="Animation" id="Animation_tieca"]
 length = 0.001
@@ -36,30 +34,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PauseOn:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PauseOff:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_m2olf"]
 resource_name = "slide_in"
@@ -83,18 +57,6 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PauseOn:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -127,18 +89,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PauseOff:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_78w4f"]
@@ -260,22 +210,12 @@ offset_right = -264.0
 offset_bottom = -363.0
 scale = Vector2(10, 10)
 
-[node name="PauseOptions" parent="." instance=ExtResource("6_4t27i")]
+[node name="PauseMenuOptions" parent="." instance=ExtResource("7_4c65s")]
 layout_mode = 1
 offset_left = 75.0
 offset_top = 481.0
 offset_right = 75.0
 offset_bottom = 481.0
 scale = Vector2(5, 5)
-
-[node name="PauseOn" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_nwixe")
-volume_db = -5.0
-pitch_scale = 0.9
-
-[node name="PauseOff" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_m0ok4")
-volume_db = -5.0
-pitch_scale = 0.9
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,15 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfc6jx8rjqpqb"]
+[gd_scene load_steps=5 format=3 uid="uid://bfc6jx8rjqpqb"]
 
-[ext_resource type="Script" path="res://menu/pause_options.gd" id="1_cc18l"]
-[ext_resource type="Script" path="res://menu/menu.gd" id="2_7mr08"]
-[ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="3_pqwys"]
-[ext_resource type="Texture2D" uid="uid://dasdtv1tofufw" path="res://assets/sprites/ui_cursor.png" id="4_m83v4"]
-[ext_resource type="AudioStream" uid="uid://p3peq4y7yfid" path="res://assets/audio/select.wav" id="5_fbso1"]
-[ext_resource type="AudioStream" uid="uid://bfdr0hdrs2ytm" path="res://assets/audio/cancel.wav" id="6_455tc"]
-[ext_resource type="AudioStream" uid="uid://bw7ykehyj6nu5" path="res://assets/audio/play.wav" id="7_weqqa"]
-[ext_resource type="AudioStream" uid="uid://csc7gkl6q2m3y" path="res://assets/audio/quit.wav" id="8_3shq0"]
+[ext_resource type="Script" path="res://menu/pause_menu_options.gd" id="1_hocqk"]
+[ext_resource type="Script" path="res://menu/menu.gd" id="2_tgs08"]
+[ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="3_m44n5"]
+[ext_resource type="Texture2D" uid="uid://dasdtv1tofufw" path="res://assets/sprites/ui_cursor.png" id="4_wdtve"]
 
-[node name="PauseOptions" type="Control"]
+[node name="PauseMenuOptions" type="Control"]
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
@@ -17,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cc18l")
+script = ExtResource("1_hocqk")
 
 [node name="Menu" type="VBoxContainer" parent="." node_paths=PackedStringArray("pointer")]
 layout_mode = 0
@@ -26,25 +22,25 @@ offset_top = -3.0
 offset_right = 38.0
 offset_bottom = 25.0
 scale = Vector2(0.992402, 1)
-script = ExtResource("2_7mr08")
+script = ExtResource("2_tgs08")
 pointer = NodePath("../Cursor")
 
 [node name="Resume" type="Label" parent="Menu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_pqwys")
+theme_override_fonts/font = ExtResource("3_m44n5")
 theme_override_font_sizes/font_size = 10
 text = "Resume
 "
 
 [node name="Restart" type="Label" parent="Menu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_pqwys")
+theme_override_fonts/font = ExtResource("3_m44n5")
 theme_override_font_sizes/font_size = 10
 text = "Restart"
 
 [node name="Quit" type="Label" parent="Menu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_pqwys")
+theme_override_fonts/font = ExtResource("3_m44n5")
 theme_override_font_sizes/font_size = 10
 text = "Quit
 "
@@ -57,19 +53,19 @@ offset_top = -3.0
 offset_right = 38.0
 offset_bottom = 25.0
 scale = Vector2(0.992402, 1)
-script = ExtResource("2_7mr08")
+script = ExtResource("2_tgs08")
 pointer = NodePath("../Cursor")
 
 [node name="NoQuit" type="Label" parent="ConfirmQuit"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_pqwys")
+theme_override_fonts/font = ExtResource("3_m44n5")
 theme_override_font_sizes/font_size = 10
 text = "No
 "
 
 [node name="YesQuit" type="Label" parent="ConfirmQuit"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_pqwys")
+theme_override_fonts/font = ExtResource("3_m44n5")
 theme_override_font_sizes/font_size = 10
 text = "Yes"
 
@@ -81,39 +77,25 @@ offset_top = -3.0
 offset_right = 38.0
 offset_bottom = 25.0
 scale = Vector2(0.992402, 1)
-script = ExtResource("2_7mr08")
+script = ExtResource("2_tgs08")
 pointer = NodePath("../Cursor")
 
 [node name="NoRestart" type="Label" parent="ConfirmRestart"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_pqwys")
+theme_override_fonts/font = ExtResource("3_m44n5")
 theme_override_font_sizes/font_size = 10
 text = "No
 "
 
 [node name="YesRestart" type="Label" parent="ConfirmRestart"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_pqwys")
+theme_override_fonts/font = ExtResource("3_m44n5")
 theme_override_font_sizes/font_size = 10
 text = "Yes"
 
 [node name="Cursor" type="Sprite2D" parent="."]
 position = Vector2(6, 5)
-texture = ExtResource("4_m83v4")
-
-[node name="SelectSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_fbso1")
-
-[node name="CancelSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_455tc")
-
-[node name="RestartSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_weqqa")
-volume_db = -15.0
-
-[node name="QuitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_3shq0")
-volume_db = -15.0
+texture = ExtResource("4_wdtve")
 
 [connection signal="do_item" from="Menu" to="." method="_on_menu_do_item"]
 [connection signal="do_item" from="ConfirmQuit" to="." method="_on_menu_do_item"]

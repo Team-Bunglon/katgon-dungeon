@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c06iuqvf852h1"]
+[gd_scene load_steps=18 format=3 uid="uid://c06iuqvf852h1"]
 
 [ext_resource type="Script" path="res://menu/main_menu.gd" id="1_8iuqm"]
 [ext_resource type="Texture2D" uid="uid://bur71rag8yd7h" path="res://assets/sprites/logo.png" id="1_ueh8b"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bjq1lse5e3hlr" path="res://assets/sprites/menu_background_2.png" id="3_gbfej"]
 [ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="4_g1hhb"]
 [ext_resource type="PackedScene" uid="uid://byjv4ks7goban" path="res://menu/main_menu_options.tscn" id="5_67ndb"]
-[ext_resource type="AudioStream" uid="uid://bw7ykehyj6nu5" path="res://assets/audio/play.wav" id="7_pw03u"]
-[ext_resource type="AudioStream" uid="uid://csc7gkl6q2m3y" path="res://assets/audio/quit.wav" id="8_xbyj6"]
 
 [sub_resource type="Animation" id="Animation_fqi3v"]
 length = 0.001
@@ -193,7 +191,9 @@ _data = {
 "default": SubResource("Animation_gfj0y")
 }
 
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_8iuqm")
 
 [node name="Timer" type="Timer" parent="."]
@@ -232,13 +232,15 @@ scale = Vector2(10, 10)
 texture = ExtResource("3_gbfej")
 
 [node name="MainMenuOptions" parent="." instance=ExtResource("5_67ndb")]
-offset_left = 400.0
-offset_top = 560.0
-offset_right = 400.0
-offset_bottom = 560.0
+layout_mode = 1
+offset_left = 401.0
+offset_top = 496.0
+offset_right = 401.0
+offset_bottom = 509.0
 scale = Vector2(5, 5)
 
 [node name="Version" type="Label" parent="."]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 748.0
 offset_right = 967.0
@@ -248,13 +250,7 @@ theme_override_font_sizes/font_size = 40
 text = "v"
 vertical_alignment = 2
 
-[node name="SelectSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_pw03u")
-volume_db = -15.0
-
-[node name="QuitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_xbyj6")
-volume_db = -15.0
-
 [connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]
-[connection signal="press_start" from="MainMenuOptions" to="." method="_on_main_menu_options_press_start"]
+[connection signal="options" from="MainMenuOptions" to="." method="_on_main_menu_options_options"]
+[connection signal="quit" from="MainMenuOptions" to="." method="_on_main_menu_options_quit"]
+[connection signal="start" from="MainMenuOptions" to="." method="_on_main_menu_options_start"]

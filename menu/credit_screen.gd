@@ -1,6 +1,5 @@
-extends Node2D
-@onready var wait_time: float = 0.5
-@onready var can_select: bool = false
+extends Control
+class_name Credit
 
 func _ready():
 	$Background.play("default")
@@ -8,16 +7,12 @@ func _ready():
 	$Transition.play("slide_out")
 
 func _input(event):
-	if event.is_action_pressed("action_main") and can_select:
+	if event.is_action_pressed("ui_accept") and not $Transition.is_playing():
+		Sound.play("MenuQuit")
 		$Transition.play("slide_in")
 
 func _on_transition_animation_finished(anim_name:StringName):
 	if anim_name == "slide_in":
 		get_tree().change_scene_to_file("res://menu/main_menu.tscn")
-
-func _on_timer_timeout():
-	can_select = true
-	$TextPlayer.play("default")
-
-
-
+	elif anim_name == "slide_out":
+		$TextPlayer.play("default")
