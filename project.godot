@@ -404,6 +404,8 @@ follow_mode={
 2d_physics/layer_5="Pawpad"
 2d_physics/layer_6="Partner Flame"
 2d_physics/layer_7="Partner Frostfire"
+2d_physics/layer_8="Player1 Cheat"
+2d_physics/layer_9="Player2 Cheat"
 
 [rendering]
 

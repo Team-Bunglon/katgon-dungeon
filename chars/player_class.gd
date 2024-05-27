@@ -73,6 +73,9 @@ signal cannot_split()
 ## Emitted when pause button is pressed
 signal pause_signal()
 
+## Emitted when the cheat input is detected
+signal do_cheat(enable: bool)
+
 func _ready():
 	anim.set(move, direction_start)
 	anim.set(idle, direction_start)

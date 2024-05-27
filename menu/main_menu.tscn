@@ -500,6 +500,7 @@ texture = ExtResource("4_r6nu7")
 
 [node name="Name" type="Label" parent="Transition/Slide1"]
 z_index = 301
+layout_mode = 0
 offset_top = 458.0
 offset_right = 960.0
 offset_bottom = 578.0
@@ -536,6 +537,7 @@ offset_bottom = 40.0
 
 [node name="Creator" type="Label" parent="Transition/Slide3"]
 z_index = 301
+layout_mode = 0
 offset_top = 115.0
 offset_right = 960.0
 offset_bottom = 673.0
@@ -550,6 +552,7 @@ vertical_alignment = 1
 
 [node name="BG" type="ColorRect" parent="."]
 z_index = 300
+layout_mode = 0
 offset_right = 960.0
 offset_bottom = 800.0
 color = Color(0, 0, 0, 1)

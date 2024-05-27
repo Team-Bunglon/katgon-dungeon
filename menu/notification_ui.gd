@@ -9,7 +9,9 @@ class_name NotificationUI
 		4: ["Follow me!"	, Color("FFFFFF"), "NotifFollow"],
 		5: ["Stay there!"	, Color("FF0000"), "NotifStay"],
 		6: ["Cannot Split!"	, Color("FF0000"), "NotifFail"],
-		7: ["Where's your friend?", Color("FF0000"), "NotifFail"]
+		7: ["Where's your friend?"	, Color("FF0000"), "NotifFail"],
+		8: ["Cheat Activated"		, Color("FFFFFF"), "NotifFollow"],
+		9: ["Cheat Deactivated"		, Color("FFFFFF"), "NotifStay"],
 }
 
 func notif(message: int):
@@ -40,4 +42,8 @@ func _on_dragon_fruit_on_collected(collect_status:bool):
 	if not collect_status:
 		notif(7)
 
-
+func _on_player_1_do_cheat(enable:bool):
+	if enable:
+		notif(8)
+	else:
+		notif(9)

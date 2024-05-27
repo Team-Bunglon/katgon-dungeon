@@ -1,7 +1,7 @@
 extends Control
 class_name MainMenu
 
-@onready var can_skip := false
+@onready var can_skip := true
 
 func _ready():
 	$Version.text = $Version.text + ProjectSettings.get_setting("application/config/version")
@@ -11,8 +11,13 @@ func _ready():
 	$Transition.play("slideshow1")
 
 func _input(event):
-	if event.is_action_pressed("ui_accept") and $Transition.is_playing():
+	if event.is_action_pressed("ui_accept") and $Transition.is_playing() and can_skip:
+		can_skip = false
+
 		$Transition.stop()
+		$Transition/TransitionSprite.z_index = 301
+
+		await(get_tree().create_timer(0.3).timeout)
 		_show_main_menu()
 
 func _show_main_menu():

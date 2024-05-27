@@ -9,6 +9,54 @@ extends PlayerClass
 @onready var pause_menu: Control
 @onready var has_switched: bool = false
 
+# A shoddy implementation for cheat code.
+# While technically only Kat registers your input for cheat code.
+# She will still react to any input regardless of her leader status.
+var cheat: int = 0
+var cheat_enabled: bool = false
+var cheat_procedure: bool = true
+
+func _input(event):
+	if event.is_action_pressed("move_up") and cheat == 0:
+		cheat_procedure = true
+		cheat += 1
+	elif event.is_action_pressed("move_up") and cheat == 1:
+		cheat += 1
+	elif event.is_action_pressed("move_down") and cheat == 2:
+		cheat += 1
+	elif event.is_action_pressed("move_down") and cheat == 3:
+		cheat += 1
+	elif event.is_action_pressed("move_left") and cheat == 4:
+		cheat += 1
+	elif event.is_action_pressed("move_right") and cheat == 5:
+		cheat += 1
+	elif event.is_action_pressed("move_left") and cheat == 6:
+		cheat += 1
+	elif event.is_action_pressed("move_right") and cheat == 7:
+		cheat += 1
+	elif event.is_action_pressed("action_alt") and cheat == 8:
+		cheat += 1
+	elif event.is_action_pressed("action_main") and cheat == 9:
+		if cheat_enabled:
+			self.collision_layer = 1
+			self.collision_mask = 1
+			partner.collision_layer = 2
+			partner.collision_mask = 2
+			cheat_enabled = false
+		else:
+			self.collision_layer = 128
+			self.collision_mask = 128
+			partner.collision_layer = 256
+			partner.collision_mask = 256
+			cheat_enabled = true
+		do_cheat.emit(cheat_enabled)
+		cheat = 0
+	elif event.is_released():
+		print("") 
+	else:
+		cheat = 0
+	print(cheat)
+
 func _ready():
 	collision_mask_as_partner = 32
 	roomd = $RoomDetector1
