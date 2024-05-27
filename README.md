@@ -1,7 +1,5 @@
-# DO NOT USE THIS BRANCH
-This branch is not meant for public and only be used for the purpose of exam. If you are 
-
-This branch will be deleted in few weeks after the final s
+# THIS IS A BRANCH MEANT FOR FINAL EXAM ONLY!
+This branch is not meant for public and only be used for the purpose of final exam for my gamedev class. It will be deleted in few weeks after the final exam grade has been released.
 
 # Katgon Dungeon
 Note: The browser version is the same as downloadable version. Choose any version as you like.
