@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bphw5ycklgj8g" path="res://assets/sprites/dungeon_void.png" id="4_i3o3n"]
 [ext_resource type="PackedScene" uid="uid://c8reqbfdrj4vu" path="res://objects/cherry.tscn" id="5_noayq"]
 [ext_resource type="PackedScene" uid="uid://bc41dh6rchx4h" path="res://objects/spike_flame.tscn" id="6_bjrxv"]
-[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_fire.tscn" id="6_wkx04"]
+[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_torch.tscn" id="6_wkx04"]
 [ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="6_x8fp8"]
 [ext_resource type="PackedScene" uid="uid://cfq44csco8u8u" path="res://objects/twig.tscn" id="7_o27g4"]
 [ext_resource type="PackedScene" uid="uid://br07j38r86m86" path="res://objects/pawpad.tscn" id="9_7jqlj"]

@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="3_xxuic"]
 [ext_resource type="PackedScene" uid="uid://rm5850pxwruu" path="res://objects/help.tscn" id="5_uxb78"]
 [ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="8_nq3ne"]
-[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_fire.tscn" id="9_jyo0q"]
+[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_torch.tscn" id="9_jyo0q"]
 [ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="9_kmn43"]
 [ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="10_6bybd"]
 [ext_resource type="PackedScene" uid="uid://bk6b04e53a0k3" path="res://objects/button_toggle.tscn" id="11_bkslp"]

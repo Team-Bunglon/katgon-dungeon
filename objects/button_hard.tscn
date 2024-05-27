@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://diovs288wpi6g"]
+[gd_scene load_steps=4 format=3 uid="uid://diovs288wpi6g"]
 
 [ext_resource type="Script" path="res://objects/button.gd" id="1_lyyrr"]
 [ext_resource type="Texture2D" uid="uid://b20h7lprwueq1" path="res://assets/sprites/button_grey.png" id="2_mhyqo"]
-[ext_resource type="AudioStream" uid="uid://bhif4esmslnxb" path="res://assets/audio/button_on.wav" id="3_532en"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
 size = Vector2(16, 16)
@@ -19,6 +18,3 @@ hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yvgp7")
-
-[node name="ButtonOnSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_532en")

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bvx7aivjbpehq" path="res://objects/spike_frostfire.tscn" id="7_g6o6x"]
 [ext_resource type="PackedScene" uid="uid://drsm3d7wcdipv" path="res://objects/pressure.tscn" id="8_8r5pp"]
 [ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="8_63fvm"]
-[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_fire.tscn" id="9_ewmyn"]
+[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_torch.tscn" id="9_ewmyn"]
 [ext_resource type="PackedScene" uid="uid://ddcretk1ehd4p" path="res://objects/ledge.tscn" id="9_impcu"]
 [ext_resource type="PackedScene" uid="uid://bc41dh6rchx4h" path="res://objects/spike_flame.tscn" id="13_3r372"]
 [ext_resource type="AudioStream" uid="uid://cpaljekg35nfp" path="res://assets/audio/fire_on.wav" id="15_fb6t3"]

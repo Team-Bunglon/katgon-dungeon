@@ -5,13 +5,11 @@ class_name Destructible
 
 @export var boulder_sound: bool = false ## Play "DestoryBoulder" instead of "DestroyTwig" as defined in [SoundVar]
 @onready var state = $AnimationTree.get("parameters/playback")
-var sound: String = ""
+
+var sound: String = "DestroyTwig"
 	
 func _ready():
-	if boulder_sound: 
-		sound = "DestroyBoulder"
-	else:
-		sound = "DestroyTwig"
+	if boulder_sound: sound = "DestroyBoulder"
 
 func hit():
 	Sound.play(sound)

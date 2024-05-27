@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_dgvn2"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="3_a4ljb"]
 [ext_resource type="Texture2D" uid="uid://bphw5ycklgj8g" path="res://assets/sprites/dungeon_void.png" id="4_tbr2w"]
-[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_fire.tscn" id="5_4esi2"]
+[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_torch.tscn" id="5_4esi2"]
 [ext_resource type="PackedScene" uid="uid://bvx7aivjbpehq" path="res://objects/spike_frostfire.tscn" id="6_bpp3s"]
 [ext_resource type="PackedScene" uid="uid://dnh8j7mw0tcny" path="res://objects/button.tscn" id="6_mhx77"]
 [ext_resource type="PackedScene" uid="uid://bc41dh6rchx4h" path="res://objects/spike_flame.tscn" id="6_qhu2e"]

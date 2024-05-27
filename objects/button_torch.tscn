@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://4ftym1c5le2g"]
+[gd_scene load_steps=13 format=3 uid="uid://4ftym1c5le2g"]
 
-[ext_resource type="Script" path="res://objects/button_fire.gd" id="1_t3nsa"]
-[ext_resource type="Texture2D" uid="uid://bro0pjokb7aw0" path="res://assets/sprites/button_fire.png" id="2_g2h62"]
-[ext_resource type="AudioStream" uid="uid://dfrldffwgfwrh" path="res://assets/audio/button_fire.wav" id="3_tyv63"]
+[ext_resource type="Script" path="res://objects/button.gd" id="1_ife2m"]
+[ext_resource type="Texture2D" uid="uid://bro0pjokb7aw0" path="res://assets/sprites/button_fire.png" id="2_ttslv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
 size = Vector2(16, 16)
@@ -85,10 +84,11 @@ graph_offset = Vector2(-36.2254, 0)
 y_sort_enabled = true
 collision_layer = 7
 collision_mask = 7
-script = ExtResource("1_t3nsa")
+script = ExtResource("1_ife2m")
+torch_sound = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_g2h62")
+texture = ExtResource("2_ttslv")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -102,7 +102,3 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_xs3c7")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="ButtonOnSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_tyv63")
-pitch_scale = 0.9

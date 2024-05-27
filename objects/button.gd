@@ -4,12 +4,17 @@ extends StaticBody2D
 ## The name MUST include #num at the end and it has to be unique for the whole project.
 class_name ButtonTile
 
-@export var target_name: Array[String]
+@export var target_name: Array[String]	## The name of the target [SpikeTile] objects this button should interact with when being hit.
+@export var torch_sound: bool = false	## Play "ButtonTorch" instead of "ButtonOn" as defined in [SoundVar]
 @onready var number = get_number()
 @onready var target_node: Array[SpikeTile]
 @onready var has_pressed: bool = false
+
+var sound: String = "ButtonOn"
 	
 func _ready():
+	if torch_sound:
+		sound = "ButtonTorch"
 	for n in target_name:
 		target_node.append(get_tree().get_root().find_child(n, true, false))
 	RoomVar.button_states[number] = false
@@ -17,7 +22,7 @@ func _ready():
 func hit():
 	$Sprite2D.frame = 1
 	if not has_pressed:
-		$ButtonOnSound.play()
+		Sound.play(sound)
 		has_pressed = true
 	RoomVar.button_states[number] = true
 	for n in target_node:
@@ -27,6 +32,4 @@ func get_number():
 	if "#" in name:
 		return int(name.get_slice("#",1))
 	else:
-		assert(false, "You forgot to put #int after a button name.")
-
-
+		return name.to_int()

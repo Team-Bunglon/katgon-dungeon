@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="2_ek2qt"]
 [ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="3_ew633"]
 [ext_resource type="PackedScene" uid="uid://rm5850pxwruu" path="res://objects/help.tscn" id="5_aql1y"]
-[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_fire.tscn" id="8_wnsp2"]
+[ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_torch.tscn" id="8_wnsp2"]
 [ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="8_y40e7"]
 [ext_resource type="PackedScene" uid="uid://drsm3d7wcdipv" path="res://objects/pressure.tscn" id="10_3w28h"]
 [ext_resource type="PackedScene" uid="uid://wvp6btbsoc63" path="res://objects/ash.tscn" id="11_jym8i"]
