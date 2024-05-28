@@ -1,9 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2hguu1bp1b0y"]
+[gd_scene load_steps=22 format=3 uid="uid://c2hguu1bp1b0y"]
 
 [ext_resource type="Script" path="res://objects/spike.gd" id="1_bj6fr"]
 [ext_resource type="Texture2D" uid="uid://xwymw4vq2urx" path="res://assets/sprites/spike.png" id="2_kc2is"]
-[ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="3_4dkqd"]
-[ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="4_kwgso"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
 size = Vector2(16, 16)
@@ -21,30 +19,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RaiseSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RetractSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_33jpe"]
@@ -78,18 +52,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [2, 1, 0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("RaiseSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_868pr"]
 resource_name = "retracted"
@@ -121,18 +83,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("RetractSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_na76p"]
@@ -208,19 +158,8 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_na76p")
-}
 tree_root = SubResource("AnimationNodeStateMachine_xs3c7")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_4dkqd")
-volume_db = -5.0
-
-[node name="RetractSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_kwgso")
-volume_db = -5.0
 
 [node name="BodyDetector" type="Area2D" parent="."]
 collision_layer = 3

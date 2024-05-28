@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dlax4aaksdgt3"]
 
-[ext_resource type="Script" path="res://rooms/room18.gd" id="1_h21fb"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_uyq0x"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_2l8or"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="3_uknlm"]
 [ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="4_wtfex"]
@@ -18,7 +18,7 @@
 size = Vector2(960, 800)
 
 [node name="Room18" type="Node2D"]
-script = ExtResource("1_h21fb")
+script = ExtResource("1_uyq0x")
 room_name = "The Truth Is UP There"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -160,5 +160,3 @@ volume_db = -5.0
 [node name="RetractSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_n0ef5")
 volume_db = -5.0
-
-[connection signal="state_changed" from="Interactibles/SpikeExact#181" to="." method="_on_spike_exact_181_state_changed"]

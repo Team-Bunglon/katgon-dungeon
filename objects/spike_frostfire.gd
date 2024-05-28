@@ -1,4 +1,5 @@
 extends SpikeTile
+class_name SpikeFrostfire
 
 func _ready():
 	raise_layer = collision_layer

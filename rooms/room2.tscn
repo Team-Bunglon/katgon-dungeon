@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cljros4xq40ad"]
 
-[ext_resource type="Script" path="res://rooms/room2.gd" id="1_ed27s"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_cqg4r"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_oe5b2"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="2_q3p0o"]
 [ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="4_dt57a"]
@@ -13,7 +13,7 @@
 size = Vector2(960, 800)
 
 [node name="Room2" type="Node2D"]
-script = ExtResource("1_ed27s")
+script = ExtResource("1_cqg4r")
 room_name = "The First Conundrum"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -72,5 +72,3 @@ volume_db = -5.0
 [node name="RetractSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_i31wd")
 volume_db = -5.0
-
-[connection signal="state_changed" from="Interactibles/Spike#21" to="." method="_on_spike_21_state_changed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dov2wj5m78hp3"]
 
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_50top"]
-[ext_resource type="Script" path="res://rooms/room8.gd" id="1_kgl7t"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_eqmfj"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="2_ek2qt"]
 [ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="3_ew633"]
 [ext_resource type="PackedScene" uid="uid://rm5850pxwruu" path="res://objects/help.tscn" id="5_aql1y"]
@@ -17,7 +17,7 @@
 size = Vector2(960, 800)
 
 [node name="Room8" type="Node2D"]
-script = ExtResource("1_kgl7t")
+script = ExtResource("1_eqmfj")
 room_name = "Split Brain"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -108,6 +108,3 @@ volume_db = -5.0
 [node name="RetractSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_nlo23")
 volume_db = -5.0
-
-[connection signal="state_changed" from="Interactibles/Spike#81" to="." method="_on_spike_81_state_changed"]
-[connection signal="state_changed" from="Interactibles/Spike#83" to="." method="_on_spike_83_state_changed"]

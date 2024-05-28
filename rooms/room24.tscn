@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://ckfby43sb0nlp"]
 
-[ext_resource type="Script" path="res://rooms/room24.gd" id="1_qmrxq"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_tpqf7"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_ppjsl"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="3_6072c"]
 [ext_resource type="Texture2D" uid="uid://bphw5ycklgj8g" path="res://assets/sprites/dungeon_void.png" id="4_1oift"]
@@ -225,7 +225,7 @@ sources/0 = SubResource("TileSetAtlasSource_cl46a")
 size = Vector2(960, 800)
 
 [node name="Room24" type="Node2D"]
-script = ExtResource("1_qmrxq")
+script = ExtResource("1_tpqf7")
 room_name = "Rubble on the Double"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -474,6 +474,3 @@ volume_db = -5.0
 [node name="RetractFlameSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_j3b13")
 volume_db = -5.0
-
-[connection signal="state_changed" from="Interactibles/SpikeFrostfire#241" to="." method="_on_spike_frostfire_241_state_changed"]
-[connection signal="state_changed" from="Interactibles/Spike#241" to="." method="_on_spike_241_state_changed"]

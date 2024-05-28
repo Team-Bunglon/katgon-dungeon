@@ -1,9 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://bc41dh6rchx4h"]
+[gd_scene load_steps=21 format=3 uid="uid://bc41dh6rchx4h"]
 
-[ext_resource type="Script" path="res://objects/spike_flame.gd" id="1_l8yqx"]
+[ext_resource type="Script" path="res://objects/spike.gd" id="1_co46k"]
 [ext_resource type="Texture2D" uid="uid://0iibhb5illty" path="res://assets/sprites/spike_flame.png" id="2_2bju5"]
-[ext_resource type="AudioStream" uid="uid://cpaljekg35nfp" path="res://assets/audio/fire_on.wav" id="3_7klan"]
-[ext_resource type="AudioStream" uid="uid://doiw2drr8o2x1" path="res://assets/audio/fire_off.wav" id="4_jumyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
 size = Vector2(16, 16)
@@ -21,30 +19,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RaiseSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RetractSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_33jpe"]
@@ -79,18 +53,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [3, 2]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("RaiseSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_868pr"]
 resource_name = "retracted"
@@ -122,18 +84,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("RetractSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_na76p"]
@@ -189,7 +139,8 @@ graph_offset = Vector2(-35.2176, -53.9303)
 y_sort_enabled = true
 collision_layer = 45
 collision_mask = 45
-script = ExtResource("1_l8yqx")
+script = ExtResource("1_co46k")
+flame_sound = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_2bju5")
@@ -206,16 +157,5 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_na76p")
-}
 tree_root = SubResource("AnimationNodeStateMachine_xs3c7")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_7klan")
-volume_db = -5.0
-
-[node name="RetractSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_jumyy")
-volume_db = -5.0

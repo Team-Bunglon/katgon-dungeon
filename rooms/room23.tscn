@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dnvotpq6cchi2"]
 
-[ext_resource type="Script" path="res://rooms/room23.gd" id="1_dkbld"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_wo8ti"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_ucykr"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="3_j8nql"]
 [ext_resource type="Texture2D" uid="uid://bphw5ycklgj8g" path="res://assets/sprites/dungeon_void.png" id="4_7bjmx"]
@@ -193,7 +193,7 @@ sources/0 = SubResource("TileSetAtlasSource_cl46a")
 size = Vector2(960, 800)
 
 [node name="Room23" type="Node2D"]
-script = ExtResource("1_dkbld")
+script = ExtResource("1_wo8ti")
 room_name = "And Stanley Pushed a Button"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -386,5 +386,3 @@ volume_db = -5.0
 [node name="RetractFlameSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_56du0")
 volume_db = -5.0
-
-[connection signal="state_changed" from="Interactibles/SpikeFlame#230" to="." method="_on_spike_flame_230_state_changed"]

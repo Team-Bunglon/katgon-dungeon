@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://dlgit7572n2ly"]
 
-[ext_resource type="Script" path="res://rooms/room22.gd" id="1_lxi34"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_3ycu5"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_nfidt"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="3_dymp1"]
 [ext_resource type="Texture2D" uid="uid://bphw5ycklgj8g" path="res://assets/sprites/dungeon_void.png" id="4_laru2"]
@@ -197,7 +197,7 @@ sources/0 = SubResource("TileSetAtlasSource_cl46a")
 size = Vector2(960, 800)
 
 [node name="Room22" type="Node2D"]
-script = ExtResource("1_lxi34")
+script = ExtResource("1_3ycu5")
 room_name = "Dante's Inferno"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -455,5 +455,3 @@ stream = ExtResource("16_lj71l")
 volume_db = -5.0
 
 [connection signal="state_changed_dual" from="Interactibles/SpikeDual#2201" to="." method="_on_spike_dual_2201_state_changed_dual"]
-[connection signal="state_changed" from="Interactibles/SpikeFrostfire#600" to="." method="_on_spike_frostfire_600_state_changed"]
-[connection signal="state_changed" from="Interactibles/Spike#2220" to="." method="_on_spike_2220_state_changed"]

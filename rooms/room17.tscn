@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cqe7xck526txi"]
 
-[ext_resource type="Script" path="res://rooms/room17.gd" id="1_as08b"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_bwpbr"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_35b00"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="3_gkjgo"]
 [ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="4_d4575"]
@@ -15,7 +15,7 @@
 size = Vector2(960, 800)
 
 [node name="Room17" type="Node2D"]
-script = ExtResource("1_as08b")
+script = ExtResource("1_bwpbr")
 room_name = "Too Much Water"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -114,6 +114,3 @@ volume_db = -5.0
 [node name="RetractSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_4a1i4")
 volume_db = -5.0
-
-[connection signal="state_changed" from="Interactibles/Spike#172" to="." method="_on_spike_172_state_changed"]
-[connection signal="state_changed" from="Interactibles/Spike#174" to="." method="_on_spike_174_state_changed"]

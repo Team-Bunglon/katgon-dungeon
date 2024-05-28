@@ -1,4 +1,5 @@
 extends SpikeTile
+class_name SpikeDual
 
 @onready var flame_layer: int = 13
 @onready var frost_layer: int = 14

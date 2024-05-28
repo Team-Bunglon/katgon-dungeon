@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://lrfmu5orlpi2"]
 
-[ext_resource type="Script" path="res://rooms/room20.gd" id="1_p0jcr"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_aa5jr"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_dgvn2"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="3_a4ljb"]
 [ext_resource type="Texture2D" uid="uid://bphw5ycklgj8g" path="res://assets/sprites/dungeon_void.png" id="4_tbr2w"]
@@ -193,7 +193,7 @@ sources/0 = SubResource("TileSetAtlasSource_cl46a")
 size = Vector2(960, 800)
 
 [node name="Room20" type="Node2D"]
-script = ExtResource("1_p0jcr")
+script = ExtResource("1_aa5jr")
 room_name = "Kevin"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -319,6 +319,3 @@ volume_db = -5.0
 [node name="RetractFlameSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_bu23j")
 volume_db = -5.0
-
-[connection signal="state_changed" from="Interactibles/SpikeFlame#201" to="." method="_on_spike_flame_201_state_changed"]
-[connection signal="state_changed" from="Interactibles/SpikeFrostfire#201" to="." method="_on_spike_frostfire_201_state_changed"]

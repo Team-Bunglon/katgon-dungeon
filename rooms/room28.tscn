@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://jjtu62djvd5l"]
 
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_2lhnl"]
-[ext_resource type="Script" path="res://rooms/room28.gd" id="1_uedn6"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_42nb7"]
 [ext_resource type="PackedScene" uid="uid://c8reqbfdrj4vu" path="res://objects/cherry.tscn" id="3_6fud6"]
 [ext_resource type="PackedScene" uid="uid://ct308u7s7ao1g" path="res://objects/serious_table.tscn" id="3_3208e"]
 [ext_resource type="PackedScene" uid="uid://krty8ka2tm0k" path="res://objects/pressure_hard.tscn" id="5_opvq7"]
@@ -11,7 +11,7 @@
 size = Vector2(960, 800)
 
 [node name="Room28" type="Node2D"]
-script = ExtResource("1_uedn6")
+script = ExtResource("1_42nb7")
 room_name = "Island of Desolation"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -48,5 +48,3 @@ target_name = Array[String](["SeriousTable#666"])
 [node name="SecretSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2mbhd")
 volume_db = -15.0
-
-[connection signal="state_changed" from="Interactibles/SeriousTable#666" to="." method="_on_serious_table_666_state_changed"]

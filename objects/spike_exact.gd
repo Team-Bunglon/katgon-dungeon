@@ -1,4 +1,5 @@
 extends SpikeTile
+class_name SpikeExact
 
 ## The spike would only get to the other state if, and only if, every button matches
 ## the exact condition that has been given to number_button and number_button_opposite.

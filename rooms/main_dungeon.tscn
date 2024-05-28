@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://creymgxgbcbws"]
+[gd_scene load_steps=52 format=3 uid="uid://creymgxgbcbws"]
 
 [ext_resource type="Script" path="res://objects/camera.gd" id="1_1bu86"]
 [ext_resource type="Script" path="res://rooms/main_dungeon.gd" id="1_vgy57"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://jjtu62djvd5l" path="res://rooms/room28.tscn" id="11_ao1kn"]
 [ext_resource type="PackedScene" uid="uid://dg6gt2ihxhr8x" path="res://objects/dragon_fruit.tscn" id="11_wufi4"]
 [ext_resource type="PackedScene" uid="uid://d2wehg66gsll8" path="res://rooms/room6.tscn" id="13_uam18"]
+[ext_resource type="PackedScene" uid="uid://bsroladvw0jtb" path="res://rooms/room0.tscn" id="14_gqu2o"]
 [ext_resource type="PackedScene" uid="uid://ca2kiihrfbk3f" path="res://rooms/room7.tscn" id="17_uaf8x"]
 [ext_resource type="PackedScene" uid="uid://dov2wj5m78hp3" path="res://rooms/room8.tscn" id="19_5t6uq"]
 [ext_resource type="PackedScene" uid="uid://004f0tlb40pe" path="res://rooms/room9.tscn" id="20_o1vdl"]
@@ -361,6 +362,9 @@ shape = SubResource("CircleShape2D_2mir2")
 [node name="DragonFruit" parent="." instance=ExtResource("11_wufi4")]
 position = Vector2(3360, -1241)
 scale = Vector2(5, 5)
+
+[node name="Room#0" parent="." instance=ExtResource("14_gqu2o")]
+position = Vector2(-960, -1)
 
 [node name="Room#1" parent="." instance=ExtResource("4_6kxrr")]
 z_index = -10

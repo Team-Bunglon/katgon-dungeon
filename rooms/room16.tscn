@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://eru3wgjygemr"]
 
-[ext_resource type="Script" path="res://rooms/room16.gd" id="1_dhyuo"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_l7mov"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_r24ft"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="3_jur7y"]
 [ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="4_44krb"]
@@ -17,7 +17,7 @@
 size = Vector2(960, 800)
 
 [node name="Room16" type="Node2D"]
-script = ExtResource("1_dhyuo")
+script = ExtResource("1_l7mov")
 room_name = "Easy Come, Easy Go"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -120,5 +120,3 @@ volume_db = -5.0
 [node name="RetractSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_hst2o")
 volume_db = -5.0
-
-[connection signal="state_changed" from="Interactibles/Spike#162" to="." method="_on_spike_162_state_changed"]

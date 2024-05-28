@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c3u4fkcuerib5"]
 
-[ext_resource type="Script" path="res://rooms/room21.gd" id="1_a1iij"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_qtj8o"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_rakci"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="3_vrp72"]
 [ext_resource type="Texture2D" uid="uid://bphw5ycklgj8g" path="res://assets/sprites/dungeon_void.png" id="4_6kuc1"]
@@ -191,7 +191,7 @@ sources/0 = SubResource("TileSetAtlasSource_cl46a")
 size = Vector2(960, 800)
 
 [node name="Room21" type="Node2D"]
-script = ExtResource("1_a1iij")
+script = ExtResource("1_qtj8o")
 room_name = "Victory Ahead"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -302,7 +302,3 @@ volume_db = -4.0
 [node name="RetractSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_xd375")
 volume_db = -4.0
-
-[connection signal="state_changed" from="Interactibles/Spike#214" to="." method="_on_spike_214_state_changed"]
-[connection signal="state_changed" from="Interactibles/Spike#215" to="." method="_on_spike_215_state_changed"]
-[connection signal="state_changed" from="Interactibles/Spike#216" to="." method="_on_spike_216_state_changed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bvhw3ccn3htiu"]
 
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_2mnju"]
-[ext_resource type="Script" path="res://rooms/room10.gd" id="1_3se6g"]
+[ext_resource type="Script" path="res://rooms/room_class.gd" id="1_4j1eb"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="2_4jjln"]
 [ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="3_eu2b8"]
 [ext_resource type="PackedScene" uid="uid://c8reqbfdrj4vu" path="res://objects/cherry.tscn" id="5_d23ch"]
@@ -14,7 +14,7 @@
 size = Vector2(960, 800)
 
 [node name="Room10" type="Node2D"]
-script = ExtResource("1_3se6g")
+script = ExtResource("1_4j1eb")
 room_name = "Do You Remember?"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -97,5 +97,3 @@ volume_db = -5.0
 [node name="RetractSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_p0llw")
 volume_db = -5.0
-
-[connection signal="state_changed" from="Interactibles/SpikeExact#101" to="." method="_on_spike_exact_101_state_changed"]
