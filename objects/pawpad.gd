@@ -14,7 +14,7 @@ func hit():
 		is_active = true
 		$Sprite2D.frame = 1
 		RoomVar.button_states[number] = true
-		$PushSound.play()
+		Sound.play("Pawpad")
 		for n in target_node:
 			n.immediate_button_presses()
 		for p in other_pawpad:

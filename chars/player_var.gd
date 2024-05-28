@@ -12,8 +12,8 @@ class_name PlayerGlobal
 
 # Win variables
 @onready var game_run: bool = false
-@onready var final_time: String
 @onready var game_complete: bool = false
+@onready var final_time: String
 
 # Pause menu node
 @onready var is_paused: bool = false
@@ -37,4 +37,3 @@ func get_distance() -> float:
 
 func get_final_time():
 	final_time = pause_menu.get_current_time()
-

@@ -42,7 +42,7 @@ metadata/_edit_lock_ = true
 [node name="Help" parent="Interactibles" instance=ExtResource("5_rdd61")]
 position = Vector2(600, 280)
 scale = Vector2(5, 5)
-help_text_top = "Press Z to hit"
+help_text_top = "Press [Z] to hit"
 help_text_bottom = "the buttons"
 
 [node name="Button#21" parent="Interactibles" instance=ExtResource("4_nctvm")]
