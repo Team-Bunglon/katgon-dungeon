@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://chho28kpgd2nj"]
 
 [ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="1_0nu4q"]
-[ext_resource type="Script" path="res://menu/notification_ui.gd" id="1_yhnnf"]
+[ext_resource type="Script" path="res://ui/notification_ui.gd" id="1_yhnnf"]
 
 [sub_resource type="Animation" id="Animation_284vq"]
 length = 0.001

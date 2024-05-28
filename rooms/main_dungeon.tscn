@@ -1,15 +1,15 @@
-[gd_scene load_steps=52 format=3 uid="uid://creymgxgbcbws"]
+[gd_scene load_steps=56 format=3 uid="uid://creymgxgbcbws"]
 
 [ext_resource type="Script" path="res://objects/camera.gd" id="1_1bu86"]
 [ext_resource type="Script" path="res://rooms/main_dungeon.gd" id="1_vgy57"]
 [ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="2_i6cs1"]
 [ext_resource type="PackedScene" uid="uid://dt6pxj6iq5qm7" path="res://chars/player1.tscn" id="2_y4cgc"]
 [ext_resource type="PackedScene" uid="uid://dec8pn2jgalmf" path="res://chars/player2.tscn" id="3_jjk1g"]
-[ext_resource type="PackedScene" uid="uid://chho28kpgd2nj" path="res://menu/notification_ui.tscn" id="3_k8vlg"]
+[ext_resource type="PackedScene" uid="uid://chho28kpgd2nj" path="res://ui/notification_ui.tscn" id="3_k8vlg"]
 [ext_resource type="PackedScene" uid="uid://phug2kug2by1" path="res://rooms/room1.tscn" id="4_6kxrr"]
-[ext_resource type="PackedScene" uid="uid://bay7g1pmxn6wl" path="res://menu/status_ui.tscn" id="4_hlawa"]
+[ext_resource type="PackedScene" uid="uid://bay7g1pmxn6wl" path="res://ui/status_ui.tscn" id="4_hlawa"]
 [ext_resource type="PackedScene" uid="uid://cljros4xq40ad" path="res://rooms/room2.tscn" id="5_0p0mu"]
-[ext_resource type="PackedScene" uid="uid://dsggpua2rh65v" path="res://menu/split_ui.tscn" id="5_kpu8t"]
+[ext_resource type="PackedScene" uid="uid://dsggpua2rh65v" path="res://ui/split_ui.tscn" id="5_kpu8t"]
 [ext_resource type="Texture2D" uid="uid://cnadtxhnilikw" path="res://assets/sprites/ui_text.png" id="5_rsttg"]
 [ext_resource type="PackedScene" uid="uid://drsm55nn8asq5" path="res://rooms/room3.tscn" id="6_87i50"]
 [ext_resource type="PackedScene" uid="uid://covwcmsjah8vb" path="res://ui/obtain_ui.tscn" id="6_nsu5g"]
@@ -42,6 +42,10 @@
 [ext_resource type="PackedScene" uid="uid://don0blc462b7l" path="res://rooms/room26.tscn" id="32_s84ei"]
 [ext_resource type="PackedScene" uid="uid://dnvotpq6cchi2" path="res://rooms/room23.tscn" id="33_w8e1v"]
 [ext_resource type="PackedScene" uid="uid://ckfby43sb0nlp" path="res://rooms/room24.tscn" id="34_0rccc"]
+[ext_resource type="PackedScene" uid="uid://dj32wxsb64tpa" path="res://rooms/room29.tscn" id="43_bogqb"]
+[ext_resource type="PackedScene" uid="uid://p6kg1vnuqaaq" path="res://rooms/room30.tscn" id="44_psrg4"]
+[ext_resource type="PackedScene" uid="uid://cdlkxwhesqlmo" path="res://rooms/room31.tscn" id="45_1vq5d"]
+[ext_resource type="PackedScene" uid="uid://dqnjexfod6wy0" path="res://rooms/room32.tscn" id="46_nye2a"]
 
 [sub_resource type="Animation" id="Animation_o45oo"]
 length = 0.001
@@ -478,6 +482,20 @@ metadata/_edit_lock_ = true
 [node name="Room#28" parent="." instance=ExtResource("11_ao1kn")]
 position = Vector2(0, -1601)
 metadata/_edit_lock_ = true
+
+[node name="Room#29" parent="." instance=ExtResource("43_bogqb")]
+position = Vector2(2880, 3999)
+metadata/_edit_lock_ = true
+
+[node name="Room#30" parent="." instance=ExtResource("44_psrg4")]
+position = Vector2(1920, 3999)
+metadata/_edit_lock_ = true
+
+[node name="Room#31" parent="." instance=ExtResource("45_1vq5d")]
+position = Vector2(960, 3999)
+
+[node name="Room#32" parent="." instance=ExtResource("46_nye2a")]
+position = Vector2(0, 3999)
 
 [connection signal="animation_finished" from="CanvasLayer/Transition" to="." method="_on_transition_animation_finished"]
 [connection signal="animation_finished" from="CanvasLayer/Transition" to="DragonFruit" method="_on_transition_animation_finished"]

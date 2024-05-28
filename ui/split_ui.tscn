@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsggpua2rh65v"]
 
-[ext_resource type="Script" path="res://menu/split_ui.gd" id="1_8jus4"]
+[ext_resource type="Script" path="res://ui/split_ui.gd" id="1_8jus4"]
 [ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="1_nyn50"]
 [ext_resource type="Texture2D" uid="uid://cg08fvm0g5b0h" path="res://assets/sprites/ui_swap.png" id="2_qi5kr"]
 

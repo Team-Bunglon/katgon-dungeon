@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://1wxpu64w7jl4" path="res://assets/audio/secret.wav" id="26_qwnbk"]
 
 [node name="Sound" type="Node"]
+process_mode = 3
 script = ExtResource("1_awf0l")
 
 [node name="AltKat" type="AudioStreamPlayer" parent="."]

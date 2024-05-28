@@ -99,6 +99,7 @@ _data = {
 }
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 z_index = 200
 layout_mode = 3
 anchors_preset = 0
@@ -204,11 +205,11 @@ libraries = {
 
 [node name="Map" parent="." instance=ExtResource("3_e554d")]
 layout_mode = 1
-offset_left = 670.0
-offset_top = 400.0
-offset_right = -264.0
-offset_bottom = -363.0
-scale = Vector2(10, 10)
+offset_left = 468.0
+offset_top = 72.0
+offset_right = -442.0
+offset_bottom = -646.0
+scale = Vector2(8, 8)
 
 [node name="PauseMenuOptions" parent="." instance=ExtResource("7_4c65s")]
 layout_mode = 1
@@ -217,5 +218,6 @@ offset_top = 481.0
 offset_right = 75.0
 offset_bottom = 481.0
 scale = Vector2(5, 5)
+metadata/_edit_lock_ = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
