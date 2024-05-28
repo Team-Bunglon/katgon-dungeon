@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dg6gt2ihxhr8x"]
+[gd_scene load_steps=14 format=3 uid="uid://dg6gt2ihxhr8x"]
 
 [ext_resource type="Script" path="res://objects/dragon_fruit.gd" id="1_a5pg5"]
 [ext_resource type="Texture2D" uid="uid://b3d8xmyc27wkc" path="res://assets/sprites/dragon_fruit.png" id="2_on5p5"]
-[ext_resource type="AudioStream" uid="uid://cj0mieoi7gbu4" path="res://assets/audio/win.wav" id="3_dbj8q"]
 
 [sub_resource type="Animation" id="Animation_v3g3c"]
 length = 0.001
@@ -98,9 +97,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_bwpqo")
-}
 tree_root = SubResource("AnimationNodeStateMachine_0t28w")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -119,11 +115,6 @@ collision_mask = 3
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_kl5mu")
 metadata/_edit_lock_ = true
-
-[node name="WinSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_dbj8q")
-volume_db = -5.0
-pitch_scale = 0.9
 
 [connection signal="body_entered" from="FruitArea" to="." method="_on_fruit_area_body_entered"]
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]

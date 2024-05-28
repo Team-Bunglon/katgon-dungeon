@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8reqbfdrj4vu"]
+[gd_scene load_steps=13 format=3 uid="uid://c8reqbfdrj4vu"]
 
 [ext_resource type="Script" path="res://objects/cherry.gd" id="1_fbf88"]
 [ext_resource type="Texture2D" uid="uid://jhxp1s1m0gok" path="res://assets/sprites/cherry.png" id="1_v0kl7"]
-[ext_resource type="AudioStream" uid="uid://chc4dm1m53rem" path="res://assets/audio/cherry.wav" id="3_3f7yf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6pp7"]
 size = Vector2(14.0139, 20.9674)
@@ -20,18 +19,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ObtainSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_mlam4"]
@@ -65,18 +52,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [3, 4, 5, 6, 7, 8]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ObtainSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bwpqo"]
@@ -126,9 +101,5 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_0t28w")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="ObtainSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_3f7yf")
-volume_db = -5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

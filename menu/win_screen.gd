@@ -20,7 +20,7 @@ extends Control
 @onready var can_select: bool = false
 
 func _ready():
-	Music.play("Menu")
+	Music.play("Menu", false)
 	$Background.play("default")
 	$EndSprite.play("default")
 	$Continue.visible = false

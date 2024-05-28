@@ -9,6 +9,23 @@ extends PlayerClass
 @onready var pause_menu: Control
 @onready var has_switched: bool = false
 
+@onready var debug: bool = false
+
+func _input(event):
+	if event.is_action_pressed("debug") and PlayerVar.debug:
+		debug = not debug
+		if debug: # Enable Debug
+			self.collision_layer = 0
+			self.collision_mask = 0
+			partner.collision_mask = 0
+			partner.collision_layer = 0
+		else: # Disable Debug
+			self.collision_layer = 1
+			self.collision_mask = 1
+			partner.collision_mask = 2
+			partner.collision_layer = 2
+
+
 func _ready():
 	collision_mask_as_partner = 32
 	roomd = $RoomDetector1

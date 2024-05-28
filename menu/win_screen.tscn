@@ -228,6 +228,7 @@ sprite_frames = SubResource("SpriteFrames_dh2py")
 frame_progress = 0.768253
 
 [node name="Congratulation" type="Label" parent="."]
+layout_mode = 0
 offset_right = 960.0
 offset_bottom = 120.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
@@ -237,6 +238,7 @@ text = "CONGRATULATION!"
 horizontal_alignment = 1
 
 [node name="DragonFruit" type="Label" parent="."]
+layout_mode = 0
 offset_top = 354.0
 offset_right = 960.0
 offset_bottom = 474.0
@@ -247,6 +249,7 @@ text = "You have collected the golden dragon fruit
 horizontal_alignment = 1
 
 [node name="Cherry" type="Label" parent="."]
+layout_mode = 0
 offset_top = 399.0
 offset_right = 960.0
 offset_bottom = 519.0
@@ -256,6 +259,7 @@ text = "As well as 0 out of 8 golden cherries."
 horizontal_alignment = 1
 
 [node name="PayTheBill" type="Label" parent="."]
+layout_mode = 0
 offset_top = 469.0
 offset_right = 960.0
 offset_bottom = 589.0
@@ -265,6 +269,7 @@ text = "You can pay your living expenses for the next:"
 horizontal_alignment = 1
 
 [node name="SurviveTime" type="Label" parent="."]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 514.0
 offset_right = 965.0
@@ -275,6 +280,7 @@ text = "One Month"
 horizontal_alignment = 1
 
 [node name="PlayTime" type="Label" parent="."]
+layout_mode = 0
 offset_top = 592.0
 offset_right = 960.0
 offset_bottom = 712.0
@@ -284,6 +290,7 @@ text = "Game Time: 00:00"
 horizontal_alignment = 1
 
 [node name="Continue" type="Label" parent="."]
+layout_mode = 0
 offset_top = 680.0
 offset_right = 960.0
 offset_bottom = 800.0

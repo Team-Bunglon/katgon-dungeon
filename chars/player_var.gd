@@ -1,4 +1,8 @@
 extends Node
+class_name PlayerGlobal
+
+# Debug 
+@onready var debug: bool = true
 
 # Global variable
 @onready var leader_position: Vector2

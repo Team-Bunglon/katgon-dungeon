@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://covwcmsjah8vb"]
+
+[ext_resource type="Script" path="res://ui/obtain_ui.gd" id="1_cbjvv"]
+[ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="2_gre0u"]
+[ext_resource type="Texture2D" uid="uid://cnadtxhnilikw" path="res://assets/sprites/ui_text.png" id="3_n38br"]
+
+[sub_resource type="Animation" id="Animation_edjrj"]
+resource_name = "show"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_24jui"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qnpi6"]
+_data = {
+"RESET": SubResource("Animation_24jui"),
+"show": SubResource("Animation_edjrj")
+}
+
+[node name="ObtainUI" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 440.0
+offset_top = 40.0
+offset_right = 440.0
+offset_bottom = 40.0
+script = ExtResource("1_cbjvv")
+
+[node name="ObtainLabel" type="Label" parent="."]
+z_index = 1
+layout_mode = 2
+offset_left = -240.0
+offset_top = 47.0
+offset_right = -128.0
+offset_bottom = 63.0
+scale = Vector2(5, 5)
+theme_override_colors/font_color = Color(0.917647, 0.933333, 0.341176, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_gre0u")
+theme_override_font_sizes/font_size = 10
+text = "Golden cherry obtained!"
+horizontal_alignment = 1
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+position = Vector2(40, 91)
+scale = Vector2(5, 5)
+texture = ExtResource("3_n38br")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qnpi6")
+}

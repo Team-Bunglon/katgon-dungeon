@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://creymgxgbcbws"]
+[gd_scene load_steps=51 format=3 uid="uid://creymgxgbcbws"]
 
 [ext_resource type="Script" path="res://objects/camera.gd" id="1_1bu86"]
 [ext_resource type="Script" path="res://rooms/main_dungeon.gd" id="1_vgy57"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dsggpua2rh65v" path="res://menu/split_ui.tscn" id="5_kpu8t"]
 [ext_resource type="Texture2D" uid="uid://cnadtxhnilikw" path="res://assets/sprites/ui_text.png" id="5_rsttg"]
 [ext_resource type="PackedScene" uid="uid://drsm55nn8asq5" path="res://rooms/room3.tscn" id="6_87i50"]
+[ext_resource type="PackedScene" uid="uid://covwcmsjah8vb" path="res://ui/obtain_ui.tscn" id="6_nsu5g"]
 [ext_resource type="Texture2D" uid="uid://bulwl6vly6e0" path="res://assets/sprites/transition.png" id="7_jf6ac"]
 [ext_resource type="PackedScene" uid="uid://bls2gejxomcr5" path="res://rooms/room4.tscn" id="7_waoig"]
 [ext_resource type="PackedScene" uid="uid://bt80iv8mdf3lh" path="res://menu/pause_menu.tscn" id="8_it58h"]
@@ -226,34 +227,7 @@ visible = false
 offset_right = -903.0
 offset_bottom = -763.0
 
-[node name="ObtainUI" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 440.0
-offset_top = 40.0
-offset_right = 440.0
-offset_bottom = 40.0
-
-[node name="ObtainLabel" type="Label" parent="CanvasLayer/ObtainUI"]
-z_index = 1
-layout_mode = 2
-offset_left = -240.0
-offset_top = 47.0
-offset_right = -128.0
-offset_bottom = 63.0
-scale = Vector2(5, 5)
-theme_override_colors/font_color = Color(0.917647, 0.933333, 0.341176, 1)
-theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/font = ExtResource("2_i6cs1")
-theme_override_font_sizes/font_size = 10
-text = "Golden Cherry Obtained!"
-horizontal_alignment = 1
-
-[node name="BackgroundSprite" type="Sprite2D" parent="CanvasLayer/ObtainUI"]
-position = Vector2(40, 91)
-scale = Vector2(5, 5)
-texture = ExtResource("5_rsttg")
+[node name="ObtainUI" parent="CanvasLayer" instance=ExtResource("6_nsu5g")]
 
 [node name="HelpUI" type="Control" parent="CanvasLayer"]
 visible = false
