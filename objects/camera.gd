@@ -1,10 +1,10 @@
 extends Camera2D
 
 ## How strong the camera shake strength woud be
-@export var shake_strength: float = 0.0
+@export var shake_strength: float = 15.0
 
 ## The bigger the value, the shorter the shake duration becomes
-@export var shake_length : float = 0.0
+@export var shake_length : float = 15.0
 
 @onready var rd1: Area2D = $"../Player1/RoomDetector1"
 @onready var rd2: Area2D = $"../Player2/RoomDetector2"
@@ -19,7 +19,6 @@ func shake_camera():
 func _process(delta):
 	if shake_strength_current > 0:
 		shake_strength_current = lerpf(shake_strength_current, 0, shake_length * delta)
-		print(offset)
 		offset = _random_offset()
 
 func _random_offset() -> Vector2:

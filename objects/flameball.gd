@@ -37,13 +37,13 @@ func hit():
 
 func set_position_spawn(pos: Vector2, dir: Vector2) -> Vector2:
 	if dir.y > 0: # South
-		return Vector2(pos.x, pos.y + 35)
+		return Vector2(pos.x, pos.y + 65)
 	elif dir.y < 0: # North
 		return Vector2(pos.x, pos.y - 50)
 	elif dir.x < 0: # West
-		return Vector2(pos.x - 25, pos.y + 30)
+		return Vector2(pos.x - 40, pos.y + 30)
 	elif dir.x > 0: # East
-		return Vector2(pos.x + 25, pos.y + 30)
+		return Vector2(pos.x + 40, pos.y + 30)
 	else:
 		return pos
 

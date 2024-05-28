@@ -312,7 +312,7 @@ offset_bottom = 800.0
 color = Color(0.194349, 0.194349, 0.194349, 0.588235)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(480, 400)
+position = Vector2(0, -1)
 script = ExtResource("1_1bu86")
 metadata/_edit_lock_ = true
 
@@ -369,9 +369,9 @@ scale = Vector2(5, 5)
 
 [node name="Room#0" parent="." instance=ExtResource("14_gqu2o")]
 position = Vector2(-960, -1)
+metadata/_edit_lock_ = true
 
 [node name="Room#1" parent="." instance=ExtResource("4_6kxrr")]
-z_index = -10
 position = Vector2(0, -1)
 metadata/_edit_lock_ = true
 
@@ -397,7 +397,6 @@ metadata/_edit_lock_ = true
 
 [node name="Room#7" parent="." instance=ExtResource("17_uaf8x")]
 position = Vector2(960, 3199)
-metadata/_edit_lock_ = true
 
 [node name="Room#8" parent="." instance=ExtResource("19_5t6uq")]
 position = Vector2(960, 2399)

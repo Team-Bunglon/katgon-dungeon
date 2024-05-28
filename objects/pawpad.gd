@@ -1,4 +1,5 @@
 extends ButtonToggle
+class_name Pawpad
 
 ## The other pawpad that will be manipulated when this button is pressed.
 @export var other_pawpad_name: Array[String]

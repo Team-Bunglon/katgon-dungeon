@@ -277,14 +277,7 @@ help_text_bottom = "you are looking for"
 position = Vector2(760, 120)
 scale = Vector2(5, 5)
 other_pawpad_name = Array[String](["Pawpad#242"])
-target_name = Array[String](["SpikeFrostfire#601"])
-
-[node name="Pawpad#242" parent="Interactibles" instance=ExtResource("7_2ody0")]
-position = Vector2(760, -120)
-scale = Vector2(5, 5)
-other_pawpad_name = Array[String](["Pawpad#241"])
-is_active = true
-target_name = Array[String](["SpikeFrostfire#600"])
+target_name = Array[String](["SpikeFrostfire#600", "SpikeFrostfire#601"])
 
 [node name="Pressure#243" parent="Interactibles" instance=ExtResource("8_8r5pp")]
 position = Vector2(600, 440)

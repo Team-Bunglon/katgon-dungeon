@@ -124,6 +124,7 @@ func melee_alt_attack():
 		camera.shake_camera()
 		on_attack_delay = true
 		$AttackDelay.start()
+		print("Shockwave Z: " + str($SpriteSW.z_index))
 
 func _on_melee_hitbox_body_entered(body:Node2D):
 	do_body_hit(body)
