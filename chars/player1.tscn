@@ -1,10 +1,8 @@
-[gd_scene load_steps=68 format=3 uid="uid://dt6pxj6iq5qm7"]
+[gd_scene load_steps=66 format=3 uid="uid://dt6pxj6iq5qm7"]
 
 [ext_resource type="Script" path="res://chars/player1.gd" id="1_vtw8a"]
 [ext_resource type="Texture2D" uid="uid://dooc6gyko8i0g" path="res://assets/sprites/kat.png" id="2_ypp65"]
 [ext_resource type="Texture2D" uid="uid://dqm3qlalkmst8" path="res://assets/sprites/shockwave.png" id="3_1dw55"]
-[ext_resource type="AudioStream" uid="uid://c0cddqnepjs8i" path="res://assets/audio/melee_kat.wav" id="4_0jwa1"]
-[ext_resource type="AudioStream" uid="uid://bmhcwrsj761sa" path="res://assets/audio/shockwave.wav" id="5_b8hr4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3wlk"]
 radius = 4.0
@@ -47,18 +45,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MeleeSound:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_up8ko"]
@@ -164,18 +150,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, false, true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MeleeSound:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_6tpyk"]
 resource_name = "attack_left"
@@ -215,18 +189,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MeleeSound:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_j21pp"]
@@ -268,18 +230,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, false, true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MeleeSound:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_ulrne"]
 resource_name = "attack_up"
@@ -319,18 +269,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MeleeSound:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_y5nes"]
@@ -678,22 +616,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MeleeAltSound:playing")
+tracks/3/path = NodePath("PawpadHitbox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PawpadHitbox/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -742,22 +668,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MeleeAltSound:playing")
+tracks/3/path = NodePath("PawpadHitbox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PawpadHitbox/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -940,16 +854,6 @@ libraries = {
 [node name="AnimationTreeSW" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_s2ef8")
 anim_player = NodePath("../AnimationPlayerSW")
-
-[node name="MeleeSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_0jwa1")
-volume_db = -5.0
-pitch_scale = 0.75
-
-[node name="MeleeAltSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_b8hr4")
-volume_db = -10.0
-pitch_scale = 0.9
 
 [node name="SwitchDelay" type="Timer" parent="."]
 wait_time = 0.8

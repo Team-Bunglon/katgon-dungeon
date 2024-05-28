@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://q0gp3rprivi0"]
+[gd_scene load_steps=33 format=3 uid="uid://q0gp3rprivi0"]
 
 [ext_resource type="Script" path="res://audio/sound.gd" id="1_awf0l"]
 [ext_resource type="AudioStream" uid="uid://bmhcwrsj761sa" path="res://assets/audio/shockwave.wav" id="1_h30nq"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="17_fmxyl"]
 [ext_resource type="AudioStream" uid="uid://cj0mieoi7gbu4" path="res://assets/audio/win.wav" id="18_smrmb"]
 [ext_resource type="AudioStream" uid="uid://p3peq4y7yfid" path="res://assets/audio/select.wav" id="19_nor5v"]
+[ext_resource type="AudioStream" uid="uid://nghl15i2l0ra" path="res://assets/audio/disable.wav" id="20_5neyk"]
 [ext_resource type="AudioStream" uid="uid://bfdr0hdrs2ytm" path="res://assets/audio/cancel.wav" id="20_gusix"]
 [ext_resource type="AudioStream" uid="uid://bw7ykehyj6nu5" path="res://assets/audio/play.wav" id="21_3a773"]
 [ext_resource type="AudioStream" uid="uid://dasov36rdmyw7" path="res://assets/audio/cannot_switch.wav" id="21_65sun"]
@@ -130,6 +131,11 @@ bus = &"Sound"
 stream = ExtResource("17_fmxyl")
 volume_db = -5.0
 bus = &"Sound"
+
+[node name="SpikeDisable" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_5neyk")
+volume_db = -5.0
+pitch_scale = 0.9
 
 [node name="Win" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_smrmb")

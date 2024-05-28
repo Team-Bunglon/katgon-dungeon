@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-## A tile that prevents the player from moving until it's activated.
-## The name MUST include #num at the end and it has to be unique for the whole project.
+## A tile that prevents the player from moving until it's retracted.
+## The name MUST include [code]#num[/code] at the end and it has to be unique for the whole project.
 class_name SpikeTile
 
 ## Assign the numbers for specific button or similar tiles that will activate the spike
@@ -43,7 +43,9 @@ func raise(play_sound = true):
 	collision_layer = raise_layer
 	collision_mask = raise_layer
 	is_raised = true
-	if play_sound: Sound.play(sound_raise)
+	if play_sound:
+		Sound.stop(sound_retract)
+		Sound.play(sound_raise)
 
 ## Retracft the spike, allowing Kat and Gon to pass through
 func retract(play_sound = true):
@@ -51,7 +53,9 @@ func retract(play_sound = true):
 	collision_layer = retract_layer
 	collision_mask = retract_layer
 	is_raised = false
-	if play_sound: Sound.play(sound_retract)
+	if play_sound: 
+		Sound.stop(sound_raise)
+		Sound.play(sound_retract)
 
 ## Detect the state for all buttons this spike is assigned to before switching its state
 func detect_button_presses():

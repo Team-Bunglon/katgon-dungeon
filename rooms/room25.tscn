@@ -232,6 +232,7 @@ position = Vector2(920, 360)
 scale = Vector2(5, 5)
 number_button_opposite = Array[int]([2501, 2503, 2507, 2509, 2511, 2512, 2514, 2518])
 stay_retracted = true
+other_spike_to_stay_retracted = Array[int]([2502])
 number_button = Array[int]([2502, 2504, 2505, 2506, 2508, 2510, 2513, 2515, 2516, 2517])
 
 [node name="SpikeExact#2502" parent="Interactibles" instance=ExtResource("5_ax4vh")]
@@ -239,6 +240,7 @@ position = Vector2(920, 440)
 scale = Vector2(5, 5)
 number_button_opposite = Array[int]([2501, 2503, 2507, 2509, 2511, 2512, 2514, 2518])
 stay_retracted = true
+other_spike_to_stay_retracted = Array[int]([2501])
 number_button = Array[int]([2502, 2504, 2505, 2506, 2508, 2510, 2513, 2515, 2516, 2517])
 
 [node name="ButtonToggle#2501" parent="Interactibles" instance=ExtResource("6_i1lc1")]

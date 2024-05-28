@@ -9,6 +9,8 @@ func _ready():
 	collision_mask_as_partner = 64
 	roomd = $RoomDetector2
 	partner = $"../Player1"
+	attack_sound = "MeleeGon"
+	alt_sound = "AltGon"
 	super._ready()
 
 ## It's not really a melee attack when you shoot fireball out of your mouth isn't it?
@@ -16,6 +18,7 @@ func melee_alt_attack():
 	if not on_attack_delay:
 		state.travel("idle")
 	if Input.is_action_just_pressed("action_alt") and not on_attack_delay and not is_splitting:
+		Sound.play(alt_sound)
 		state.travel("attack_alt")
 		create_flameball()
 		on_attack_delay = true

@@ -53,6 +53,8 @@ class_name PlayerClass extends CharacterBody2D
 @onready var is_on_no_follow_tile: bool = false
 @onready var bad_tiles_current: Dictionary
 @onready var no_follow_tiles_current: Dictionary
+@onready var attack_sound: String
+@onready var alt_sound: String
 
 # Signal for notification
 ## Emitted when the character changed their leader status.
@@ -167,6 +169,7 @@ func melee_attack():
 	if not on_attack_delay:
 		state.travel("idle")
 	if Input.is_action_just_pressed("action_main") and not on_attack_delay:
+		Sound.play(attack_sound)
 		state.travel("attack")
 		on_attack_delay = true
 		$AttackDelay.start()

@@ -118,6 +118,7 @@ position = Vector2(600, 120)
 scale = Vector2(5, 5)
 number_button_opposite = Array[int]([181, 182, 184, 187, 189])
 stay_retracted = true
+other_spike_to_stay_retracted = Array[int]([182])
 number_button = Array[int]([180, 183, 185, 186, 188])
 
 [node name="SpikeExact#182" parent="Interactibles" instance=ExtResource("9_sfvmd")]
@@ -125,6 +126,7 @@ position = Vector2(680, 120)
 scale = Vector2(5, 5)
 number_button_opposite = Array[int]([181, 182, 184, 187, 189])
 stay_retracted = true
+other_spike_to_stay_retracted = Array[int]([181])
 number_button = Array[int]([180, 183, 185, 186, 188])
 
 [node name="Obstacles" type="Node2D" parent="."]

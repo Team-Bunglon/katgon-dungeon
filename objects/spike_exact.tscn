@@ -1,9 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://c261yn4bmlqix"]
+[gd_scene load_steps=28 format=3 uid="uid://c261yn4bmlqix"]
 
 [ext_resource type="Script" path="res://objects/spike_exact.gd" id="1_b4yuj"]
-[ext_resource type="Texture2D" uid="uid://xwymw4vq2urx" path="res://assets/sprites/spike.png" id="2_7o75g"]
-[ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="3_rl8gm"]
-[ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="4_aas67"]
+[ext_resource type="Texture2D" uid="uid://bxyw2yc65wvdf" path="res://assets/sprites/spike_exact.png" id="2_f3ynq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgp7"]
 size = Vector2(16, 16)
@@ -21,30 +19,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RaiseSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RetractSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_33jpe"]
@@ -78,18 +52,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [2, 1, 0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RaiseSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_868pr"]
 resource_name = "retracted"
@@ -122,27 +84,55 @@ tracks/0/keys = {
 "update": 1,
 "values": [1, 2, 3]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RetractSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+
+[sub_resource type="Animation" id="Animation_ue2vh"]
+resource_name = "disabling"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_ils1q"]
+resource_name = "disabled"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_na76p"]
 _data = {
 "RESET": SubResource("Animation_8pyai"),
+"disabled": SubResource("Animation_ils1q"),
+"disabling": SubResource("Animation_ue2vh"),
 "raised": SubResource("Animation_33jpe"),
 "raising": SubResource("Animation_qoii0"),
 "retracted": SubResource("Animation_868pr"),
 "retracting": SubResource("Animation_juhv6")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1hcch"]
+animation = &"disabled"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7tm8m"]
+animation = &"disabling"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o167h"]
 animation = &"raised"
@@ -170,19 +160,28 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gmgev"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jpx1g"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ij4jo"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xs3c7"]
-states/End/position = Vector2(643, 100)
+states/End/position = Vector2(920, 100)
 states/Start/position = Vector2(388.775, 100)
+states/disabled/node = SubResource("AnimationNodeAnimation_1hcch")
+states/disabled/position = Vector2(815.782, 100)
+states/disabling/node = SubResource("AnimationNodeAnimation_7tm8m")
+states/disabling/position = Vector2(668.782, 100)
 states/raised/node = SubResource("AnimationNodeAnimation_o167h")
-states/raised/position = Vector2(244.775, 100)
+states/raised/position = Vector2(243.775, 100)
 states/raising/node = SubResource("AnimationNodeAnimation_08vuo")
 states/raising/position = Vector2(388.775, 9)
 states/retracted/node = SubResource("AnimationNodeAnimation_tj241")
 states/retracted/position = Vector2(539.775, 100)
 states/retracting/node = SubResource("AnimationNodeAnimation_vsvdj")
 states/retracting/position = Vector2(388.775, 202)
-transitions = ["Start", "retracted", SubResource("AnimationNodeStateMachineTransition_l5bdr"), "retracting", "retracted", SubResource("AnimationNodeStateMachineTransition_3uobv"), "retracted", "raising", SubResource("AnimationNodeStateMachineTransition_c3d48"), "Start", "raised", SubResource("AnimationNodeStateMachineTransition_sl4o3"), "raised", "retracting", SubResource("AnimationNodeStateMachineTransition_1124q"), "raising", "raised", SubResource("AnimationNodeStateMachineTransition_gmgev")]
-graph_offset = Vector2(-59.2176, -18.9303)
+transitions = ["Start", "retracted", SubResource("AnimationNodeStateMachineTransition_l5bdr"), "retracting", "retracted", SubResource("AnimationNodeStateMachineTransition_3uobv"), "retracted", "raising", SubResource("AnimationNodeStateMachineTransition_c3d48"), "Start", "raised", SubResource("AnimationNodeStateMachineTransition_sl4o3"), "raised", "retracting", SubResource("AnimationNodeStateMachineTransition_1124q"), "raising", "raised", SubResource("AnimationNodeStateMachineTransition_gmgev"), "retracted", "disabling", SubResource("AnimationNodeStateMachineTransition_jpx1g"), "disabling", "disabled", SubResource("AnimationNodeStateMachineTransition_ij4jo")]
+graph_offset = Vector2(108.782, -5.9303)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6g647"]
 size = Vector2(14, 14)
@@ -194,8 +193,8 @@ collision_mask = 15
 script = ExtResource("1_b4yuj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_7o75g")
-hframes = 4
+texture = ExtResource("2_f3ynq")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
@@ -210,14 +209,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_xs3c7")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_rl8gm")
-volume_db = -5.0
-
-[node name="RetractSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_aas67")
-volume_db = -5.0
 
 [node name="BodyDetector" type="Area2D" parent="."]
 collision_layer = 3

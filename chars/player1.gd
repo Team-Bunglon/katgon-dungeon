@@ -25,11 +25,12 @@ func _input(event):
 			partner.collision_mask = 2
 			partner.collision_layer = 2
 
-
 func _ready():
 	collision_mask_as_partner = 32
 	roomd = $RoomDetector1
 	partner = $"../Player2"
+	attack_sound = "MeleeKat"
+	alt_sound = "AltKat"
 	pause_menu = get_tree().get_root().find_child("PauseMenu", true, false)
 	super._ready()
 
@@ -58,7 +59,6 @@ func switch_procedure(swap_position: bool):
 			if has_switched:
 				global_position = PlayerVar.partner_position
 				partner.global_position = PlayerVar.leader_position
-			else:
 				global_position = PlayerVar.leader_position
 				partner.global_position = PlayerVar.partner_position
 	PlayerVar.switch_position() # This is useful for z_index calculation as soon as you switch leader
@@ -118,6 +118,7 @@ func melee_alt_attack():
 		state_alt.travel("idle")
 		on_attack_delay = false
 	if Input.is_action_just_pressed("action_alt") and not on_attack_delay and not is_splitting:
+		Sound.play(alt_sound)
 		state.travel("attack_alt")
 		state_alt.travel("attack")
 		camera.shake_camera()

@@ -1,9 +1,7 @@
-[gd_scene load_steps=55 format=3 uid="uid://dec8pn2jgalmf"]
+[gd_scene load_steps=53 format=3 uid="uid://dec8pn2jgalmf"]
 
 [ext_resource type="Script" path="res://chars/player2.gd" id="1_6al38"]
 [ext_resource type="Texture2D" uid="uid://cpi4tf4et8j4f" path="res://assets/sprites/gon.png" id="2_csx6r"]
-[ext_resource type="AudioStream" uid="uid://brs6utksigfue" path="res://assets/audio/melee_gon.wav" id="3_4ijr5"]
-[ext_resource type="AudioStream" uid="uid://dlc7fadvp00a0" path="res://assets/audio/flameball.wav" id="4_ymw6c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a0lg1"]
 radius = 4.0
@@ -59,30 +57,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MeleeSound:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MeleeAltSound:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_8gogk"]
 resource_name = "alt_down"
@@ -110,18 +84,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeleeAltSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_hiboq"]
@@ -151,18 +113,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2(-1, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeleeAltSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_pe4tj"]
 resource_name = "alt_right"
@@ -191,18 +141,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2(1, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeleeAltSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_guqt6"]
 resource_name = "alt_up"
@@ -230,18 +168,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(0, -1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeleeAltSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_muhb5"]
@@ -295,18 +221,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false, true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MeleeSound:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_uvhhn"]
 resource_name = "attack_left"
@@ -358,18 +272,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MeleeSound:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_iqx1q"]
@@ -423,18 +325,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false, true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MeleeSound:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_kshj8"]
 resource_name = "attack_up"
@@ -486,18 +376,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MeleeSound:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_y5nes"]
@@ -955,16 +833,6 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="FlameballDirection" type="Marker2D" parent="."]
 position = Vector2(0, 1)
 gizmo_extents = 0.0
-
-[node name="MeleeSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_4ijr5")
-volume_db = -5.0
-pitch_scale = 0.9
-
-[node name="MeleeAltSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ymw6c")
-volume_db = -5.0
-pitch_scale = 0.95
 
 [node name="SwitchDelay" type="Timer" parent="."]
 wait_time = 0.8

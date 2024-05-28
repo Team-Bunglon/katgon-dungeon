@@ -54,7 +54,7 @@ func _on_flame_area_2d_body_entered(body:Node2D):
 	else:
 		body_name = body.name
 	if not body_name in body_pass:
-		hit()
+		if is_moving: hit()
 		if body_name in body_hit:
 			body.hit()
 

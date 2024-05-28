@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://phug2kug2by1"]
+[gd_scene load_steps=5 format=3 uid="uid://phug2kug2by1"]
 
 [ext_resource type="Script" path="res://rooms/room_class.gd" id="1_h4g3d"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_jk41v"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="2_qc86x"]
-[ext_resource type="PackedScene" uid="uid://bk6b04e53a0k3" path="res://objects/button_toggle.tscn" id="4_vp7v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73j6q"]
 size = Vector2(960, 800)
@@ -32,7 +31,3 @@ position = Vector2(480, 400)
 shape = SubResource("RectangleShape2D_73j6q")
 debug_color = Color(0, 0.6, 0.701961, 0)
 metadata/_edit_lock_ = true
-
-[node name="ButtonToggle#0" parent="." instance=ExtResource("4_vp7v4")]
-position = Vector2(680, 440)
-scale = Vector2(5, 5)
