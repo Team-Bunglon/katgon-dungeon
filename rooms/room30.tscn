@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://p6kg1vnuqaaq"]
+[gd_scene load_steps=9 format=3 uid="uid://p6kg1vnuqaaq"]
 
 [ext_resource type="Script" path="res://rooms/room_class.gd" id="1_63tse"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="2_po7bd"]
@@ -6,7 +6,6 @@
 [ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="4_qs6mn"]
 [ext_resource type="PackedScene" uid="uid://bc41dh6rchx4h" path="res://objects/spike_flame.tscn" id="5_hc6hv"]
 [ext_resource type="PackedScene" uid="uid://bvx7aivjbpehq" path="res://objects/spike_frostfire.tscn" id="6_j0hg8"]
-[ext_resource type="PackedScene" uid="uid://ddcretk1ehd4p" path="res://objects/ledge.tscn" id="7_m416b"]
 [ext_resource type="PackedScene" uid="uid://c0bpi2ygrr4hx" path="res://objects/ledge_side.tscn" id="8_drd0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73j6q"]
@@ -65,11 +64,6 @@ scale = Vector2(5, 5)
 number_button = Array[int]([242])
 
 [node name="Obstacles" type="Node2D" parent="."]
-
-[node name="Ledge#1" parent="Obstacles" instance=ExtResource("7_m416b")]
-visible = false
-position = Vector2(80, 730)
-scale = Vector2(5, 5)
 
 [node name="LedgeSide#1" parent="Obstacles" instance=ExtResource("8_drd0m")]
 position = Vector2(345, 680)

@@ -227,7 +227,7 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 position = Vector2(680, 200)
 scale = Vector2(5, 5)
 help_text_top = "Kat can walk through"
-help_text_bottom = "frostfire unharmed"
+help_text_bottom = "frostfire unharmed."
 
 [node name="Torch#111" parent="Interactibles" instance=ExtResource("7_jxe8k")]
 position = Vector2(600, 680)

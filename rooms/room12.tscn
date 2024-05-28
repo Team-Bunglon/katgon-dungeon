@@ -303,8 +303,8 @@ number_button = Array[int]([113])
 [node name="Help" parent="Interactibles" instance=ExtResource("9_xs1a1")]
 position = Vector2(360, 680)
 scale = Vector2(5, 5)
-help_text_top = "Press X as Kat"
-help_text_bottom = "to pound the ground"
+help_text_top = "Press [X] as Kat"
+help_text_bottom = "to pound the ground."
 
 [node name="Obstacles" type="Node2D" parent="."]
 

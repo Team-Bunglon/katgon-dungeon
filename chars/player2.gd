@@ -60,4 +60,3 @@ func _on_attack_delay_timeout():
 
 func _on_switch_delay_timeout():
 	on_switch_delay = false
-

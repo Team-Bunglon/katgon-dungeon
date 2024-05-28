@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca2kiihrfbk3f"]
+[gd_scene load_steps=12 format=3 uid="uid://ca2kiihrfbk3f"]
 
 [ext_resource type="Script" path="res://rooms/room_class.gd" id="1_3cxw0"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_7v444"]
@@ -10,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="6_8nhy6"]
 [ext_resource type="PackedScene" uid="uid://wvp6btbsoc63" path="res://objects/ash.tscn" id="9_g1kds"]
 [ext_resource type="PackedScene" uid="uid://cfq44csco8u8u" path="res://objects/twig.tscn" id="9_va4ks"]
-[ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="11_5m2xc"]
-[ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="12_wku7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7sqc"]
 size = Vector2(960, 800)
@@ -50,8 +48,8 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 [node name="Help" parent="Interactibles" instance=ExtResource("5_vha1n")]
 position = Vector2(200, 280)
 scale = Vector2(5, 5)
-help_text_top = "Press X as Gon"
-help_text_bottom = "to shoot flameball"
+help_text_top = "Press [X] as Gon"
+help_text_bottom = "to shoot a flameball."
 
 [node name="Torch#71" parent="Interactibles" instance=ExtResource("5_kk81d")]
 position = Vector2(840, 440)
@@ -118,11 +116,3 @@ scale = Vector2(5, 5)
 [node name="Ash#5" parent="Obstacles" instance=ExtResource("9_g1kds")]
 position = Vector2(760, 200)
 scale = Vector2(5, 5)
-
-[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_5m2xc")
-volume_db = -5.0
-
-[node name="RetractSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_wku7d")
-volume_db = -5.0

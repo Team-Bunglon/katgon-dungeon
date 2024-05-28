@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://drsm55nn8asq5"]
+[gd_scene load_steps=8 format=3 uid="uid://drsm55nn8asq5"]
 
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_1ik4p"]
 [ext_resource type="Script" path="res://rooms/room_class.gd" id="1_ilnkm"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="2_pywqa"]
 [ext_resource type="TileSet" uid="uid://b40uurkmxf51p" path="res://rooms/dungeon_void.tres" id="3_5urxq"]
 [ext_resource type="PackedScene" uid="uid://c8reqbfdrj4vu" path="res://objects/cherry.tscn" id="3_g80px"]
+[ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="6_gec2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7sqc"]
 size = Vector2(960, 800)
@@ -41,5 +42,10 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 [node name="Interactibles" type="Node2D" parent="."]
 
 [node name="Cherry" parent="Interactibles" instance=ExtResource("3_g80px")]
-position = Vector2(360, 400)
+position = Vector2(340, 400)
 scale = Vector2(5, 5)
+
+[node name="Spike#31" parent="Interactibles" instance=ExtResource("6_gec2n")]
+position = Vector2(240, 440)
+scale = Vector2(5, 5)
+number_button = Array[int]([21, 22])

@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bsroladvw0jtb"]
+[gd_scene load_steps=18 format=3 uid="uid://bsroladvw0jtb"]
 
 [ext_resource type="Script" path="res://rooms/room_class.gd" id="1_3850o"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_cd0ik"]
 [ext_resource type="TileSet" uid="uid://bi56mq2i4t73y" path="res://rooms/dungeon_path.tres" id="2_p4gb7"]
-[ext_resource type="PackedScene" uid="uid://c8reqbfdrj4vu" path="res://objects/cherry.tscn" id="4_dkw6r"]
 [ext_resource type="PackedScene" uid="uid://4ftym1c5le2g" path="res://objects/button_torch.tscn" id="4_ruwb1"]
 [ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="5_aeo56"]
 [ext_resource type="PackedScene" uid="uid://drsm3d7wcdipv" path="res://objects/pressure.tscn" id="6_hmcp2"]
@@ -46,10 +45,6 @@ layer_0/tile_data = PackedInt32Array(196618, 458754, 1, 131080, 196610, 2, 19661
 position = Vector2(480, 400)
 shape = SubResource("RectangleShape2D_73j6q")
 debug_color = Color(0, 0.6, 0.701961, 0)
-
-[node name="Cherry" parent="." instance=ExtResource("4_dkw6r")]
-position = Vector2(810, 90)
-scale = Vector2(5, 5)
 
 [node name="Torch#0" parent="." instance=ExtResource("4_ruwb1")]
 position = Vector2(120, 120)

@@ -63,7 +63,6 @@ func switch_procedure(swap_position: bool):
 				partner.global_position = PlayerVar.partner_position
 	PlayerVar.switch_position() # This is useful for z_index calculation as soon as you switch leader
 
-
 ## This function here handle splitting action when "follow_mode" is pressed.
 ## The game waits for another input whether or not you want to switch character immediately after splitting.
 ## And yes, this code looks absolutely fucking horrendous.
@@ -124,7 +123,6 @@ func melee_alt_attack():
 		camera.shake_camera()
 		on_attack_delay = true
 		$AttackDelay.start()
-		print("Shockwave Z: " + str($SpriteSW.z_index))
 
 func _on_melee_hitbox_body_entered(body:Node2D):
 	do_body_hit(body)

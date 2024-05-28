@@ -38,8 +38,8 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 [node name="Help" parent="Interactibles" instance=ExtResource("3_glir7")]
 position = Vector2(280, 200)
 scale = Vector2(5, 5)
-help_text_top = "Press C to swap leader"
-help_text_bottom = "Gon can break bolders"
+help_text_top = "Press [C] to swap leader."
+help_text_bottom = "Gon can break bolders."
 
 [node name="Obstacles" type="Node2D" parent="."]
 

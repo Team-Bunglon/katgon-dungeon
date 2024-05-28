@@ -43,7 +43,7 @@ scale = Vector2(5, 5)
 position = Vector2(520, 200)
 scale = Vector2(5, 5)
 help_text_top = "Kat can also hit a"
-help_text_bottom = "root to destroy it"
+help_text_bottom = "twig to destroy it."
 
 [node name="Obstacles" type="Node2D" parent="."]
 

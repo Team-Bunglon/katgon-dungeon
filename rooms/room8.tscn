@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dov2wj5m78hp3"]
+[gd_scene load_steps=12 format=3 uid="uid://dov2wj5m78hp3"]
 
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_50top"]
 [ext_resource type="Script" path="res://rooms/room_class.gd" id="1_eqmfj"]
@@ -9,9 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="8_y40e7"]
 [ext_resource type="PackedScene" uid="uid://drsm3d7wcdipv" path="res://objects/pressure.tscn" id="10_3w28h"]
 [ext_resource type="PackedScene" uid="uid://wvp6btbsoc63" path="res://objects/ash.tscn" id="11_jym8i"]
-[ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="11_k1lww"]
 [ext_resource type="PackedScene" uid="uid://cfq44csco8u8u" path="res://objects/twig.tscn" id="12_hubj7"]
-[ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="12_nlo23"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7sqc"]
 size = Vector2(960, 800)
@@ -55,8 +53,8 @@ metadata/_edit_lock_ = true
 [node name="Help" parent="Interactibles" instance=ExtResource("5_aql1y")]
 position = Vector2(200, 680)
 scale = Vector2(5, 5)
-help_text_top = "Press V to split up"
-help_text_bottom = "Get closer to regroup"
+help_text_top = "Press [V] to split up."
+help_text_bottom = "Get closer to regroup."
 
 [node name="Pressure#81" parent="Interactibles" instance=ExtResource("10_3w28h")]
 position = Vector2(200, 440)
@@ -100,11 +98,3 @@ collision_mask = 3
 [node name="Ash#1" parent="Obstacles" instance=ExtResource("11_jym8i")]
 position = Vector2(520, 440)
 scale = Vector2(5, 5)
-
-[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_k1lww")
-volume_db = -5.0
-
-[node name="RetractSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_nlo23")
-volume_db = -5.0

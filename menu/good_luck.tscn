@@ -164,6 +164,7 @@ script = ExtResource("1_w4u1v")
 metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -100
 scale = Vector2(5, 5)
 tile_set = ExtResource("1_0bu5r")
 format = 2
@@ -216,6 +217,7 @@ layout_mode = 0
 offset_top = 35.0
 offset_right = 960.0
 offset_bottom = 155.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_nffqc")
 theme_override_font_sizes/font_size = 40
 text = "Your goal is to acquire the golden dragon fruit,

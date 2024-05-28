@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://creymgxgbcbws"]
+[gd_scene load_steps=58 format=3 uid="uid://creymgxgbcbws"]
 
 [ext_resource type="Script" path="res://objects/camera.gd" id="1_1bu86"]
 [ext_resource type="Script" path="res://rooms/main_dungeon.gd" id="1_vgy57"]
@@ -204,6 +204,12 @@ radius = 0.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mir2"]
 radius = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsgvn"]
+size = Vector2(80, 6560)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no585"]
+size = Vector2(80, 4000)
+
 [node name="MainDungeon" type="Node2D"]
 position = Vector2(0, 1)
 script = ExtResource("1_vgy57")
@@ -326,7 +332,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("2_y4cgc")]
 z_index = 1
-position = Vector2(450, 370)
+position = Vector2(451, 370)
 scale = Vector2(5, 5)
 slide_on_ceiling = false
 
@@ -345,7 +351,7 @@ shape = SubResource("CircleShape2D_pcr6q")
 
 [node name="Player2" parent="." instance=ExtResource("3_jjk1g")]
 z_index = 1
-position = Vector2(510, 369)
+position = Vector2(509, 369)
 scale = Vector2(5, 5)
 up_direction = Vector2(0, 1)
 
@@ -368,8 +374,7 @@ position = Vector2(3360, -1241)
 scale = Vector2(5, 5)
 
 [node name="Room#0" parent="." instance=ExtResource("14_gqu2o")]
-position = Vector2(-960, -1)
-metadata/_edit_lock_ = true
+position = Vector2(-1040, -1)
 
 [node name="Room#1" parent="." instance=ExtResource("4_6kxrr")]
 position = Vector2(0, -1)
@@ -492,9 +497,37 @@ metadata/_edit_lock_ = true
 
 [node name="Room#31" parent="." instance=ExtResource("45_1vq5d")]
 position = Vector2(960, 3999)
+metadata/_edit_lock_ = true
 
 [node name="Room#32" parent="." instance=ExtResource("46_nye2a")]
 position = Vector2(0, 3999)
+metadata/_edit_lock_ = true
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+collision_layer = 135
+collision_mask = 135
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+z_index = 100
+position = Vector2(-40, 1599)
+shape = SubResource("RectangleShape2D_hsgvn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
+z_index = 100
+position = Vector2(3880, 1599)
+shape = SubResource("RectangleShape2D_hsgvn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder"]
+z_index = 100
+position = Vector2(1920, -1641)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_no585")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorder"]
+z_index = 100
+position = Vector2(1920, 4839)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_no585")
 
 [connection signal="animation_finished" from="CanvasLayer/Transition" to="." method="_on_transition_animation_finished"]
 [connection signal="animation_finished" from="CanvasLayer/Transition" to="DragonFruit" method="_on_transition_animation_finished"]

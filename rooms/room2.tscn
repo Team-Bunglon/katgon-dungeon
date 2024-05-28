@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cljros4xq40ad"]
+[gd_scene load_steps=8 format=3 uid="uid://cljros4xq40ad"]
 
 [ext_resource type="Script" path="res://rooms/room_class.gd" id="1_cqg4r"]
 [ext_resource type="TileSet" uid="uid://vusutmqak5xg" path="res://rooms/dungeon_tileset.tres" id="1_oe5b2"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c2hguu1bp1b0y" path="res://objects/spike.tscn" id="4_dt57a"]
 [ext_resource type="PackedScene" uid="uid://dnh8j7mw0tcny" path="res://objects/button.tscn" id="4_nctvm"]
 [ext_resource type="PackedScene" uid="uid://rm5850pxwruu" path="res://objects/help.tscn" id="5_rdd61"]
-[ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="7_3lh5i"]
-[ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="8_i31wd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7sqc"]
 size = Vector2(960, 800)
@@ -43,17 +41,17 @@ metadata/_edit_lock_ = true
 position = Vector2(600, 280)
 scale = Vector2(5, 5)
 help_text_top = "Press [Z] to hit"
-help_text_bottom = "the buttons"
+help_text_bottom = "the buttons."
 
 [node name="Button#21" parent="Interactibles" instance=ExtResource("4_nctvm")]
 position = Vector2(360, 522)
 scale = Vector2(5, 5)
-target_name = Array[String](["Spike#21", "Spike#22"])
+target_name = Array[String](["Spike#21", "Spike#22", "Spike#31"])
 
 [node name="Button#22" parent="Interactibles" instance=ExtResource("4_nctvm")]
 position = Vector2(360, 360)
 scale = Vector2(5, 5)
-target_name = Array[String](["Spike#21", "Spike#22"])
+target_name = Array[String](["Spike#21", "Spike#22", "Spike#31"])
 
 [node name="Spike#21" parent="Interactibles" instance=ExtResource("4_dt57a")]
 position = Vector2(440, 680)
@@ -64,11 +62,3 @@ number_button = Array[int]([21, 22])
 position = Vector2(520, 680)
 scale = Vector2(5, 5)
 number_button = Array[int]([21, 22])
-
-[node name="RaiseSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_3lh5i")
-volume_db = -5.0
-
-[node name="RetractSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_i31wd")
-volume_db = -5.0

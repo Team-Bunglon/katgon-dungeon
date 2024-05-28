@@ -221,7 +221,7 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 position = Vector2(120, 360)
 scale = Vector2(5, 5)
 help_text_top = "Gon can walk through"
-help_text_bottom = "flame unscathed"
+help_text_bottom = "flame unscathed."
 
 [node name="SpikeFlame#131" parent="Interactibles" instance=ExtResource("5_3flvj")]
 position = Vector2(480, 360)
