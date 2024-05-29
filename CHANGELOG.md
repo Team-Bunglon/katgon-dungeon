@@ -13,8 +13,8 @@ After the development of Phantom Striker, I decide to update the game to follow 
 
 ### Dungeon Changes
 - Added four new rooms to extend the main game (totaling 32 rooms).
-  - Now there are 10 golden cherries to collect. 
-- Made the secret room more elusive to be entered.
+  - There are now 10 golden cherries to collect. 
+  - Made the secret room more elusive to be entered.
 - Help tiles now properly reacts to any number of characters who stepped on it.
   - The help tile in "Rubble on the Double" should give you a hint on how to solve the next puzzle instead of being a waste of space.
 - Spike Tiles that can be activated off screen will now display a minicam showing its process.
@@ -25,10 +25,12 @@ After the development of Phantom Striker, I decide to update the game to follow 
   - New visual and audio indicator have been added to show when this spike is disabled (can't be raised again) after being stepped on.
 - Adjusted z-index for individual wall tile.
   - As a result, Kat's shockwave sprite now only appears bellow the wall and the ceilling.
-- Adjusted Gon's flameball position when being fired to allow shooting at the edge of a flame tile.
+- Made some changes to Gon's flameball.
+  - Adjusted its position when fired to allow shooting at the edge of a flame tile.
+  - It will now disappear after traveling for 10 seconds. This doesn't affect the gameplay but it will prevent any potential memory leaks when the flameball is fired off the dungeon boundaries.
 - Added screen shake and flash effect on obtaining the golden dragon fruit.
 - Updated sprite for dual flame/frostfire tile.
-- Updated map.
+- Updated map and its associated sprites.
 - Added some references to Phantom Striker.
 
 ### Bug Fixes

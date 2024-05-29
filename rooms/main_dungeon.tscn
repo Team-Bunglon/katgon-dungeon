@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://creymgxgbcbws"]
+[gd_scene load_steps=56 format=3 uid="uid://creymgxgbcbws"]
 
 [ext_resource type="Script" path="res://rooms/camera.gd" id="1_1bu86"]
 [ext_resource type="Script" path="res://rooms/main_dungeon.gd" id="1_vgy57"]
@@ -203,12 +203,6 @@ radius = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mir2"]
 radius = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsgvn"]
-size = Vector2(80, 6560)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_no585"]
-size = Vector2(80, 4000)
 
 [node name="MainDungeon" type="Node2D"]
 texture_filter = 1
@@ -522,37 +516,6 @@ metadata/_edit_lock_ = true
 
 [node name="Room#32" parent="." instance=ExtResource("46_nye2a")]
 position = Vector2(0, 4000)
-metadata/_edit_lock_ = true
-
-[node name="WorldBorder" type="StaticBody2D" parent="."]
-collision_layer = 768
-collision_mask = 768
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
-z_index = 100
-position = Vector2(-40, 1599)
-shape = SubResource("RectangleShape2D_hsgvn")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
-z_index = 100
-position = Vector2(3880, 1599)
-shape = SubResource("RectangleShape2D_hsgvn")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder"]
-z_index = 100
-position = Vector2(1920, -1641)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_no585")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorder"]
-z_index = 100
-position = Vector2(1920, 4839)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_no585")
 metadata/_edit_lock_ = true
 
 [connection signal="animation_finished" from="CanvasLayer/Transition" to="." method="_on_transition_animation_finished"]

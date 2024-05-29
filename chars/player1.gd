@@ -15,18 +15,18 @@ func _input(event):
 	if event.is_action_pressed("debug") and PlayerVar.debug:
 		debug = not debug
 		if debug: # Enable Debug
-			self.collision_mask = 256
-			partner.collision_layer = 512
+			self.collision_layer = 0
+			self.collision_mask = 0
+			partner.collision_mask = 0
+			partner.collision_layer = 0
 		else: # Disable Debug
-			if is_leader:
-				self.collision_mask = collision_mask_as_leader
-				partner.collision_mask = partner.collision_mask_as_partner
-			else:
-				self.collision_mask = collision_mask_as_partner
-				partner.collision_mask = partner.collision_mask_as_leader
+			self.collision_layer = 1
+			self.collision_mask = 1
+			partner.collision_mask = 2
+			partner.collision_layer = 2
 
 func _ready():
-	collision_mask_as_partner = 288
+	collision_mask_as_partner = 32
 	roomd = $RoomDetector1
 	partner = $"../Player2"
 	attack_sound = "MeleeKat"

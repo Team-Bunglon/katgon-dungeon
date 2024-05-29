@@ -6,7 +6,7 @@ extends PlayerClass
 @onready var flameball_preload: Resource = preload("res://objects/flameball.tscn")
 
 func _ready():
-	collision_mask_as_partner = 576
+	collision_mask_as_partner = 64
 	roomd = $RoomDetector2
 	partner = $"../Player1"
 	attack_sound = "MeleeGon"

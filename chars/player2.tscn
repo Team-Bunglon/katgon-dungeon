@@ -772,8 +772,8 @@ size = Vector2(28, 28)
 size = Vector2(8, 8)
 
 [node name="Player2" type="CharacterBody2D"]
-collision_layer = 514
-collision_mask = 514
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_6al38")
 body_alt_hit = Array[String](["Torch", "Ash", "Button", "ButtonToggle"])
 is_leader = false

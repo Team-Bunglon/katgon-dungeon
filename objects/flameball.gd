@@ -24,6 +24,7 @@ func _physics_process(_delta):
 func shoot(position_spawn: Vector2, direction_spawn: Vector2):
 	position = set_position_spawn(position_spawn, direction_spawn)
 	direction = direction_spawn
+	$LifeTimer.start()
 
 func travel():
 	velocity = speed * direction
@@ -61,3 +62,6 @@ func _on_flame_area_2d_body_entered(body:Node2D):
 func _on_animation_tree_animation_finished(anim_name:StringName):
 	if anim_name == "hit":
 		queue_free()
+
+func _on_life_timer_timeout():
+	queue_free()
