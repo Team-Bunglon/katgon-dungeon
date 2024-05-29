@@ -372,6 +372,7 @@ number_button = Array[int]([-1])
 position = Vector2(200, 600)
 scale = Vector2(5, 5)
 number_button = Array[int]([242])
+show_minicam = true
 
 [node name="SpikeFrostfire#601" parent="Interactibles" instance=ExtResource("7_gc5bt")]
 position = Vector2(200, 680)
@@ -453,5 +454,3 @@ volume_db = -5.0
 [node name="RetractFlameSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_lj71l")
 volume_db = -5.0
-
-[connection signal="state_changed_dual" from="Interactibles/SpikeDual#2201" to="." method="_on_spike_dual_2201_state_changed_dual"]

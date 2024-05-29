@@ -772,8 +772,8 @@ size = Vector2(28, 28)
 size = Vector2(8, 8)
 
 [node name="Player2" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 514
+collision_mask = 514
 script = ExtResource("1_6al38")
 body_alt_hit = Array[String](["Torch", "Ash", "Button", "ButtonToggle"])
 is_leader = false
@@ -842,6 +842,10 @@ one_shot = true
 wait_time = 0.55
 one_shot = true
 
+[node name="SplitDelay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="body_entered" from="TileDetector" to="." method="_on_tile_detector_body_entered"]
 [connection signal="body_exited" from="TileDetector" to="." method="_on_tile_detector_body_exited"]
 [connection signal="area_exited" from="PlayerDetector2" to="." method="_on_player_detector_2_area_exited"]
@@ -850,3 +854,4 @@ one_shot = true
 [connection signal="body_entered" from="MeleeHitbox" to="." method="_on_melee_hitbox_body_entered"]
 [connection signal="timeout" from="SwitchDelay" to="." method="_on_switch_delay_timeout"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
+[connection signal="timeout" from="SplitDelay" to="." method="_on_split_delay_timeout"]

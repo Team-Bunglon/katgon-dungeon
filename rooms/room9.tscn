@@ -58,6 +58,7 @@ target_name = Array[String](["Spike#91"])
 position = Vector2(40, 200)
 scale = Vector2(5, 5)
 number_button = Array[int]([91])
+show_minicam = true
 
 [node name="ButtonToggle#92" parent="Interactibles" instance=ExtResource("11_bkslp")]
 position = Vector2(200, 360)

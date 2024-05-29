@@ -410,10 +410,12 @@ debug={
 2d_physics/layer_6="Partner Flame"
 2d_physics/layer_7="Partner Frostfire"
 2d_physics/layer_8="Darkness"
+2d_physics/layer_9="Border1"
+2d_physics/layer_10="Border2"
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_filter=3
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/default_filters/use_nearest_mipmap_filter=true

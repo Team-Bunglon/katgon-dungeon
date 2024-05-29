@@ -160,3 +160,7 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_xs3c7")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.17233e-07, 0)
+scale = Vector2(0.8, 0.8)

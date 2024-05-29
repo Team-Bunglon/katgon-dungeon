@@ -761,6 +761,8 @@ states/idle/position = Vector2(313, 101)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_oal8i"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_8ce1x"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_mpn4e")]
 
 [node name="Player1" type="CharacterBody2D"]
+collision_layer = 257
+collision_mask = 257
 script = ExtResource("1_vtw8a")
 body_alt_hit = Array[String](["Button", "ButtonToggle", "Twig"])
 speed = 450
@@ -863,6 +865,10 @@ one_shot = true
 wait_time = 0.55
 one_shot = true
 
+[node name="SplitDelay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="body_entered" from="TileDetector" to="." method="_on_tile_detector_body_entered"]
 [connection signal="body_exited" from="TileDetector" to="." method="_on_tile_detector_body_exited"]
 [connection signal="area_exited" from="PlayerDetector1" to="." method="_on_player_detector_1_area_exited"]
@@ -873,3 +879,4 @@ one_shot = true
 [connection signal="body_entered" from="PawpadHitbox" to="." method="_on_pawpad_hitbox_body_entered"]
 [connection signal="timeout" from="SwitchDelay" to="." method="_on_switch_delay_timeout"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
+[connection signal="timeout" from="SplitDelay" to="." method="_on_split_delay_timeout"]

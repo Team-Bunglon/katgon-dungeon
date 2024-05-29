@@ -15,6 +15,7 @@ class_name NotificationUI
 func notif(message: int):
 	$NotificationLabel.text = notification_info[message][0]
 	$NotificationLabel.set("theme_override_colors/font_color", notification_info[message][1])
+	if $NotificationPlayer.is_playing(): $NotificationPlayer.stop()
 	$NotificationPlayer.play("show")
 	Sound.play(notification_info[message][2])
 

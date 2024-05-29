@@ -1,9 +1,10 @@
 [gd_scene load_steps=58 format=3 uid="uid://creymgxgbcbws"]
 
-[ext_resource type="Script" path="res://objects/camera.gd" id="1_1bu86"]
+[ext_resource type="Script" path="res://rooms/camera.gd" id="1_1bu86"]
 [ext_resource type="Script" path="res://rooms/main_dungeon.gd" id="1_vgy57"]
 [ext_resource type="FontVariation" uid="uid://dnwv2plgp22ay" path="res://assets/fonts/poco_import.tres" id="2_i6cs1"]
 [ext_resource type="PackedScene" uid="uid://dt6pxj6iq5qm7" path="res://chars/player1.tscn" id="2_y4cgc"]
+[ext_resource type="PackedScene" uid="uid://bi1om6e7c0iah" path="res://ui/mini_cam.tscn" id="3_bqdp0"]
 [ext_resource type="PackedScene" uid="uid://dec8pn2jgalmf" path="res://chars/player2.tscn" id="3_jjk1g"]
 [ext_resource type="PackedScene" uid="uid://chho28kpgd2nj" path="res://ui/notification_ui.tscn" id="3_k8vlg"]
 [ext_resource type="PackedScene" uid="uid://phug2kug2by1" path="res://rooms/room1.tscn" id="4_6kxrr"]
@@ -21,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://jjtu62djvd5l" path="res://rooms/room28.tscn" id="11_ao1kn"]
 [ext_resource type="PackedScene" uid="uid://dg6gt2ihxhr8x" path="res://objects/dragon_fruit.tscn" id="11_wufi4"]
 [ext_resource type="PackedScene" uid="uid://d2wehg66gsll8" path="res://rooms/room6.tscn" id="13_uam18"]
-[ext_resource type="PackedScene" uid="uid://bsroladvw0jtb" path="res://rooms/room0.tscn" id="14_gqu2o"]
 [ext_resource type="PackedScene" uid="uid://ca2kiihrfbk3f" path="res://rooms/room7.tscn" id="17_uaf8x"]
 [ext_resource type="PackedScene" uid="uid://dov2wj5m78hp3" path="res://rooms/room8.tscn" id="19_5t6uq"]
 [ext_resource type="PackedScene" uid="uid://004f0tlb40pe" path="res://rooms/room9.tscn" id="20_o1vdl"]
@@ -211,8 +211,10 @@ size = Vector2(80, 6560)
 size = Vector2(80, 4000)
 
 [node name="MainDungeon" type="Node2D"]
-position = Vector2(0, 1)
+texture_filter = 1
+texture_repeat = 1
 script = ExtResource("1_vgy57")
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -223,26 +225,40 @@ libraries = {
 
 [node name="TransitionSprite" type="Sprite2D" parent="CanvasLayer/Transition"]
 z_index = 300
+texture_filter = 1
+texture_repeat = 1
 position = Vector2(480, 400)
 scale = Vector2(5, 5)
 texture = ExtResource("7_jf6ac")
 
-[node name="NotificationUI" parent="CanvasLayer" instance=ExtResource("3_k8vlg")]
-metadata/_edit_use_anchors_ = true
+[node name="MiniCam" parent="CanvasLayer" instance=ExtResource("3_bqdp0")]
 
 [node name="StatusUI" parent="CanvasLayer" instance=ExtResource("4_hlawa")]
-metadata/_edit_use_anchors_ = true
+texture_filter = 1
+texture_repeat = 1
+offset_right = 175.0
+offset_bottom = 81.0
+
+[node name="NotificationUI" parent="CanvasLayer" instance=ExtResource("3_k8vlg")]
+texture_filter = 1
+texture_repeat = 1
 
 [node name="SplitUI" parent="CanvasLayer" instance=ExtResource("5_kpu8t")]
 visible = false
 z_index = 1
+texture_filter = 1
+texture_repeat = 1
 offset_right = -903.0
 offset_bottom = -763.0
 
 [node name="ObtainUI" parent="CanvasLayer" instance=ExtResource("6_nsu5g")]
+texture_filter = 1
+texture_repeat = 1
 
 [node name="HelpUI" type="Control" parent="CanvasLayer"]
 visible = false
+texture_filter = 1
+texture_repeat = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = 440.0
@@ -288,14 +304,17 @@ texture = ExtResource("5_rsttg")
 metadata/_edit_lock_ = true
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_it58h")]
+texture_filter = 1
+texture_repeat = 1
 metadata/_edit_lock_ = true
 
 [node name="RoomName" type="Control" parent="CanvasLayer"]
+texture_filter = 1
+texture_repeat = 1
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
+offset_right = 960.0
+offset_bottom = 800.0
 
 [node name="RoomNameLabel" type="Label" parent="CanvasLayer/RoomName"]
 z_index = 20
@@ -318,9 +337,8 @@ offset_bottom = 800.0
 color = Color(0.194349, 0.194349, 0.194349, 0.588235)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(480, 402)
 script = ExtResource("1_1bu86")
-metadata/_edit_lock_ = true
 
 [node name="Player1Marker" type="Marker2D" parent="."]
 position = Vector2(450, 369)
@@ -330,10 +348,15 @@ metadata/_edit_lock_ = true
 position = Vector2(510, 369)
 metadata/_edit_lock_ = true
 
+[node name="PlayerCenter" type="Marker2D" parent="."]
+position = Vector2(480, 398)
+gizmo_extents = 474.3
+
 [node name="Player1" parent="." instance=ExtResource("2_y4cgc")]
 z_index = 1
-position = Vector2(451, 370)
+position = Vector2(451, 368)
 scale = Vector2(5, 5)
+motion_mode = 1
 slide_on_ceiling = false
 
 [node name="RoomDetector1" type="Area2D" parent="Player1"]
@@ -353,6 +376,7 @@ shape = SubResource("CircleShape2D_pcr6q")
 z_index = 1
 position = Vector2(509, 369)
 scale = Vector2(5, 5)
+motion_mode = 1
 up_direction = Vector2(0, 1)
 
 [node name="RoomDetector2" type="Area2D" parent="Player2"]
@@ -373,171 +397,174 @@ shape = SubResource("CircleShape2D_2mir2")
 position = Vector2(3360, -1241)
 scale = Vector2(5, 5)
 
-[node name="Room#0" parent="." instance=ExtResource("14_gqu2o")]
-position = Vector2(-1040, -1)
-
 [node name="Room#1" parent="." instance=ExtResource("4_6kxrr")]
-position = Vector2(0, -1)
 metadata/_edit_lock_ = true
 
 [node name="Room#2" parent="." instance=ExtResource("5_0p0mu")]
-position = Vector2(0, 799)
+position = Vector2(0, 800)
 metadata/_edit_lock_ = true
 
 [node name="Room#3" parent="." instance=ExtResource("6_87i50")]
-position = Vector2(960, 799)
+position = Vector2(960, 800)
 metadata/_edit_lock_ = true
 
 [node name="Room#4" parent="." instance=ExtResource("7_waoig")]
-position = Vector2(0, 1599)
+position = Vector2(0, 1600)
 metadata/_edit_lock_ = true
 
 [node name="Room#5" parent="." instance=ExtResource("8_ldemo")]
-position = Vector2(0, 2399)
+position = Vector2(0, 2400)
 metadata/_edit_lock_ = true
 
 [node name="Room#6" parent="." instance=ExtResource("13_uam18")]
-position = Vector2(0, 3199)
+position = Vector2(0, 3200)
 metadata/_edit_lock_ = true
 
 [node name="Room#7" parent="." instance=ExtResource("17_uaf8x")]
-position = Vector2(960, 3199)
+position = Vector2(960, 3200)
+metadata/_edit_lock_ = true
 
 [node name="Room#8" parent="." instance=ExtResource("19_5t6uq")]
-position = Vector2(960, 2399)
+position = Vector2(960, 2400)
 metadata/_edit_lock_ = true
 
 [node name="Room#9" parent="." instance=ExtResource("20_o1vdl")]
-position = Vector2(960, 1599)
+position = Vector2(960, 1600)
 metadata/_edit_lock_ = true
 
 [node name="Room#10" parent="." instance=ExtResource("21_sjdj7")]
-position = Vector2(960, -1)
+position = Vector2(960, 0)
 metadata/_edit_lock_ = true
 
 [node name="Room#11" parent="." instance=ExtResource("23_e75gs")]
-position = Vector2(1920, 1599)
+position = Vector2(1920, 1600)
 metadata/_edit_lock_ = true
 
 [node name="Room#12" parent="." instance=ExtResource("24_vxfli")]
-position = Vector2(1920, 799)
+position = Vector2(1920, 800)
 metadata/_edit_lock_ = true
 
 [node name="Room#13" parent="." instance=ExtResource("25_3qx4d")]
-position = Vector2(1920, -1)
+position = Vector2(1920, 0)
 metadata/_edit_lock_ = true
 
 [node name="Room#14" parent="." instance=ExtResource("26_lgo7f")]
-position = Vector2(2880, -1)
+position = Vector2(2880, 0)
 metadata/_edit_lock_ = true
 
 [node name="Room#15" parent="." instance=ExtResource("27_k16se")]
-position = Vector2(1920, 2399)
+position = Vector2(1920, 2400)
 metadata/_edit_lock_ = true
 
 [node name="Room#16" parent="." instance=ExtResource("28_44yqf")]
-position = Vector2(2880, 2399)
+position = Vector2(2880, 2400)
 metadata/_edit_lock_ = true
 
 [node name="Room#17" parent="." instance=ExtResource("29_lhdh1")]
-position = Vector2(1920, 3199)
+position = Vector2(1920, 3200)
 metadata/_edit_lock_ = true
 
 [node name="Room#18" parent="." instance=ExtResource("30_8fsym")]
-position = Vector2(2880, 3199)
+position = Vector2(2880, 3200)
 metadata/_edit_lock_ = true
 
 [node name="Room#19" parent="." instance=ExtResource("31_nh2ke")]
-position = Vector2(2880, 1599)
+position = Vector2(2880, 1600)
 metadata/_edit_lock_ = true
 
 [node name="Room#20" parent="." instance=ExtResource("32_dgcxb")]
-position = Vector2(2880, 799)
+position = Vector2(2880, 800)
 metadata/_edit_lock_ = true
 
 [node name="Room#21" parent="." instance=ExtResource("31_ym4l0")]
-position = Vector2(2880, -801)
+position = Vector2(2880, -800)
 metadata/_edit_lock_ = true
 
 [node name="Room#22" parent="." instance=ExtResource("32_44bab")]
-position = Vector2(1920, -801)
+position = Vector2(1920, -800)
 metadata/_edit_lock_ = true
 
 [node name="Room#23" parent="." instance=ExtResource("33_w8e1v")]
-position = Vector2(960, -801)
+position = Vector2(960, -800)
 metadata/_edit_lock_ = true
 
 [node name="Room#24" parent="." instance=ExtResource("34_0rccc")]
-position = Vector2(960, -1601)
+position = Vector2(960, -1600)
 metadata/_edit_lock_ = true
 
 [node name="Room#25" parent="." instance=ExtResource("32_e1m5m")]
-position = Vector2(1920, -1601)
+position = Vector2(1920, -1600)
 metadata/_edit_lock_ = true
 
 [node name="Room#26" parent="." instance=ExtResource("32_s84ei")]
-position = Vector2(2880, -1601)
+position = Vector2(2880, -1600)
 metadata/_edit_lock_ = true
 
 [node name="Room#27" parent="." instance=ExtResource("10_urj7c")]
-position = Vector2(0, -801)
+position = Vector2(0, -800)
 metadata/_edit_lock_ = true
 
 [node name="Room#28" parent="." instance=ExtResource("11_ao1kn")]
-position = Vector2(0, -1601)
+position = Vector2(0, -1600)
 metadata/_edit_lock_ = true
 
 [node name="Room#29" parent="." instance=ExtResource("43_bogqb")]
-position = Vector2(2880, 3999)
+position = Vector2(2880, 4000)
 metadata/_edit_lock_ = true
 
 [node name="Room#30" parent="." instance=ExtResource("44_psrg4")]
-position = Vector2(1920, 3999)
+position = Vector2(1920, 4000)
 metadata/_edit_lock_ = true
 
 [node name="Room#31" parent="." instance=ExtResource("45_1vq5d")]
-position = Vector2(960, 3999)
+position = Vector2(960, 4000)
 metadata/_edit_lock_ = true
 
 [node name="Room#32" parent="." instance=ExtResource("46_nye2a")]
-position = Vector2(0, 3999)
+position = Vector2(0, 4000)
 metadata/_edit_lock_ = true
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
-collision_layer = 135
-collision_mask = 135
+collision_layer = 768
+collision_mask = 768
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
 z_index = 100
 position = Vector2(-40, 1599)
 shape = SubResource("RectangleShape2D_hsgvn")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
 z_index = 100
 position = Vector2(3880, 1599)
 shape = SubResource("RectangleShape2D_hsgvn")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder"]
 z_index = 100
 position = Vector2(1920, -1641)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_no585")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorder"]
 z_index = 100
 position = Vector2(1920, 4839)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_no585")
+metadata/_edit_lock_ = true
 
 [connection signal="animation_finished" from="CanvasLayer/Transition" to="." method="_on_transition_animation_finished"]
 [connection signal="animation_finished" from="CanvasLayer/Transition" to="DragonFruit" method="_on_transition_animation_finished"]
 [connection signal="animation_started" from="CanvasLayer/Transition" to="." method="_on_transition_animation_started"]
 [connection signal="cannot_split" from="Player1" to="CanvasLayer/NotificationUI" method="_on_player_1_cannot_split"]
-[connection signal="follow_mode_changed" from="Player1" to="CanvasLayer/NotificationUI" method="_on_player_1_follow_mode_changed"]
 [connection signal="follow_mode_changed" from="Player1" to="CanvasLayer/StatusUI" method="_on_player_1_follow_mode_changed"]
+[connection signal="follow_mode_changed" from="Player1" to="CanvasLayer/NotificationUI" method="_on_player_1_follow_mode_changed"]
 [connection signal="leader_cannot_changed" from="Player1" to="CanvasLayer/NotificationUI" method="_on_player_1_leader_cannot_changed"]
-[connection signal="leader_changed" from="Player1" to="CanvasLayer/NotificationUI" method="_on_player_1_leader_changed"]
 [connection signal="leader_changed" from="Player1" to="CanvasLayer/StatusUI" method="_on_player_1_leader_changed"]
+[connection signal="leader_changed" from="Player1" to="CanvasLayer/NotificationUI" method="_on_player_1_leader_changed"]
+[connection signal="leader_changed_in_follow_mode_changed" from="Player1" to="CanvasLayer/StatusUI" method="_on_player_1_leader_changed_in_follow_mode_changed"]
 [connection signal="pause_signal" from="Player1" to="CanvasLayer/PauseMenu" method="_on_player_1_pause_signal"]
 [connection signal="split_changed" from="Player1" to="CanvasLayer/SplitUI" method="_on_player_1_split_changed"]
 [connection signal="area_entered" from="Player1/RoomDetector1" to="Camera2D" method="_on_room_detector_1_area_entered"]

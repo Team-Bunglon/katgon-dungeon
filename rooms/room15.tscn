@@ -85,6 +85,7 @@ number_button = Array[int]([152])
 position = Vector2(440, 760)
 scale = Vector2(5, 5)
 number_button = Array[int]([153])
+show_minicam = true
 
 [node name="Spike#154" parent="Interactibles" instance=ExtResource("7_7f1ky")]
 position = Vector2(360, 440)

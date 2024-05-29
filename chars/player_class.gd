@@ -66,6 +66,9 @@ signal leader_cannot_changed()
 ## Emitted when the follow mode has changed
 signal follow_mode_changed(follow_status: bool)
 
+## Emitted when the leader also changed after splitting
+signal leader_changed_in_follow_mode_changed(leader_status: bool)
+
 ## Emitted when splitting action is performed
 signal split_changed(split_status: bool)
 
@@ -107,7 +110,7 @@ func _physics_process(_delta):
 		switch_character()
 		switch_follow()
 
-	if Input.is_action_just_pressed("menu"):
+	if Input.is_action_just_pressed("menu") and not is_splitting:
 		state.travel("idle")
 		pause_signal.emit()
 
@@ -238,12 +241,10 @@ func detect_bad_tiles(body:Node2D, is_entering:bool):
 		if is_entering: #entering
 			bad_tiles_current[tile] = true
 			can_switch = false
-			print(bad_tiles_current, can_switch)
 		else: 
 			bad_tiles_current.erase(tile)
 			if bad_tiles_current.is_empty():
 				can_switch = true
-			print(bad_tiles_current, can_switch)
 
 func detect_no_follow_tiles(body:Node2D, is_entering:bool):
 	var tile = get_body_name(body)
@@ -262,3 +263,20 @@ func detect_no_follow_tiles(body:Node2D, is_entering:bool):
 				if is_partner_nearby and not is_follow_as_partner:
 					change_follow(true)
 					partner.change_follow(true)
+
+func _on_tile_detector_body_entered(body):
+	detect_bad_tiles(body, true)
+	detect_no_follow_tiles(body, true)
+
+func _on_tile_detector_body_exited(body):
+	detect_bad_tiles(body, false)
+	detect_no_follow_tiles(body, false)
+
+func _on_attack_delay_timeout():
+	on_attack_delay = false
+
+func _on_switch_delay_timeout():
+	on_switch_delay = false
+
+func _on_split_delay_timeout():
+	is_splitting = false

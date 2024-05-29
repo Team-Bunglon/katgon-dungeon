@@ -37,7 +37,7 @@ layer_1/tile_data = PackedInt32Array()
 scale = Vector2(5, 5)
 tile_set = ExtResource("2_p4gb7")
 format = 2
-layer_0/tile_data = PackedInt32Array(196618, 458754, 1, 131080, 196610, 2, 196616, 393218, 1, 262152, 196610, 2, 327688, 196610, 2, 393224, 393218, 1, 196617, 196610, 0, 131082, 196610, 2, 262154, 196610, 2, 327690, 196610, 2, 393226, 458754, 1, 458762, 196610, 2, 458760, 196610, 2, 524297, 196610, 0, 65545, 196610, 0, 65544, 327682, 0, 65546, 393218, 0, 524296, 327682, 2, 524298, 393218, 2, 393225, 196610, 0)
+layer_0/tile_data = PackedInt32Array(65543, 196610, 0, 65544, 196610, 0, 65545, 196610, 0, 65546, 393218, 0, 131082, 196610, 2, 196618, 196610, 2, 262154, 196610, 2, 327690, 393218, 2, 65542, 327682, 0, 196616, 589826, 1, 131078, 196610, 2, 196614, 196610, 2, 262150, 196610, 2, 327686, 327682, 2, 327687, 196610, 0, 327688, 196610, 0, 327689, 196610, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -72,23 +72,23 @@ scale = Vector2(5, 5)
 number_button = Array[int]([-1])
 
 [node name="SpikeFlame#-2" parent="." instance=ExtResource("7_g05f7")]
-position = Vector2(440, 120)
+position = Vector2(280, 120)
 scale = Vector2(5, 5)
 number_button = Array[int]([-1])
 
 [node name="SpikeFlame#-3" parent="." instance=ExtResource("7_g05f7")]
-position = Vector2(440, 200)
+position = Vector2(280, 200)
 scale = Vector2(5, 5)
 number_button = Array[int]([-1])
 
 [node name="SpikeFlame#-4" parent="." instance=ExtResource("7_g05f7")]
-position = Vector2(520, 120)
+position = Vector2(360, 120)
 scale = Vector2(5, 5)
 number_button = Array[int]([-1])
 is_reverse = true
 
 [node name="SpikeFlame#-5" parent="." instance=ExtResource("7_g05f7")]
-position = Vector2(520, 200)
+position = Vector2(360, 200)
 scale = Vector2(5, 5)
 number_button = Array[int]([-1])
 is_reverse = true
@@ -161,15 +161,15 @@ scale = Vector2(5, 5)
 number_button = Array[int]([-1])
 
 [node name="Undestructible" parent="." instance=ExtResource("11_mpv7q")]
-position = Vector2(480, 370)
+position = Vector2(200, 465)
 scale = Vector2(5, 5)
 
 [node name="Undestructible2" parent="." instance=ExtResource("11_mpv7q")]
-position = Vector2(560, 370)
+position = Vector2(120, 465)
 scale = Vector2(5, 5)
 
 [node name="Help" parent="." instance=ExtResource("13_acysd")]
-position = Vector2(840, 440)
+position = Vector2(200, 520)
 scale = Vector2(5, 5)
 help_text_top = "You shouldn't be here"
 help_text_bottom = "seriously"

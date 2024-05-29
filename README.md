@@ -67,4 +67,3 @@ Assets and Plugins:
 Tools used:
 - Godot 4.2.1
 - Aseprite 1.3.4
-

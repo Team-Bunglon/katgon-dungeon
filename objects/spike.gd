@@ -11,6 +11,10 @@ class_name SpikeTile
 ## Reverse the starting position. e.g. Hit a button to raise a spike
 @export var is_reverse: bool = false 
 
+## Shows minicam when this spike is retracted or raised offscreen.
+## It will show 5x5 tiles around the spike
+@export var show_minicam: bool = false
+
 ## Play "FlameRaise" and "FlameRetract" instead of "SpikeRaise" and "SpikeRetract" as defined in [SoundVar]. [br][br]
 ## [SpikeFlame] and [SpikeFrostfire] should play this sound
 @export var flame_sound: bool = false
@@ -23,9 +27,11 @@ class_name SpikeTile
 @onready var attempt_to_raise: bool
 @onready var do_not_raise: bool = false
 @onready var player_current: Dictionary
+@onready var offscreen: bool = true
 
 var sound_raise: String = "SpikeRaise"
 var sound_retract: String = "SpikeRetract"
+var minicam: MiniCam
 
 func _ready():
 	if flame_sound:
@@ -36,6 +42,12 @@ func _ready():
 	else:
 		raise(false)
 	attempt_to_raise = is_raised
+	if show_minicam:
+		var visnotif: VisibleOnScreenNotifier2D = get_node_or_null("VisibleOnScreenNotifier2D")
+		if visnotif == null: return
+		visnotif.connect("screen_entered", _on_screen)
+		visnotif.connect("screen_exited", _off_screen)
+		minicam = get_tree().get_root().find_child("MiniCam", true, false)
 
 ## Raise the spike, preventing Kat and Gon from passing through
 func raise(play_sound = true):
@@ -46,8 +58,10 @@ func raise(play_sound = true):
 	if play_sound:
 		Sound.stop(sound_retract)
 		Sound.play(sound_raise)
+	if show_minicam and offscreen and minicam != null:
+		minicam.show_cam(global_position)
 
-## Retracft the spike, allowing Kat and Gon to pass through
+## Retract the spike, allowing Kat and Gon to pass through
 func retract(play_sound = true):
 	state.travel("retracted")
 	collision_layer = retract_layer
@@ -56,6 +70,8 @@ func retract(play_sound = true):
 	if play_sound: 
 		Sound.stop(sound_raise)
 		Sound.play(sound_retract)
+	if show_minicam and offscreen and minicam != null:
+		minicam.show_cam(global_position)
 
 ## Detect the state for all buttons this spike is assigned to before switching its state
 func detect_button_presses():
@@ -127,3 +143,9 @@ func _on_body_detector_body_exited(body:Node2D):
 			do_not_raise = false 
 			if attempt_to_raise:
 				raise()
+
+func _on_screen():
+	offscreen = false
+
+func _off_screen():
+	offscreen = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://q0gp3rprivi0"]
+[gd_scene load_steps=34 format=3 uid="uid://q0gp3rprivi0"]
 
 [ext_resource type="Script" path="res://audio/sound.gd" id="1_awf0l"]
 [ext_resource type="AudioStream" uid="uid://bmhcwrsj761sa" path="res://assets/audio/shockwave.wav" id="1_h30nq"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://chc4dm1m53rem" path="res://assets/audio/cherry.wav" id="14_d2dag"]
 [ext_resource type="AudioStream" uid="uid://errqo35uthjq" path="res://assets/audio/pawpad.wav" id="15_1cqlj"]
 [ext_resource type="AudioStream" uid="uid://bd2sbmvr60emn" path="res://assets/audio/spike_on.wav" id="16_poim8"]
+[ext_resource type="AudioStream" uid="uid://bdqlrquahb08s" path="res://assets/audio/stay_there_alt.wav" id="17_d0s3h"]
 [ext_resource type="AudioStream" uid="uid://67hdb7qiceqm" path="res://assets/audio/spike_off.wav" id="17_fmxyl"]
 [ext_resource type="AudioStream" uid="uid://cj0mieoi7gbu4" path="res://assets/audio/win.wav" id="18_smrmb"]
 [ext_resource type="AudioStream" uid="uid://p3peq4y7yfid" path="res://assets/audio/select.wav" id="19_nor5v"]
@@ -117,6 +118,10 @@ stream = ExtResource("15_1cqlj")
 volume_db = -8.0
 pitch_scale = 0.9
 bus = &"Sound"
+
+[node name="Split" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_d0s3h")
+volume_db = -5.0
 
 [node name="Secret" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_qwnbk")

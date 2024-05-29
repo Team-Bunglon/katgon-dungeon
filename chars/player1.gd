@@ -15,18 +15,18 @@ func _input(event):
 	if event.is_action_pressed("debug") and PlayerVar.debug:
 		debug = not debug
 		if debug: # Enable Debug
-			self.collision_layer = 0
-			self.collision_mask = 0
-			partner.collision_mask = 0
-			partner.collision_layer = 0
+			self.collision_mask = 256
+			partner.collision_layer = 512
 		else: # Disable Debug
-			self.collision_layer = 1
-			self.collision_mask = 1
-			partner.collision_mask = 2
-			partner.collision_layer = 2
+			if is_leader:
+				self.collision_mask = collision_mask_as_leader
+				partner.collision_mask = partner.collision_mask_as_partner
+			else:
+				self.collision_mask = collision_mask_as_partner
+				partner.collision_mask = partner.collision_mask_as_leader
 
 func _ready():
-	collision_mask_as_partner = 32
+	collision_mask_as_partner = 288
 	roomd = $RoomDetector1
 	partner = $"../Player2"
 	attack_sound = "MeleeKat"
@@ -59,6 +59,7 @@ func switch_procedure(swap_position: bool):
 			if has_switched:
 				global_position = PlayerVar.partner_position
 				partner.global_position = PlayerVar.leader_position
+			else:
 				global_position = PlayerVar.leader_position
 				partner.global_position = PlayerVar.partner_position
 	PlayerVar.switch_position() # This is useful for z_index calculation as soon as you switch leader
@@ -74,33 +75,36 @@ func switch_follow():
 		not is_walking and \
 		is_follow_as_partner:
 		is_splitting = true
+		partner.is_splitting = true
 		split_changed.emit(true)
 
 	if Input.is_action_just_pressed("action_main") and is_splitting:
 		if not partner.can_switch:
 			cannot_split.emit()
-			is_splitting = false
 			split_changed.emit(false)
+			$SplitDelay.start()
 			return		
 		if not is_leader:
 			switch_procedure(false)
+			leader_changed_in_follow_mode_changed.emit(true)
 		change_follow(false)
 		partner.change_follow(false)
-		is_splitting = false
 		split_changed.emit(false)
+		$SplitDelay.start()
 
 	if Input.is_action_just_pressed("action_alt") and is_splitting:
 		if not can_switch:
 			cannot_split.emit()
-			is_splitting = false
 			split_changed.emit(false)
+			$SplitDelay.start()
 			return
 		if is_leader:
 			switch_procedure(false)
+			leader_changed_in_follow_mode_changed.emit(false)
 		change_follow(false)
 		partner.change_follow(false)
-		is_splitting = false
 		split_changed.emit(false)
+		$SplitDelay.start()
 
 	if Input.is_action_just_pressed("move_up") or \
 		Input.is_action_just_pressed("move_down") or \
@@ -108,7 +112,7 @@ func switch_follow():
 		Input.is_action_just_pressed("move_right") or \
 		Input.is_action_just_pressed("swap_character") or \
 		Input.is_action_just_pressed("menu"):
-		is_splitting = false
+		$SplitDelay.start()
 		split_changed.emit(false)
 
 func melee_alt_attack():
@@ -148,17 +152,3 @@ func _on_player_detector_1_body_exited(body:Node2D):
 func _on_player_detector_1_area_exited(area:Area2D):
 	if area.name == "PlayerDetector2":
 		can_regroup = true
-
-func _on_tile_detector_body_entered(body):
-	detect_bad_tiles(body, true)
-	detect_no_follow_tiles(body, true)
-
-func _on_tile_detector_body_exited(body):
-	detect_bad_tiles(body, false)
-	detect_no_follow_tiles(body, false)
-
-func _on_attack_delay_timeout():
-	on_attack_delay = false
-
-func _on_switch_delay_timeout():
-	on_switch_delay = false

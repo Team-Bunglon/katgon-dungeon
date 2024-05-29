@@ -6,7 +6,7 @@ extends PlayerClass
 @onready var flameball_preload: Resource = preload("res://objects/flameball.tscn")
 
 func _ready():
-	collision_mask_as_partner = 64
+	collision_mask_as_partner = 576
 	roomd = $RoomDetector2
 	partner = $"../Player1"
 	attack_sound = "MeleeGon"
@@ -46,17 +46,3 @@ func _on_player_detector_2_body_exited(body:Node2D):
 func _on_player_detector_2_area_exited(area:Area2D):
 	if area.name == "PlayerDetector1":
 		can_regroup = true
-
-func _on_tile_detector_body_entered(body):
-	detect_bad_tiles(body, true)
-	detect_no_follow_tiles(body, true)
-
-func _on_tile_detector_body_exited(body):
-	detect_bad_tiles(body, false)
-	detect_no_follow_tiles(body, false)
-
-func _on_attack_delay_timeout():
-	on_attack_delay = false
-
-func _on_switch_delay_timeout():
-	on_switch_delay = false

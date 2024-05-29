@@ -49,3 +49,4 @@ scale = Vector2(5, 5)
 position = Vector2(240, 440)
 scale = Vector2(5, 5)
 number_button = Array[int]([21, 22])
+show_minicam = true

@@ -168,5 +168,9 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDetector"]
 shape = SubResource("RectangleShape2D_mejuw")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.17233e-07, 0)
+scale = Vector2(0.8, 0.8)
+
 [connection signal="body_entered" from="BodyDetector" to="." method="_on_body_detector_body_entered"]
 [connection signal="body_exited" from="BodyDetector" to="." method="_on_body_detector_body_exited"]

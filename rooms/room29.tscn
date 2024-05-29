@@ -144,6 +144,7 @@ target_name = Array[String](["SpikeFlame#2901", "SpikeFlame#2902", "SpikeFlame#2
 position = Vector2(80, 440)
 scale = Vector2(5, 5)
 number_button = Array[int]([291, 292, 293, 294])
+show_minicam = true
 
 [node name="Cherry" parent="Interactibles" instance=ExtResource("10_o06to")]
 position = Vector2(685, 255)
