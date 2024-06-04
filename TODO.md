@@ -1,4 +1,5 @@
 - [ ] Camera Refactor
 - [ ] Golden Dragonfruit Effects 
+- [ ] Pedestal for Golden
 - [ ] Main Menu/Credit Artwork
 - [ ] Setting Menu
