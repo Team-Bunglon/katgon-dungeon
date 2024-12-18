@@ -6,7 +6,7 @@ func _ready():
 	$Version.text = $Version.text + ProjectSettings.get_setting("application/config/version")
 	$MainMenuOptions.can_select = false
 	$Background.play("default")
-	$Logo.play("default")
+	$Logo.play("RESET")
 	$Transition.play("slide_out")
 
 func _on_transition_animation_finished(anim_name:StringName):

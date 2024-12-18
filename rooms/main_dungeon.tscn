@@ -42,10 +42,10 @@
 [ext_resource type="PackedScene" uid="uid://don0blc462b7l" path="res://rooms/room26.tscn" id="32_s84ei"]
 [ext_resource type="PackedScene" uid="uid://dnvotpq6cchi2" path="res://rooms/room23.tscn" id="33_w8e1v"]
 [ext_resource type="PackedScene" uid="uid://ckfby43sb0nlp" path="res://rooms/room24.tscn" id="34_0rccc"]
-[ext_resource type="PackedScene" uid="uid://dj32wxsb64tpa" path="res://rooms/room29.tscn" id="43_bogqb"]
-[ext_resource type="PackedScene" uid="uid://p6kg1vnuqaaq" path="res://rooms/room30.tscn" id="44_psrg4"]
-[ext_resource type="PackedScene" uid="uid://cdlkxwhesqlmo" path="res://rooms/room31.tscn" id="45_1vq5d"]
-[ext_resource type="PackedScene" uid="uid://dqnjexfod6wy0" path="res://rooms/room32.tscn" id="46_nye2a"]
+[ext_resource type="PackedScene" path="res://rooms/room29.tscn" id="43_bogqb"]
+[ext_resource type="PackedScene" path="res://rooms/room30.tscn" id="44_psrg4"]
+[ext_resource type="PackedScene" path="res://rooms/room31.tscn" id="45_1vq5d"]
+[ext_resource type="PackedScene" path="res://rooms/room32.tscn" id="46_nye2a"]
 
 [sub_resource type="Animation" id="Animation_o45oo"]
 length = 0.001
